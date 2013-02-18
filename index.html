@@ -1,11 +1,20 @@
 <!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>
+  <html class="no-js lt-ie9" lang="en">
+<![endif]-->
+<!--[if gt IE 8]>
+  <html class="no-js" lang="en">
+<![endif]-->
 <head>
-  <title>Demo Day</title>
   <meta charset='UTF-8'>
-  <link href='stylesheets/app.css' media='screen' rel='stylesheet' type='text/css'>
+  <meta content='width=device=width' name='viewport'>
+  <title>Demo Day</title>
+  <link href='stylesheets/foundation.min.css' media='screen' rel='stylesheet'>
+  <link href='stylesheets/app.css' media='screen' rel='stylesheet'>
+  <script src='javascripts/foundation/modernizr.foundation.js'></script>
 </head>
 <body>
-  <!-- .contain-to-grid -->
   <nav class='top-bar'>
     <ul>
       <li class='name'>
@@ -147,4 +156,26 @@
       </div>
     </div>
   </div>
+  <!-- This is not production ready. This is how Zurb comes by default. -->
+  <!-- TODO: Cleanup Javascript -->
+  <script src='javascripts/foundation/jquery.js'></script>
+  <script src='javascripts/foundation/jquery.cookie.js'></script>
+  <script src='javascripts/foundation/jquery.event.move.js'></script>
+  <script src='javascripts/foundation/jquery.event.swipe.js'></script>
+  <script src='javascripts/foundation/jquery.foundation.accordion.js'></script>
+  <script src='javascripts/foundation/jquery.foundation.alerts.js'></script>
+  <script src='javascripts/foundation/jquery.foundation.buttons.js'></script>
+  <script src='javascripts/foundation/jquery.foundation.clearing.js'></script>
+  <script src='javascripts/foundation/jquery.foundation.forms.js'></script>
+  <script src='javascripts/foundation/jquery.foundation.joyride.js'></script>
+  <script src='javascripts/foundation/jquery.foundation.magellan.js'></script>
+  <script src='javascripts/foundation/jquery.foundation.mediaQueryToggle.js'></script>
+  <script src='javascripts/foundation/jquery.foundation.navigation.js'></script>
+  <script src='javascripts/foundation/jquery.foundation.orbit.js'></script>
+  <script src='javascripts/foundation/jquery.foundation.reveal.js'></script>
+  <script src='javascripts/foundation/jquery.foundation.tabs.js'></script>
+  <script src='javascripts/foundation/jquery.foundation.tooltips.js'></script>
+  <script src='javascripts/foundation/jquery.foundation.topbar.js'></script>
+  <script src='javascripts/foundation/jquery.placeholder.js'></script>
+  <script src='javascripts/app.js'></script>
 </body>

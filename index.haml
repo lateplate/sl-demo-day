@@ -1,10 +1,21 @@
 !!! 5
+/ paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+/ [if IE 8]
+  <html class="no-js lt-ie9" lang="en">
+/ [if gt IE 8]
+  <html class="no-js" lang="en">
+
 %head
-  %title Demo Day
   %meta{charset: "UTF-8"}
-  %link{href: "stylesheets/app.css", media: "screen", rel: "stylesheet", type: "text/css"}
+  %meta{name: "viewport", content: "width=device=width"}
+
+  %title Demo Day
+  
+  %link{href: "stylesheets/foundation.min.css", media: "screen", rel: "stylesheet"}
+  %link{href: "stylesheets/app.css", media: "screen", rel: "stylesheet"}
+
+  %script{src: "javascripts/foundation/modernizr.foundation.js"}
 %body
-  / .contain-to-grid
   %nav.top-bar
     %ul
       %li.name
@@ -89,4 +100,27 @@
           owes you $65 for 
           %a{href: "#"}
             Cubs Game Tickets
+
+  / This is not production ready. This is how Zurb comes by default.
+  / TODO: Cleanup Javascript
+  %script{src: "javascripts/foundation/jquery.js"}
+  %script{src: "javascripts/foundation/jquery.cookie.js"}
+  %script{src: "javascripts/foundation/jquery.event.move.js"}
+  %script{src: "javascripts/foundation/jquery.event.swipe.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.accordion.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.alerts.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.buttons.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.clearing.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.forms.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.joyride.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.magellan.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.mediaQueryToggle.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.navigation.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.orbit.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.reveal.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.tabs.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.tooltips.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.topbar.js"}
+  %script{src: "javascripts/foundation/jquery.placeholder.js"}
+  %script{src: "javascripts/app.js"}
 
