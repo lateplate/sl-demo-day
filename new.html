@@ -9,7 +9,7 @@
 <head>
   <meta charset='UTF-8'>
   <meta content='width=device=width' name='viewport'>
-  <title>Demo Day</title>
+  <title>Demo Day - New</title>
   <link href='stylesheets/app.css' media='screen' rel='stylesheet'>
   <script src='javascripts/foundation/modernizr.foundation.js'></script>
 </head>
@@ -47,133 +47,24 @@
       </ul>
     </section>
   </nav>
-  <div class='row'>
-    <div class='ten columns'>
-      <dl class='sub-nav'>
-        <dd class='active'>
-          <a href='#'>
-            All
-          </a>
-        </dd>
-        <dd>
-          <a href='#'>
-            Overdue
-          </a>
-        </dd>
-        <dd>
-          <a href='#'>
-            Coming Up
-          </a>
-        </dd>
-      </dl>
-    </div>
-    <div class='two columns'>
-      <a class='button radius small' href='new.html'>
-        Add a new item
-      </a>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='four columns'>
-      <a class='th' href='#'>
-        <img src='http://placehold.it/350x200'>
-      </a>
-    </div>
-    <div class='eight columns'>
-      <div>
-        <h2>
-          <a href='#'>
-            Dan Kim
-          </a>
-          owes you $40 for
-          <a href='#'>
-            Pitchfork Concert Tickets
-          </a>
-        </h2>
-      </div>
-      <div class='three columns due-date'>
-        <div class='alert-box success'>
-          Due: 3/1/13
+  <div class='row five columns centered'>
+    <form>
+      <input id='who' placeholder='Who owes you something?' type='text'>
+      <div class='row'>
+        <div class='ten columns'>
+          <input id='what' placeholder='What do they owe you?' type='text'>
+        </div>
+        <div class='two columns'>
+          <input id='when' placeholder='When is it due?' type='text'>
         </div>
       </div>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='four columns'>
-      <a class='th' href='#'>
-        <img src='http://placehold.it/350x200'>
-      </a>
-    </div>
-    <div class='eight columns'>
-      <div>
-        <h2>
-          <a href='#'>
-            Will Piers
-          </a>
-          has your
-          <a href='#'>
-            NKOTB Special Edition DVD
-          </a>
-        </h2>
+      <div class='button medium radius'>
+        Submit
       </div>
-      <div class='three columns due-date'>
-        <div class='alert-box alert'>
-          Due: 2/1/13
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='four columns'>
-      <a class='th' href='#'>
-        <img src='http://placehold.it/350x200'>
-      </a>
-    </div>
-    <div class='eight columns'>
-      <div>
-        <h2>
-          <a href='#'>
-            Karen Wei
-          </a>
-          owes you $40 for
-          <a href='#'>
-            NKOTB Concert Tickets
-          </a>
-        </h2>
-      </div>
-      <div class='three columns due-date'>
-        <div class='alert-box success'>
-          Due: 6/1/13
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='four columns'>
-      <a class='th' href='#'>
-        <img src='http://placehold.it/350x200'>
-      </a>
-    </div>
-    <div class='eight columns'>
-      <div>
-        <h2>
-          <a href='#'>
-            Shay Howe
-          </a>
-          has your
-          <a href='#'>
-            6 pack of Hopleaf
-          </a>
-        </h2>
-      </div>
-      <div class='three columns due-date'>
-        <div class='alert-box success'>
-          Due: 4/1/13
-        </div>
-      </div>
-    </div>
+    </form>
   </div>
   <!-- This is not production ready. This is how Zurb comes by default. -->
+  <!-- TODO: Cleanup Javascript -->
   <script src='javascripts/foundation/jquery.js'></script>
   <script src='javascripts/foundation/jquery.cookie.js'></script>
   <script src='javascripts/foundation/jquery.event.move.js'></script>
@@ -193,7 +84,6 @@
   <script src='javascripts/foundation/jquery.foundation.tooltips.js'></script>
   <script src='javascripts/foundation/jquery.foundation.topbar.js'></script>
   <script src='javascripts/foundation/jquery.placeholder.js'></script>
-  <!-- %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"} -->
   <script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js'></script>
   <script src='javascripts/foundation/app.js'></script>
 </body>

@@ -6031,3 +6031,7 @@ table.hide-for-medium {
     margin: 0;
   }
 }
+/* line 4, ../sass/_placeholders.sass */
+.due-date {
+  padding: 0;
+}

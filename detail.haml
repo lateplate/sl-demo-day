@@ -9,8 +9,8 @@
   %meta{charset: "UTF-8"}
   %meta{name: "viewport", content: "width=device=width"}
 
-  %title Demo Day
-  
+  %title Demo Day - Detail
+
   %link{href: "stylesheets/app.css", media: "screen", rel: "stylesheet"}
 
   %script{src: "javascripts/foundation/modernizr.foundation.js"}
@@ -28,89 +28,26 @@
         %li
           %a{href: "#"}
             Settings
-        %li
+        %li 
           %a{href: "#"}
             Account
         %li
           %a{href: "#"}
             Sign Out 
-  .row
-    .ten.columns
-      %dl.sub-nav
-        %dd.active
-          %a{href: "#"}
-            All
-        %dd
-          %a{href: "#"}
-            Overdue
-        %dd
-          %a{href: "#"}
-            Coming Up
-    .two.columns
-      %a.button.radius.small{href: "new.html"}
-        Add a new item 
-  .row
-    .four.columns
-      %a.th{href: "#"}
-        %img{src: "http://placehold.it/350x200"}
-    .eight.columns
-      %div
-        %h2 
-          %a{href: "#"} 
-            Dan Kim 
-          owes you $40 for 
-          %a{href: "#"}
-            Pitchfork Concert Tickets
-      %div.three.columns.due-date
-        .alert-box.success
-          Due: 3/1/13
-  .row
-    .four.columns
-      %a.th{href: "#"}
-        %img{src: "http://placehold.it/350x200"}
-    .eight.columns
-      %div
-        %h2 
-          %a{href: "#"} 
-            Will Piers
-          has your
-          %a{href: "#"}
-            NKOTB Special Edition DVD
-      %div.three.columns.due-date
-        .alert-box.alert
-          Due: 2/1/13
-  .row
-    .four.columns
-      %a.th{href: "#"}
-        %img{src: "http://placehold.it/350x200"}
-    .eight.columns
-      %div
-        %h2 
-          %a{href: "#"} 
-            Karen Wei
-          owes you $40 for 
-          %a{href: "#"}
-            NKOTB Concert Tickets
-      %div.three.columns.due-date
-        .alert-box.success
-          Due: 6/1/13
-  .row
-    .four.columns
-      %a.th{href: "#"}
-        %img{src: "http://placehold.it/350x200"}
-    .eight.columns
-      %div
-        %h2 
-          %a{href: "#"} 
-            Shay Howe
-          has your 
-          %a{href: "#"}
-            6 pack of Hopleaf
-      %div.three.columns.due-date
-        .alert-box.success
-          Due: 4/1/13
+  .row.five.columns.centered
+    %form
+      %input#who{type: "text", placeholder: "Who owes you something?"}
+      .row
+        .ten.columns
+          %input#what{type: "text", placeholder: "What do they owe you?"}
+        .two.columns
+          %input#when{type: "text", placeholder: "When is it due?"}
+      .button.medium.radius
+        Submit
+
 
   / This is not production ready. This is how Zurb comes by default.
+  / TODO: Cleanup Javascript
   %script{src: "javascripts/foundation/jquery.js"}
   %script{src: "javascripts/foundation/jquery.cookie.js"}
   %script{src: "javascripts/foundation/jquery.event.move.js"}
@@ -130,8 +67,6 @@
   %script{src: "javascripts/foundation/jquery.foundation.tooltips.js"}
   %script{src: "javascripts/foundation/jquery.foundation.topbar.js"}
   %script{src: "javascripts/foundation/jquery.placeholder.js"}
-
-  / %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
   %script{src: "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"}
   %script{src: "javascripts/foundation/app.js"}
 

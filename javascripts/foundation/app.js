@@ -38,4 +38,22 @@
     });
   }
 
+  $(function() {
+    $("#when").datepicker();
+  });
+
+  $(function() {
+    var availablePeople = [
+      "Karen Wei", 
+      "Dan Kim",
+      "Will Piers"
+    ];
+    $("#who").autocomplete({
+      source: availablePeople
+    });
+  });
+
 })(jQuery, this);
+
+
+
