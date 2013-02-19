@@ -36,14 +36,13 @@
             Sign Out 
   .row.five.columns.centered
     %form
-      %input#who{type: "text", placeholder: "Who owes you something?"}
-      .row
-        .ten.columns
-          %input#what{type: "text", placeholder: "What do they owe you?"}
-        .two.columns
-          %input#when{type: "text", placeholder: "When is it due?"}
-      .button.medium.radius
+      %input#who{type: "text", placeholder: "Who owes you?"}
+      %input#what{type: "text", placeholder: "What do they owe you?"}
+      %input#when{type: "text", placeholder: "When is it due?"}
+      %a.button.large.radius
         Submit
+      %a.button.large.radius{href: "index.html", alt: "Cancel"}
+        Cancel
 
 
   / This is not production ready. This is how Zurb comes by default.

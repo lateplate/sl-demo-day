@@ -38,19 +38,29 @@
     });
   }
 
-  $(function() {
-    $("#when").datepicker();
+  // Date picker - killed for now, complicating matters
+  // $(function() {
+  //   $("#when").datepicker();
+  // });
+
+  // Type ahead - killed for now, complicating matters
+  // $(function() {
+  //   var availablePeople = [
+  //     "Karen Wei", 
+  //     "Dan Kim",
+  //     "Will Piers"
+  //   ];
+  //   $("#who").autocomplete({
+  //     source: availablePeople
+  //   });
+  // });
+
+  $('#send-reminder').on('click', function(event){
+    $('.inactive').slideToggle('active');
   });
 
-  $(function() {
-    var availablePeople = [
-      "Karen Wei", 
-      "Dan Kim",
-      "Will Piers"
-    ];
-    $("#who").autocomplete({
-      source: availablePeople
-    });
+  $('#cancel-reminder').on('click', function(event){
+    $('.inactive').slideToggle('active');
   });
 
 })(jQuery, this);

@@ -5,8 +5,9 @@
 @import "foundation";
 
 // Custom styles for our Nag app
-@import "main";
 @import "placeholders";
+@import "mixins";
+@import "main";
 
 // ----------------------------------------
 // Import specific parts of Foundation by commenting the import "foundation"

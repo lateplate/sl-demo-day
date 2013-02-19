@@ -47,21 +47,54 @@
       </ul>
     </section>
   </nav>
-  <div class='row five columns centered'>
+  <div class='row'>
     <form>
-      <input id='who' placeholder='Who owes you something?' type='text'>
-      <div class='row'>
-        <div class='ten columns'>
-          <input id='what' placeholder='What do they owe you?' type='text'>
-        </div>
-        <div class='two columns'>
-          <input id='when' placeholder='When is it due?' type='text'>
-        </div>
-      </div>
-      <div class='button medium radius'>
-        Submit
-      </div>
+      <h2 class='nine columns'>
+        Dan Kim owes you $40 for Pitchfork Concert Tickets
+      </h2>
+      <ul class='three columns available-actions'>
+        <li>
+          <a href='#'>
+            Edit
+          </a>
+        </li>
+        <li>
+          <a href='#'>
+            Delete
+          </a>
+        </li>
+      </ul>
     </form>
+  </div>
+  <div class='row'>
+    <ul class='three columns available-actions inline-list'>
+      <li>
+        <a href='#' id='send-reminder'>
+          Send your friend a reminder
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class='row'>
+    <div class='twelve columns inactive'>
+      <h3>
+        Email preview goes here
+      </h3>
+      <p>
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+      </p>
+      <p>
+        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+      </p>
+      <div>
+        <a class='button large radius' href='#'>
+          Send
+        </a>
+        <a class='button large radius' href='#' id='cancel-reminder'>
+          Cancel
+        </a>
+      </div>
+    </div>
   </div>
   <!-- This is not production ready. This is how Zurb comes by default. -->
   <!-- TODO: Cleanup Javascript -->
