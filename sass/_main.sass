@@ -1,9 +1,12 @@
+input[type="text"]
+  height: 90px
+
+footer
+  @extend .center-text
+
 .due-date
   // @extend .alert
   @extend %zero-padding
-
-input[type="text"]
-  height: 90px
 
 .available-actions
   list-style: none
@@ -14,3 +17,16 @@ input[type="text"]
 
 .active
   display: block
+
+.no-padding
+  padding: 0
+
+.row-spacer
+  margin: 20px auto
+
+.center-text
+  text-align: center
+
+.btn-new-item
+  position: absolute
+  right: 0

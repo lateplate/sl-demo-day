@@ -6036,23 +6036,44 @@ table.hide-for-medium {
   padding: 0;
 }
 
-/* line 5, ../sass/_main.sass */
+/* line 1, ../sass/_main.sass */
 input[type="text"] {
   height: 90px;
 }
 
-/* line 8, ../sass/_main.sass */
+/* line 11, ../sass/_main.sass */
 .available-actions {
   list-style: none;
   margin: 15px 0;
 }
 
-/* line 12, ../sass/_main.sass */
+/* line 15, ../sass/_main.sass */
 .inactive {
   display: none;
 }
 
-/* line 15, ../sass/_main.sass */
+/* line 18, ../sass/_main.sass */
 .active {
   display: block;
+}
+
+/* line 21, ../sass/_main.sass */
+.no-padding {
+  padding: 0;
+}
+
+/* line 24, ../sass/_main.sass */
+.row-spacer {
+  margin: 20px auto;
+}
+
+/* line 27, ../sass/_main.sass */
+.center-text, footer {
+  text-align: center;
+}
+
+/* line 30, ../sass/_main.sass */
+.btn-new-item {
+  position: absolute;
+  right: 0;
 }
