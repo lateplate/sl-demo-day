@@ -4086,6 +4086,7 @@ ul.side-nav li.divider {
 /* Sub Navs http://www.zurb.com/article/292/how-to-create-simple-and-effective-sub-na ---------------------- */
 /* line 139, ../../../../../.rvm/gems/ruby-1.9.3-p385/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
 dl.sub-nav {
+  float: left;
   display: block;
   width: auto;
   overflow: hidden;
@@ -6076,8 +6077,7 @@ input[type="text"] {
 .btn-new-item {
 /*    position: absolute;
     right: 0;
-
 */  
   float:right;
-  margin-right: 6%;
+
 }
