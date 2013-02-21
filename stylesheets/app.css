@@ -5703,7 +5703,7 @@ table.hide-for-medium {
 @media only screen and (max-width: 940px) {
   /* line 354, ../../../../../.rvm/gems/ruby-1.9.3-p385/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_mqueries.scss */
   .top-bar {
-    margin-bottom: 0;
+    /*margin-bottom: 0;*/
     overflow: hidden;
     height: 45px;
     background: #222222;
@@ -6076,4 +6076,5 @@ input[type="text"] {
 .btn-new-item {
   position: absolute;
   right: 0;
+  margin-right: 6%;
 }
