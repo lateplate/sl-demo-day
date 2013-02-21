@@ -4897,7 +4897,7 @@ table.hide-for-medium {
   .row .mobile-one {
     width: 25% !important;
     float: left;
-    padding: 0 15px;
+    padding: 0;
   }
   /* line 201, ../../../../../.rvm/gems/ruby-1.9.3-p385/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_mqueries.scss */
   .row .mobile-one:last-child {
@@ -6074,7 +6074,10 @@ input[type="text"] {
 
 /* line 30, ../sass/_main.sass */
 .btn-new-item {
-  position: absolute;
-  right: 0;
+/*    position: absolute;
+    right: 0;
+
+*/  
+  float:right;
   margin-right: 6%;
 }
