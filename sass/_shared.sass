@@ -1,0 +1,29 @@
+// VARIABLES
+// ************
+
+
+// MIXINS
+// ************
+@mixin border-radius($border-radius)
+  -webkit-border-radius: $border-radius
+  -moz-border-radius: $border-radius
+  border-radius: $border-radius
+
+
+// PLACEHOLDERS
+// ************
+%zero-margin
+  margin: 0
+
+%zero-padding
+  padding: 0
+
+%zero-box
+  @extend %zero-margin
+  @extend %zero-padding
+
+%hide
+  display: none
+
+%center-box
+  margin: 0 auto
