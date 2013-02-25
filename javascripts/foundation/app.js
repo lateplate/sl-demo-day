@@ -3,28 +3,28 @@
 // *****
 
 // Facebook SDK asynchronous loading
-(function(d, debug){
-  var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement('script'); js.id = id; js.async = true;
-  js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
-  ref.parentNode.insertBefore(js, ref);
-}(document, /*debug*/ false));
+// (function(d, debug){
+//   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+//   if (d.getElementById(id)) {return;}
+//   js = d.createElement('script'); js.id = id; js.async = true;
+//   js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+//   ref.parentNode.insertBefore(js, ref);
+// }(document, /*debug*/ false));
 
-// Wait until the FB SDK is loaded, then init the FB objects.
-window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '134969066680167', // App ID from the App Dashboard
-    channelUrl : '//localhost/github/sl-demo-day/channel.html', // Channel File for x-domain communication
-    status     : true, // check the login status upon init?
-    cookie     : true, // set sessions cookies to allow your server to access the session?
-    xfbml      : true  // parse XFBML tags on this page?
-  });
+// // Wait until the FB SDK is loaded, then init the FB objects.
+// window.fbAsyncInit = function() {
+//   FB.init({
+//     appId      : '134969066680167', // App ID from the App Dashboard
+//     channelUrl : '//localhost/github/sl-demo-day/channel.html', // Channel File for x-domain communication
+//     status     : true, // check the login status upon init?
+//     cookie     : true, // set sessions cookies to allow your server to access the session?
+//     xfbml      : true  // parse XFBML tags on this page?
+//   });
 
-  FB.api('/me', function(response) {
-    console.log('Your name is ' + response.name);
-  });
-};
+//   FB.api('/me', function(response) {
+//     console.log('Your name is ' + response.name);
+//   });
+// };
 
 
 
@@ -91,14 +91,52 @@ $(function() {
 
 // Type ahead
 $(function() {
-  var availablePeople = [
-    "Karen Wei", 
-    "Dan Kim",
-    "Will Piers"
+  var allFriends = [
+    {
+      value: "Karen Wei",
+      email: "karen@nagapp.com",
+      picture: "karen.jpg"
+    },
+    { 
+      value: "Dan Kim",
+      email: "dan@nagapp.com",
+      picture: "dan.jpg"
+    },
+    { 
+      value: "Will Piers",
+      email: "will@nagapp.com",
+      picture: "will.jpg"
+    },
+    {
+      value: "Ankur Patel",
+      email: "emailankur@gmail.com",
+      picture: "ankur.jpg"
+    },
+    {
+      value: "Arif Poonawala",
+      email: "arif.poonawala@gmail.com",
+      picture: "arif.jpg"
+    },
+    {
+      value: "Pedro Carmo",
+      email: "1pedrocarmo@gmail.com",
+      picture: "pedro.jpg"
+    },
   ];
+
   $("#who").autocomplete({
-    source: availablePeople
-  });
+    source: allFriends,
+    appendTo: $("#friend-list"),
+    focus: function( event, ui ) {
+      $( "#who" ).val( ui.item.value );
+      return false;
+    },
+    position: { of: "#friend-list", at: "left top" }
+  }).keyup(function (e) { // Dismiss the typeahead dropdown when hitting enter
+        if(e.which === 13) {
+            $(".ui-menu-item").hide();
+        }            
+    });;
 });
 
 // Opens/closes the preview email on detail.html

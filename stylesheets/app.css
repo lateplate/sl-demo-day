@@ -6071,3 +6071,21 @@ input[type="text"] {
 .center-text, footer {
   text-align: center;
 }
+
+/* line 31, ../sass/_main.sass */
+#friend-list {
+  background: yellow;
+}
+/* line 33, ../sass/_main.sass */
+#friend-list ul {
+  list-style: none;
+}
+/* line 35, ../sass/_main.sass */
+#friend-list li {
+  font-size: 32px;
+}
+
+/* line 39, ../sass/_main.sass */
+.ui-helper-hidden-accessible {
+  display: none;
+}
