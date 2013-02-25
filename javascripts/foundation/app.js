@@ -1,3 +1,39 @@
+// *****
+// FACEBOOK
+// *****
+
+// Facebook SDK asynchronous loading
+(function(d, debug){
+  var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement('script'); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+  ref.parentNode.insertBefore(js, ref);
+}(document, /*debug*/ false));
+
+// Wait until the FB SDK is loaded, then init the FB objects.
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '134969066680167', // App ID from the App Dashboard
+    channelUrl : '//localhost/github/sl-demo-day/channel.html', // Channel File for x-domain communication
+    status     : true, // check the login status upon init?
+    cookie     : true, // set sessions cookies to allow your server to access the session?
+    xfbml      : true  // parse XFBML tags on this page?
+  });
+
+  FB.api('/me', function(response) {
+    console.log('Your name is ' + response.name);
+  });
+};
+
+
+
+
+
+// *****
+// BASE CREATED BY FOUNDATION
+// *****
+
 ;(function ($, window, undefined) {
   'use strict';
 
@@ -38,32 +74,38 @@
     });
   }
 
-  // Date picker - killed for now, complicating matters
-  // $(function() {
-  //   $("#when").datepicker();
-  // });
-
-  // Type ahead - killed for now, complicating matters
-  // $(function() {
-  //   var availablePeople = [
-  //     "Karen Wei", 
-  //     "Dan Kim",
-  //     "Will Piers"
-  //   ];
-  //   $("#who").autocomplete({
-  //     source: availablePeople
-  //   });
-  // });
-
-  $('#send-reminder').on('click', function(event){
-    $('.inactive').slideToggle('active');
-  });
-
-  $('#cancel-reminder').on('click', function(event){
-    $('.inactive').slideToggle('active');
-  });
-
 })(jQuery, this);
 
 
 
+
+
+// *****
+// CUSTOM CODE
+// *****
+
+// Date picker
+$(function() {
+  $("#when").datepicker(); 
+});
+
+// Type ahead
+$(function() {
+  var availablePeople = [
+    "Karen Wei", 
+    "Dan Kim",
+    "Will Piers"
+  ];
+  $("#who").autocomplete({
+    source: availablePeople
+  });
+});
+
+// Opens/closes the preview email on detail.html
+$('#send-reminder').on('click', function(event){
+  $('.inactive').slideToggle('active');
+});
+
+$('#cancel-reminder').on('click', function(event){
+  $('.inactive').slideToggle('active');
+});
