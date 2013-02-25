@@ -6089,3 +6089,21 @@ input[type="text"] {
 .ui-helper-hidden-accessible {
   display: none;
 }
+
+/* line 42, ../sass/_main.sass */
+#ui-datepicker-div {
+  background: black;
+}
+/* line 44, ../sass/_main.sass */
+#ui-datepicker-div .ui-datepicker-header {
+  margin: 10px;
+}
+/* line 46, ../sass/_main.sass */
+#ui-datepicker-div .ui-datepicker-title {
+  color: red;
+  padding: 5px;
+}
+/* line 49, ../sass/_main.sass */
+#ui-datepicker-div a {
+  padding: 5px;
+}
