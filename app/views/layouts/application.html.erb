@@ -26,21 +26,15 @@
     </ul>
     <section>
       <ul class='left'>
-        <li>
-            <%= link_to 'New Nag', new_nag_url %>
-        </li>
+        <li><%= link_to 'New Nag', new_nag_url %></li>
       </ul>
       <ul class='right'>
-        <li>
-            <%= link_to 'Settings', '#' %>
-        </li>
-        <li>
-            <%= link_to 'Account', '#' %>
-        </li>
+        <li><%= link_to 'Settings', '#' %></li>
+        <li><%= link_to 'Account', '#' %></li>
         <% if current_user %>
-        <li>
-            <%= link_to 'Sign Out', signout_url %>
-        </li>
+          <li><%= link_to 'Sign Out', signout_url %></li>
+        <% else %>
+          <li><%= link_to 'Sign In or Sign up', "/auth/facebook" %></li>
         <% end %>
       </ul>
     </section>
@@ -59,7 +53,6 @@
       </dl>
     </div>
   </div>
-
 <%= yield %>
 
   <!-- This is not production ready. This is how Zurb comes by default. -->

@@ -1,0 +1,11 @@
+<% @fb_info.each do |key, value| %>
+	<% if value.class == {favorites: 'Chocolate'}.class %>
+		<% value.each do |key2, value2| %>
+			<strong><%= key2 %></strong>
+			<br>
+		<% end %>
+	<% else %>
+		<strong><%= key %></strong>
+		<br>
+	<% end %>
+<% end %>

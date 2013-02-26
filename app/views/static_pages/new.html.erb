@@ -3,9 +3,7 @@
     <input id='who' placeholder='Who owes you?' type='text'>
     <input id='what' placeholder='What do they owe you?' type='text'>
     <input id='when' placeholder='When is it due?' type='text'>
-    <a class='button large radius'>
-      Submit
-    </a>
+    <%= link_to 'Submit', '#', class: 'button large radius' %>
     <%= link_to 'Cancel', root_url, class: 'button large radius'  %>
   </form>
 </div>
