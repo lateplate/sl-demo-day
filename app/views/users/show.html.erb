@@ -24,15 +24,11 @@
 	<% current_user.nags.each do |nag| %>
 	  <div class='row row-spacer'>
 	    <div class='four columns'>
-	      <a class='th' href='detail.html'>
-	        <img src='http://placehold.it/350x200'>
-	      </a>
+	        <%= link_to image_tag('http://placehold.it/350x200'), nag, class: 'th' %>
 	    </div>
 	    <div class='eight columns'>
 	      <div>
-	        <h2>
-	          <%= link_to "#{nag.lendee_name} owes you #{nag.item}.", nag %>
-	        </h2>
+	        <h2><%= link_to "#{nag.lendee_name} owes you #{nag.item}.", nag %></h2>
 	      </div>
 	      <div class='three columns due-date'>
 	        <div class='alert-box success'>
