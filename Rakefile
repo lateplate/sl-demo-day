@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Nag::Application.load_tasks
+Sldemoday::Application.load_tasks

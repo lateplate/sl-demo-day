@@ -1,0 +1,12 @@
+<%= form_for @nag do |f| %>
+	<%= f.hidden_field :user_id, value: current_user.id %>
+
+  	<%= f.text_field :lendee_name, id: 'who', placeholder: 'Who owes you?' %>
+
+  	<%= f.text_field :item, id: 'what', placeholder: 'What do they owe you?' %>
+
+  	<%= f.text_field :due_date, id: 'when', placeholder: 'When is it due?' %>
+
+  	<%= f.submit "Submit", :disable_with => 'Submiting...', class: 'button large radius' %>
+   <%= link_to 'Cancel', root_url, class: 'button large radius'  %>
+<% end -%>

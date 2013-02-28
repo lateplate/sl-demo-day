@@ -1,12 +1,13 @@
-Nag::Application.routes.draw do
+Sldemoday::Application.routes.draw do
 
   root to: 'static_pages#index'
-  get '/new' => 'static_pages#new', as: 'new_nag'
-  get '/nag' => 'static_pages#details'
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :users
+  resources :nags
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -8,9 +8,6 @@
   <meta charset='UTF-8'>
   <meta content='width=device=width' name='viewport'>
   <title>Demo Day</title>
-  <link href='stylesheets/foundation.min.css' media='screen' rel='stylesheet'>
-  <link href='stylesheets/app.css' media='screen' rel='stylesheet'>
-  <script src='javascripts/foundation/modernizr.foundation.js'></script>
 </head>
 <body>
   <nav class='top-bar'>
@@ -29,9 +26,9 @@
         <li><%= link_to 'New Nag', new_nag_url %></li>
       </ul>
       <ul class='right'>
-        <li><%= link_to 'Settings', '#' %></li>
-        <li><%= link_to 'Account', '#' %></li>
         <% if current_user %>
+          <li><%= link_to 'Settings', edit_user_url(current_user) %></li>
+          <li><%= link_to 'Profile', user_url(current_user) %></li>
           <li><%= link_to 'Sign Out', signout_url %></li>
         <% else %>
           <li><%= link_to 'Sign In or Sign up', "/auth/facebook" %></li>
@@ -53,29 +50,10 @@
       </dl>
     </div>
   </div>
-<%= yield %>
+  <div class="ten columns centered">
+    <%= notice %>
+    <%= yield %>
+  </div>
 
-  <!-- This is not production ready. This is how Zurb comes by default. -->
-  <!-- TODO: Cleanup Javascript -->
-  <script src='javascripts/foundation/jquery.js'></script>
-  <script src='javascripts/foundation/jquery.cookie.js'></script>
-  <script src='javascripts/foundation/jquery.event.move.js'></script>
-  <script src='javascripts/foundation/jquery.event.swipe.js'></script>
-  <script src='javascripts/foundation/jquery.foundation.accordion.js'></script>
-  <script src='javascripts/foundation/jquery.foundation.alerts.js'></script>
-  <script src='javascripts/foundation/jquery.foundation.buttons.js'></script>
-  <script src='javascripts/foundation/jquery.foundation.clearing.js'></script>
-  <script src='javascripts/foundation/jquery.foundation.forms.js'></script>
-  <script src='javascripts/foundation/jquery.foundation.joyride.js'></script>
-  <script src='javascripts/foundation/jquery.foundation.magellan.js'></script>
-  <script src='javascripts/foundation/jquery.foundation.mediaQueryToggle.js'></script>
-  <script src='javascripts/foundation/jquery.foundation.navigation.js'></script>
-  <script src='javascripts/foundation/jquery.foundation.orbit.js'></script>
-  <script src='javascripts/foundation/jquery.foundation.reveal.js'></script>
-  <script src='javascripts/foundation/jquery.foundation.tabs.js'></script>
-  <script src='javascripts/foundation/jquery.foundation.tooltips.js'></script>
-  <script src='javascripts/foundation/jquery.foundation.topbar.js'></script>
-  <script src='javascripts/foundation/jquery.placeholder.js'></script>
-  <script src='javascripts/app.js'></script>
 </body>
 </html>

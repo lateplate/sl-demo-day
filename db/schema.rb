@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224222436) do
+ActiveRecord::Schema.define(:version => 20130228022159) do
+
+  create_table "nags", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "lendee_name"
+    t.string   "lendee_uid"
+    t.string   "item"
+    t.string   "description"
+    t.date     "due_date"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "provider"

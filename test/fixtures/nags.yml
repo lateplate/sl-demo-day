@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  lendee_name: MyString
+  lendee_uid: MyString
+  item: MyString
+  description: MyString
+  due_date: 2013-02-27
+
+two:
+  user_id: 1
+  lendee_name: MyString
+  lendee_uid: MyString
+  item: MyString
+  description: MyString
+  due_date: 2013-02-27
