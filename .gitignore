@@ -1,0 +1,8 @@
+.DS_Store
+tmp/
+log/
+log/*.log
+tmp/**/*
+db/*.sqlite3
+public/system/**/*
+.sass-cache/
