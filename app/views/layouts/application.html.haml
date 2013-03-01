@@ -1,0 +1,44 @@
+!!! 5
+%html
+  %head
+    %title
+      Nag
+    =stylesheet_link_tag "application", :media => "all"
+    =javascript_include_tag "application"
+    =csrf_meta_tags
+    %meta{charset: "UTF-8"}
+    %meta{content: "width=device=width", name: "viewport"}
+  %body
+    %nav.top-bar
+      %ul
+        %li.name
+          %h1
+            =link_to "Nag", root_url
+        %li.toggle-topbar
+          %a{href: "#"}
+    %section
+      %ul.left
+        %li
+          =link_to 'New Nag', new_nag_url
+      %ul.right
+        -if current_user
+          %li
+            =link_to 'Settings', edit_user_url(current_user)
+          %li
+            =link_to 'Profile', user_url(current_user)
+          %li
+            =link_to 'Sign Out', signout_url
+        -else
+          =link_to 'Sign In or Sign up', "/auth/facebook"
+    .twelve.columns
+      %dl.sub-nav
+        %dd
+          -if current_user
+            Signed in as 
+            =current_user.name
+            =link_to "Sign out", signout_url, id: "sign_out"
+          -else
+            =link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"
+  .ten.columns.centered
+    =notice
+    =yield

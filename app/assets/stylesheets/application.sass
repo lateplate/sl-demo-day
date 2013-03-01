@@ -1,0 +1,55 @@
+@import "shared"
+
+// This is temporary while we move off of Zurb so it doesn't look completely broken
+@import "zurb"
+
+input[type="text"]
+  height: 90px
+
+footer
+  @extend .center-text
+
+.due-date
+  // @extend .alert
+  @extend %zero-padding
+
+.available-actions
+  list-style: none
+  margin: 15px 0
+
+.inactive
+  display: none
+
+.active
+  display: block
+
+.no-padding
+  padding: 0
+
+.row-spacer
+  margin: 20px auto
+
+.center-text
+  text-align: center
+
+// Used for jQuery autocomplete
+#friend-list
+  background: yellow
+  ul
+    list-style: none
+  li
+    font-size: 32px
+
+// Hides an unnecessary span in the jQuery autocomplate
+.ui-helper-hidden-accessible
+  display: none
+
+#ui-datepicker-div
+  background: black
+  .ui-datepicker-header
+    margin: 10px
+  .ui-datepicker-title
+    color: red
+    padding: 5px
+  a 
+    padding: 5px

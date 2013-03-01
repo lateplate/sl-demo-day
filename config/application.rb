@@ -58,5 +58,8 @@ module Sldemoday
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    #Setting default to SASS
+    config.sass.preferred_syntax = :sass
   end
 end
