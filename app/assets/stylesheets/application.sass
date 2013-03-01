@@ -1,10 +1,8 @@
 @import "shared"
+@import "normalize"
 @import "bourbon"
-// @import "home"
-// @import "users"
 
-// This is temporary while we move off of Zurb so it doesn't look completely broken
-@import "zurb"
+// @import "zurb"
 
 input[type="text"]
   height: 90px
@@ -59,3 +57,32 @@ footer
 
 .test-button
   +button(pill)
+
+
+
+// *****
+// MEDIA QUERIES
+// *****
+// @media all and (min-width:$width-2)
+//   .forecast
+//     font-size: ($font-size-base * 2)
+
+//   .rightnow
+//     +forecast-width($width-2, 5, 0, 0, 1)
+//     font-size: ($font-size-base * 2.2)
+
+//   .summary
+//     float: left
+//     width: 55%
+
+//   .icon
+//     display: block
+//     margin: auto
+//     float: left
+//     width: 45%
+//     padding-bottom: 45%
+
+//   .sunny-rightnow
+//     background-position: 50%
+
+// @media all and (min-width:$width-3)
