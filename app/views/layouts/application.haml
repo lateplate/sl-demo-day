@@ -10,37 +10,25 @@
     %meta{content: "width=device=width", name: "viewport"}
     %link{href: "http://fonts.googleapis.com/css?family=Lato:400,700", media: "screen", rel: "stylesheet"}
   %body
-    %p
-      This is a test
-      .test-button
-        I am a Bourbon button
-    %nav
-      %h1
-        =link_to "Nag", root_url
-    %section
-      %ul
-        %li
-          =link_to 'New Nag', new_nag_url
-        -if current_user
-          %li
-            =link_to 'Settings', edit_user_url(current_user)
-          %li
-            =link_to 'Profile', user_url(current_user)
-          %li
-            =link_to 'Sign Out', signout_url
-        -else
-          =link_to 'Sign In or Sign up', "/auth/facebook"
-    %div
-      -if current_user
-        Signed in as 
-        =current_user.name
-        =link_to "Sign out", signout_url, id: "sign_out"
-      -else
-        =link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"
-    %div
+    .container
+      %nav
+        %h1
+          =link_to "Nag", root_url
+        %ul.toolbar
+          -if current_user
+            %li
+              Signed in as 
+              =current_user.name
+              =link_to "Sign out", signout_url, id: "sign_out"
+              %li
+                =link_to 'Settings', edit_user_url(current_user)
+              %li
+                =link_to 'Profile', user_url(current_user)
+          -else
+            =link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"
       =notice
       =yield
-    %footer
-      This is a footer  
+      %footer
+        This is a footer  
     %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}  
     %script{src: "ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"}  

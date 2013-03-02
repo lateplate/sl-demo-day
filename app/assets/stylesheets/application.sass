@@ -10,6 +10,15 @@ input[type="text"]
 footer
   @extend .center-text
 
+ul, ol, p
+  padding: 0
+  margin: 0
+
+
+.container
+  width: 100%
+  margin: 0 auto
+
 .due-date
   // @extend .alert
   @extend %zero-padding
@@ -55,34 +64,51 @@ footer
   a 
     padding: 5px
 
-.test-button
-  +button(pill)
+.btn
+  +button()
+
+.btn-new
+  @extend .btn
+
+.toolbar
+  float: left
+  margin: 10px 0
+
+nav
+  +clearfix
+
+nav h1
+  float: left
+
+nav ul 
+  list-style: none
+  float: left
+
+nav li
+  float: left
+  margin: 0 5px
+
+.filters
+  +clearfix
+  margin: 0
+
+.filters ul
+  list-style: none
+  float:left
+
+.filters li
+  float: left
+  margin: 0 5px
 
 
 
 // *****
 // MEDIA QUERIES
 // *****
-// @media all and (min-width:$width-2)
-//   .forecast
-//     font-size: ($font-size-base * 2)
+@media all and (min-width:600px)
+  .container
+    width: 560px
 
-//   .rightnow
-//     +forecast-width($width-2, 5, 0, 0, 1)
-//     font-size: ($font-size-base * 2.2)
-
-//   .summary
-//     float: left
-//     width: 55%
-
-//   .icon
-//     display: block
-//     margin: auto
-//     float: left
-//     width: 45%
-//     padding-bottom: 45%
-
-//   .sunny-rightnow
-//     background-position: 50%
-
-// @media all and (min-width:$width-3)
+@media all and (min-width:768px)
+  .container
+    width: 670px

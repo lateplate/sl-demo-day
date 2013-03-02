@@ -1,4 +1,4 @@
-%div
+.filters
   %ul
     %li
       %a{href: "#"}
@@ -9,8 +9,8 @@
     %li
       %a{href: "#"}
         Coming Up
-    %li
-      =link_to "+ New Nag", new_nag_url, class: 'button radius medium btn-new-item'
+  .btn-new
+    =link_to 'New Nag', new_nag_url
 %div
   %div
     %a.th{href: "detail.html"}
@@ -19,6 +19,7 @@
     %div
       %h2 
         =link_to 'Dan Kim owes you $40 for Taylor Swift Tickets', '#'
+      %p
         Due: 2/1/13
 %div
   %div
@@ -28,4 +29,5 @@
     %div
       %h2 
         =link_to 'Dan Kim owes you $40 for Taylor Swift Tickets', '#'
+      %p  
         Due: 2/1/13
