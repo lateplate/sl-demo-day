@@ -1,0 +1,92 @@
+!!! 5
+/ paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+/ [if IE 8]
+  <html class="no-js lt-ie9" lang="en">
+/ [if gt IE 8]
+  <html class="no-js" lang="en">
+
+%head
+  %meta{charset: "UTF-8"}
+  %meta{name: "viewport", content: "width=device=width"}
+
+  %title Demo Day - Detail
+
+  %link{href: "stylesheets/app.css", media: "screen", rel: "stylesheet"}
+
+  %script{src: "javascripts/foundation/modernizr.foundation.js"}
+%body
+  %nav.top-bar
+    %ul
+      %li.name
+        %h1
+          %a{href: "index.html"}
+            Demo Day
+      %li.toggle-topbar
+        %a{href: "#"}
+    %section
+      %ul.right
+        %li
+          %a{href: "#"}
+            Settings
+        %li 
+          %a{href: "#"}
+            Account
+        %li
+          %a{href: "#"}
+            Sign Out 
+  .row
+    %form
+      %h2.nine.columns.no-padding
+        Dan Kim owes you $40 for Pitchfork Concert Tickets
+      %ul.three.columns.available-actions
+        %li
+          %a{href: "#"}
+            Edit
+        %li
+          %a{href: "#"}
+            Delete
+  .row
+    %ul.twelve.columns.available-actions.inline-list
+      %li
+        %a#send-reminder{href: "#"}
+          Send your friend a reminder
+  .row
+    .twelve.columns.inactive
+      %h3
+        Email preview goes here
+      %p
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
+      %p
+        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+      %div
+        %a.button.large.radius{href: "#"}
+          Send
+        %a.button.large.radius#cancel-reminder{href: "#"}
+          Cancel
+
+
+
+  / This is not production ready. This is how Zurb comes by default.
+  / TODO: Cleanup Javascript
+  %script{src: "javascripts/foundation/jquery.js"}
+  %script{src: "javascripts/foundation/jquery.cookie.js"}
+  %script{src: "javascripts/foundation/jquery.event.move.js"}
+  %script{src: "javascripts/foundation/jquery.event.swipe.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.accordion.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.alerts.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.buttons.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.clearing.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.forms.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.joyride.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.magellan.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.mediaQueryToggle.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.navigation.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.orbit.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.reveal.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.tabs.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.tooltips.js"}
+  %script{src: "javascripts/foundation/jquery.foundation.topbar.js"}
+  %script{src: "javascripts/foundation/jquery.placeholder.js"}
+  %script{src: "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"}
+  %script{src: "javascripts/foundation/app.js"}
+
