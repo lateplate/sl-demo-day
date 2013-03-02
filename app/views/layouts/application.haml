@@ -10,21 +10,25 @@
     %meta{content: "width=device=width", name: "viewport"}
     %link{href: "http://fonts.googleapis.com/css?family=Lato:400,700", media: "screen", rel: "stylesheet"}
   %body
-    .container
+    .black-bar
       %nav
-        %h1
+        %h1.site-title
           =link_to "Nag", root_url
         -if current_user
           %ul.toolbar
-            %li
-              Signed in as 
+            %li.signed-in-username
+              Signed in as
               =current_user.name
-              =link_to "Sign out", signout_url, id: "sign_out"
             %li
-              =link_to 'Dashboard (this is a temp link)', user_url(current_user)
+              =link_to "Sign out", signout_url, id: "sign_out"
+              \/
+            %li
+              =link_to 'Dashboard', user_url(current_user)
+              \/
             %li
               =link_to 'Settings', edit_user_url(current_user)
+    .container
       =notice
       =yield
     %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}  
-    %script{src: "ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"}  
+    %script{src: "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"}  

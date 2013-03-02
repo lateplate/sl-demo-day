@@ -2,8 +2,16 @@
 @import "normalize"
 @import "bourbon"
 
+body 
+  margin: 0
+  padding: 0
+
 input[type="text"]
-  height: 90px
+  height: 50px
+  margin: 2px
+  width: 96%
+  padding-left: 5px
+  font-size: +em(20)
 
 ul, ol
   list-style: none
@@ -20,6 +28,18 @@ h2
 
 a
   color: $link-color
+  text-decoration: none
+
+nav
+  +clearfix
+
+nav ul 
+  list-style: none
+  float: left
+
+nav li
+  float: left
+  margin: 0 5px
 
 .container
   width: 100%
@@ -40,8 +60,13 @@ a
 .center-text
   text-align: center
 
+.signed-in-username
+  font-size: +em(12)
+  padding-top: 4px
+
 .btn
-  +button()
+  +button($button-color)
+  font-size: +em(24)
 
 .btn-new
   +button($button-color)
@@ -50,21 +75,20 @@ a
   +button(pill, $button-color)
 
 .toolbar
-  margin: 10px 0
-
-nav
-  +clearfix
-
-nav ul 
-  list-style: none
-  float: left
-
-nav li
-  float: left
-  margin: 0 5px
+  margin: 5px 0
 
 .nag-image
   display: none
+
+.black-bar
+  background: black
+  width: 100%
+  margin: 0 0 20px 0
+  padding: 0
+  color: white
+
+.site-title
+  padding-left: 5px
 
 // Used for jQuery autocomplete
 #friend-list
@@ -94,8 +118,37 @@ nav li
 // MEDIA QUERIES
 // *****
 @media all and (min-width:600px)
+  input[type="text"]
+    height: 80px
+    padding-left: 10px
+    font-size: +em(34)
+    margin-bottom: 10px
+
+  figure
+    height: 0
+    padding-bottom: 56.25%
+    position: relative
+    width: 100%
+
+  iframe
+    height: 100%
+    left: 0
+    position: absolute
+    top: 0
+    width: 100% 
+
   .container
     width: 560px
+
+  .btn
+    font-size: +em(30)
+
+  .toolbar
+    float: right
+    padding: 20px 5px 0 0 
+
+  .site-title
+    float: left
 
   .new-nag
     float: left
@@ -135,19 +188,6 @@ nav li
   .borrowerview
     width: 90%
     margin: 0 5% 0 5%
-
-  figure
-    height: 0
-    padding-bottom: 56.25%
-    position: relative
-    width: 100%
-
-  iframe
-    height: 100%
-    left: 0
-    position: absolute
-    top: 0
-    width: 100% 
 
 @media all and (min-width:768px)
   .container
