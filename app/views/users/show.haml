@@ -1,0 +1,27 @@
+.subnav
+	%ul.filters
+		%li
+			=link_to "All", "#"
+		%li
+			=link_to "Overdue", "#"
+		%li
+			=link_to "Coming Up", "#"
+	%ul.new-nag
+		%li
+			=link_to "+ New Nag", new_nag_url, class: "btn-new"
+-unless @nags.blank?
+	-current_user.nags.each do |nag|
+		.nag
+			.nag-image
+				=link_to image_tag("http://placehold.it/100x100"), nag
+			.nag-details
+				%h2
+					=link_to "#{nag.lendee_name} owes you #{nag.item}.", nag
+				.due-date
+					-if (nag.due_date + 1.second) - Time.now > 1.week
+						.alert-box.success
+					-else
+						.alert-box.alert
+							Due: #{nag.due_date}
+-else
+	<h3>You have No Nags! Let us know what you've lent out recently</h3>

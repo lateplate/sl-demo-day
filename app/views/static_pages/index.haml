@@ -1,33 +1,4 @@
-.filters
-  %ul
-    %li
-      %a{href: "#"}
-        All
-    %li
-      %a{href: "#"}
-        Overdue
-    %li
-      %a{href: "#"}
-        Coming Up
-  .btn-new
-    =link_to 'New Nag', new_nag_url
-%div
-  %div
-    %a.th{href: "detail.html"}
-      %img{src: "http://placehold.it/350x200"}
-  %div
-    %div
-      %h2 
-        =link_to 'Dan Kim owes you $40 for Taylor Swift Tickets', '#'
-      %p
-        Due: 2/1/13
-%div
-  %div
-    %a.th{href: "detail.html"}
-      %img{src: "http://placehold.it/350x200"}
-  %div
-    %div
-      %h2 
-        =link_to 'Dan Kim owes you $40 for Taylor Swift Tickets', '#'
-      %p  
-        Due: 2/1/13
+%h1
+  TODO: You will only see this page if you're not logged in. If you're logged in, we need the app to redirect to the user's dashboard page.
+%p
+  =link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"

@@ -7,25 +7,25 @@
 input[type="text"]
   height: 90px
 
-footer
-  @extend .center-text
+ul, ol
+  list-style: none
 
 ul, ol, p
   padding: 0
   margin: 0
 
+h1
+  margin: 10px 0
+
+a
+  color: $link-color
 
 .container
   width: 100%
   margin: 0 auto
 
 .due-date
-  // @extend .alert
-  @extend %zero-padding
-
-.available-actions
-  list-style: none
-  margin: 15px 0
+  padding: 0
 
 .inactive
   display: none
@@ -36,11 +36,34 @@ ul, ol, p
 .no-padding
   padding: 0
 
-.row-spacer
-  margin: 20px auto
-
 .center-text
   text-align: center
+
+.btn
+  +button()
+
+.btn-new
+  +button($button-color)
+
+.btn-filter
+  +button(pill, $button-color)
+
+.toolbar
+  margin: 10px 0
+
+nav
+  +clearfix
+
+nav ul 
+  list-style: none
+  float: left
+
+nav li
+  float: left
+  margin: 0 5px
+
+.nag-image
+  display: none
 
 // Used for jQuery autocomplete
 #friend-list
@@ -64,43 +87,6 @@ ul, ol, p
   a 
     padding: 5px
 
-.btn
-  +button()
-
-.btn-new
-  @extend .btn
-
-.toolbar
-  float: left
-  margin: 10px 0
-
-nav
-  +clearfix
-
-nav h1
-  float: left
-
-nav ul 
-  list-style: none
-  float: left
-
-nav li
-  float: left
-  margin: 0 5px
-
-.filters
-  +clearfix
-  margin: 0
-
-.filters ul
-  list-style: none
-  float:left
-
-.filters li
-  float: left
-  margin: 0 5px
-
-
 
 // *****
 // MEDIA QUERIES
@@ -108,6 +94,35 @@ nav li
 @media all and (min-width:600px)
   .container
     width: 560px
+
+  .new-nag
+    float: left
+
+  .nag 
+    +clearfix
+
+  .nag-image
+    display: block
+    float: left
+
+  .nag-details:
+    float: left
+    margin: 0 25px
+
+  .filters
+    +clearfix
+    margin: 0
+
+  .filters ul
+    list-style: none
+    float:left
+
+  .filters li
+    float: left
+    margin: 0 5px
+
+  .subnav
+    +clearfix
 
 @media all and (min-width:768px)
   .container
