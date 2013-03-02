@@ -1,6 +1,10 @@
 class NagsController < ApplicationController
   def new
     @nag = Nag.new
+    if current_user
+      @graph = Koala::Facebook::API.new(current_user.oauth_token)
+      @friends = @graph.get_connections("me", "friends")
+    end
   end
 
   def create
