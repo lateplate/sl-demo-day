@@ -14,21 +14,17 @@
       %nav
         %h1
           =link_to "Nag", root_url
-        %ul.toolbar
-          -if current_user
+        -if current_user
+          %ul.toolbar
             %li
               Signed in as 
               =current_user.name
               =link_to "Sign out", signout_url, id: "sign_out"
-              %li
-                =link_to 'Settings', edit_user_url(current_user)
-              %li
-                =link_to 'Profile', user_url(current_user)
-          -else
-            =link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"
+            %li
+              =link_to 'Dashboard (this is a temp link)', user_url(current_user)
+            %li
+              =link_to 'Settings', edit_user_url(current_user)
       =notice
       =yield
-      %footer
-        This is a footer  
     %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}  
     %script{src: "ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"}  
