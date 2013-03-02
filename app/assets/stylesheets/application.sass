@@ -102,6 +102,10 @@ nav li
 .site-logo
   height: 100px
 
+.nag    
+  border-bottom: 1px solid #eaeaea
+  padding-bottom: 2%
+
 // Used for jQuery autocomplete
 #friend-list
   background: yellow
@@ -172,7 +176,7 @@ nav li
     float: left
 
   .new-nag
-    float: left
+    float: right
 
   .nag 
     +clearfix
@@ -180,10 +184,12 @@ nav li
   .nag-image
     display: block
     float: left
+    img 
+      +border-radius(50%)
 
-  .nag-details:
+  .nag-details
     float: left
-    margin: 0 25px
+    margin: 0 25px 
 
   .filters
     +clearfix
@@ -199,6 +205,9 @@ nav li
 
   .subnav
     +clearfix
+
+  li.new-nag
+    float: right
 
   .item-due, .money-owed, .lender
     color: #2ba6cb
