@@ -21,9 +21,11 @@ ul, ol, p
   margin: 0
 
 h1
+  font-size: +em(48)
   margin: 10px 0
 
 h2
+  font-size: +em(32)
   margin: 0 0 10px 0
 
 a
@@ -80,6 +82,12 @@ nav li
 .nag-image
   display: none
 
+.nag-actions
+  
+
+.send-reminder
+  margin: 10px 0
+
 .black-bar
   background: black
   width: 100%
@@ -118,10 +126,19 @@ nav li
 // MEDIA QUERIES
 // *****
 @media all and (min-width:600px)
+
+  h1
+    font-size: +em(64)
+    margin: 10px 0
+
+  h2
+    font-size: +em(48)
+    margin: 0 0 10px 0
+
   input[type="text"]
     height: 80px
     padding-left: 10px
-    font-size: +em(34)
+    font-size: +em(38)
     margin-bottom: 10px
 
   figure
@@ -141,7 +158,7 @@ nav li
     width: 560px
 
   .btn
-    font-size: +em(30)
+    font-size: +em(32)
 
   .toolbar
     float: right
