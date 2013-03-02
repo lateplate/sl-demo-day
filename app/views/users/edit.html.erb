@@ -1,9 +1,0 @@
-<h1> Edit your name and email</h1>
-
-<%= form_for current_user do |f| -%>
-  <%= f.text_field :name, placeholder: "Johnny Appleseed" %>
-
-  <%= f.text_field :email, placeholder: "john@example.org" %>
-
-  <%= f.submit "Save", :disable_with => 'Saving...', class: 'button large radius' %>
-<% end -%>
