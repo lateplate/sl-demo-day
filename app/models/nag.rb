@@ -8,7 +8,7 @@ class Nag < ActiveRecord::Base
   # end
 
   def send_fb_message(token)
-  	   unless sent?
+  	   unless sent? || self.lendee_name.include?('@')
 	      sender_chat_id = "-#{user_id}@chat.facebook.com"
 	      receiver_chat_id = "-#{lendee_uid}@chat.facebook.com"
 	      message_body = "What's up #{lendee_name}? \n We're The Nag Team. We're here to Nag you. #{user.name} thinks you owe them their #{item}. Please return it as soon as possible. kthxbai :)"

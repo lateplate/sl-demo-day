@@ -56,7 +56,7 @@ class NagsController < ApplicationController
      @nags = current_user.nags
 
     @nags.each do |nag|
-      unless nag.sent?
+      unless nag.sent? || !self.lendee_name.include?('@')
         NagMailer.nag_borrower(nag).deliver
         nag.sent = true
         nag.save
