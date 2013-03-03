@@ -1,11 +1,12 @@
-%h2
-  -if (Time.now - (@nag.due_date + 1.second)) < 0
-    ="#{@nag.lendee_name} owes you #{@nag.item} in #{distance_of_time_in_words(Time.now, @nag.due_date)}"
-  -else
-    ="#{@nag.lendee_name} owed you #{@nag.item} #{distance_of_time_in_words(Time.now, @nag.due_date)} ago"
-.nag-actions
-  =link_to "Edit", edit_nag_url(@nag)
-  =link_to "Delete", nag_url(@nag), method: "delete"
+.center-container
+  %h2
+    -if (Time.now - (@nag.due_date + 1.second)) < 0
+      ="#{@nag.lendee_name} owes you #{@nag.item} in #{distance_of_time_in_words(Time.now, @nag.due_date)}"
+    -else
+      ="#{@nag.lendee_name} owed you #{@nag.item} #{distance_of_time_in_words(Time.now, @nag.due_date)} ago"
+  .nag-actions
+    =link_to "Edit", edit_nag_url(@nag), class: "btn"
+    =link_to "Delete", nag_url(@nag), method: "delete", class: "btn"
 / .send-reminder
 /   =link_to "Send your friend a reminder", "#", id: "send-reminder"
 / .inactive
