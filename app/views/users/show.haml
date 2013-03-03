@@ -1,13 +1,12 @@
-.subnav
-	%ul.filters
-		%li
-			=link_to "All", "#"
-		%li
-			=link_to "Overdue", "#"
-		%li
-			=link_to "Coming Up", "#"
-	%ul.new-nag
-		%li
+%section
+	.subnav
+		%ul.filters
+			%li
+				=link_to "All", "#"
+			%li
+				=link_to "Overdue", "#"
+			%li
+				=link_to "Coming Up", "#"
 			=link_to "+ New Nag", new_nag_url, class: "btn-new"
 -unless @nags.blank?
 	=link_to "Send all nags", send_nags_url
@@ -27,3 +26,4 @@
 							Due: #{nag.due_date}
 -else
 	<h3>You have No Nags! Let us know what you've lent out recently</h3>
+
