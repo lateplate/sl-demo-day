@@ -11,7 +11,7 @@ class Nag < ActiveRecord::Base
   	   unless sent? || self.lendee_name.include?('@')
 	      sender_chat_id = "-#{user_id}@chat.facebook.com"
 	      receiver_chat_id = "-#{lendee_uid}@chat.facebook.com"
-	      message_body = "What's up #{lendee_name}? \n We're The Nag Team. We're here to Nag you. #{user.name} thinks you owe them their #{item}. Please return it as soon as possible. kthxbai :)"
+	      message_body = "What's up #{lendee_name}? \n We're The Nag Team. We're here to Nag you about #{user.name}'s #{item}. Please return it as soon as possible. kthxbai :)"
 	      message_subject = "#{item}"
 
 	      jabber_message = Jabber::Message.new(receiver_chat_id, message_body)
