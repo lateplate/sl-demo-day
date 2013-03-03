@@ -9,7 +9,7 @@ Sldemoday::Application.routes.draw do
   get 'send_nags', to: 'nags#send_nags', as: 'send_nags'
 
   get "/nags/borrower" => 'nags#borrower'
-
+  get "/admin" => 'static_pages#admin'
 
   resources :users
   resources :nags

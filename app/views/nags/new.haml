@@ -1,9 +1,9 @@
 .new-form
   =render 'form'
-%h2
-  Friends
--@friends.each do |friend|
-  %li
-    =friend['name'] + ' - ' + friend['id']
--username = @graph.get_object(@friends.first['id'])['username']
--image_tag "https://graph.facebook.com/#{username}/picture"
+
+%ul
+  -@friends.each do |friend|
+    %li
+      =friend['name'] + ' - ' + friend['id']
+  -username = @graph.get_object(@friends.first['id'])['username']
+  -image_tag "https://graph.facebook.com/#{username}/picture"
