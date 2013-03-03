@@ -12,7 +12,7 @@
 	-current_user.nags.each do |nag|
 		.nag
 			.nag-image
-				=link_to image_tag("http://placehold.it/100x100"), nag
+				%img{:src => "/assets/ankur-patel.jpg", :alt => "Borrower Picture"}
 			.nag-details
 				%h2
 					=link_to "#{nag.lendee_name} owes you #{nag.item}.", nag
