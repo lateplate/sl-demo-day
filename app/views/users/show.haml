@@ -18,10 +18,10 @@
 					=link_to "#{nag.lendee_name} owes you #{nag.item}.", nag
 				.due-date
 					-if nag.due_date + 1.second > Time.now + 1.week
-						.alert-box.success
+						.alert-box
 							="Due: #{nag.due_date}"
 					-else
-						.alert-box.alert
+						.alert-box.comingup
 							="Due: #{nag.due_date}"
 -else
 	<h3>You have No Nags! Let us know what you've lent out recently</h3>
