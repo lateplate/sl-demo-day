@@ -10,6 +10,8 @@
 		%li
 			=link_to "+ New Nag", new_nag_url, class: "btn-new"
 -unless @nags.blank?
+	=link_to "Send all nags", send_nags_url
+	=link_to "Email all nags", email_nags_url, method: 'post'
 	-current_user.nags.each do |nag|
 		.nag
 			.nag-image

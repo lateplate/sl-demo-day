@@ -7,6 +7,7 @@ gem 'rails', '3.2.12'
 
 gem 'omniauth-facebook', '1.4.0'
 gem 'koala'
+gem 'xmpp4r_facebook'
 
 # Gems used only for assets and not required
 # in production environments by default.
