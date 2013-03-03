@@ -87,8 +87,12 @@ section
   text-align: center
 
 .signed-in-username
-  font-size: +em(15)
-  padding-top: 4px
+  font-size: +em(13)
+  padding-top: 7px
+  display: block
+  text-align: center
+  padding-right: 5px
+  margin-top: 15px
 
 .btn
   +button($button-color)
@@ -155,7 +159,17 @@ section
 // *****
 // MEDIA QUERIES
 // *****
+@media all and (min-width:490px)
+  .toolbar
+    float: right
+    padding: 20px 5px 0 0 
+
 @media all and (min-width:600px)
+  .signed-in-username
+    display: block
+    text-align: right
+    padding-right: 5px
+    margin-top: 15px
 
   h1
     font-size: +em(64)
@@ -193,10 +207,6 @@ section
 
   .btn-new
     font-size: +em(24)
-
-  .toolbar
-    float: right
-    padding: 20px 5px 0 0 
 
   .site-title
     float: left
