@@ -44,6 +44,13 @@ nav li
   float: left
   margin: 0 5px
 
+.subnav
+  +clearfix
+
+.filters li
+  float: left
+  margin: 0 5px
+
 .container
   width: 100%
   margin: 0 auto
@@ -58,6 +65,18 @@ section
 
 .due-date
   padding: 0
+  margin-bottom: 3%
+
+.alert-box
+  background-color: #f7941e
+  color: white
+  padding: 5px
+  +border-radius(5px)
+  width: 150px
+  text-align: center
+
+.alert-box.comingup
+  background-color: #ef3c59
 
 .inactive
   display: none
@@ -81,6 +100,7 @@ section
 
 .btn-new
   +button($button-color)
+  float: right
 
 .btn-filter
   +button(pill, $button-color)
@@ -90,9 +110,6 @@ section
 
 .nag-image
   display: none
-
-.nag-actions
-  
 
 .send-reminder
   margin: 10px 0
@@ -111,9 +128,9 @@ section
   height: 100px
 
 .nag
-  margin-top: 2%    
+  margin-top: 5%    
   border-bottom: 1px solid #eaeaea
-  padding-bottom: 2%
+  clear: both
 
 // Used for jQuery autocomplete
 #friend-list
@@ -189,20 +206,26 @@ section
 
   .nag 
     +clearfix
+    margin-top: 2%
 
   .nag-image
     display: block
     float: left
-    margin-right: 2%
+    margin-right: 2%  
     img 
       +border-radius(50%)
       height: 75px
       width: 75px
-
+      filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale") /* Firefox 10+, Firefox on Android */
+      filter: gray /* IE6-9 */
+      -webkit-filter: grayscale(100%) /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 
   .nag-details
     // float: left
-    margin: 0 25px 
+    margin: 0 25px 0 93px
+
+  .due-date
+    margin-bottom: 5%
 
   .filters
     +clearfix
@@ -211,13 +234,6 @@ section
   .filters ul
     list-style: none
     float:left
-
-  .filters li
-    float: left
-    margin: 0 5px
-
-  .subnav
-    +clearfix
 
   li.new-nag
     float: right
@@ -236,3 +252,6 @@ section
   section
     width: 90%
     margin: 3% 5%
+
+  .due-date
+    margin-bottom: 2%
