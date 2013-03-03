@@ -22,39 +22,6 @@ $(document).ready(function() {
 
   // Type ahead
   $(function() {
-    var allFriends = [
-      {
-        value: "Karen Wei",
-        email: "karen@nagapp.com",
-        picture: "karen.jpg"
-      },
-      { 
-        value: "Dan Kim",
-        email: "dan@nagapp.com",
-        picture: "dan.jpg"
-      },
-      { 
-        value: "Will Piers",
-        email: "will@nagapp.com",
-        picture: "will.jpg"
-      },
-      {
-        value: "Ankur Patel",
-        email: "emailankur@gmail.com",
-        picture: "ankur.jpg"
-      },
-      {
-        value: "Arif Poonawala",
-        email: "arif.poonawala@gmail.com",
-        picture: "arif.jpg"
-      },
-      {
-        value: "Pedro Carmo",
-        email: "1pedrocarmo@gmail.com",
-        picture: "pedro.jpg"
-      },
-    ];
-
     $("#who").autocomplete({
       source: allFriends,
       appendTo: $("#friend-list"),
