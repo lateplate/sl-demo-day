@@ -14,8 +14,6 @@
         =link_to image_tag("naglogo.png", class: "site-logo"), root_url       
         -if current_user
           %ul.toolbar
-            %li.signed-in-username
-              =current_user.name
             %li
               =link_to 'Dashboard', user_url(current_user)
               \/
@@ -27,6 +25,10 @@
               \/
             %li
               =link_to "Sign out", signout_url, id: "sign_out"
+            %p.signed-in-username
+              Currently signed in as
+              =current_user.name
+            
     .container
       =notice
       =yield
