@@ -7,6 +7,8 @@
 
   	<%= f.text_field :due_date, id: 'when', placeholder: 'When is it due?' %>
 
+  	<%= f.text_field :lendee_uid, placeholder: 'Lendee uid?' %>
+
   	<%= f.submit "Submit", :disable_with => 'Submiting...', class: 'button large radius' %>
    <%= link_to 'Cancel', root_url, class: 'button large radius'  %>
 <% end -%>

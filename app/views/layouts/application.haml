@@ -17,7 +17,7 @@
         %ul.toolbar
           -if current_user
             %li
-              Signed in as 
+              Signed in as
               =current_user.name
               =link_to "Sign out", signout_url, id: "sign_out"
               %li
@@ -29,6 +29,6 @@
       =notice
       =yield
       %footer
-        This is a footer  
-    %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}  
-    %script{src: "ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"}  
+        This is a footer
+    %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+    %script{src: "ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"}

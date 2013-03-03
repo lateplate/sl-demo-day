@@ -40,4 +40,28 @@ class NagsController < ApplicationController
   def show
     @nag = Nag.find_by_id params[:id]
   end
+
+  def send_nags
+    @nags = current_user.nags
+
+    @nags.each do |nag|
+      unless nag.sent?
+        nag.send_fb_message(current_user.oauth_token)
+      end
+    end
+    redirect_to user_url(current_user.id), notice: 'nags sent'
+  end
+
+  def send_mail
+     @nags = current_user.nags
+
+    @nags.each do |nag|
+      unless nag.sent?
+        NagMailer.nag_borrower(nag).deliver
+        nag.sent = true
+        nag.save
+      end
+    end
+        redirect_to root_url
+  end
 end

@@ -20,6 +20,8 @@
 </div>
 <br>
 <% unless @nags.blank? %>
+	<%= link_to "Send all nags", send_nags_url %>
+	<%= link_to "Email all nags", email_nags_url, method: 'post' %>
 	<% current_user.nags.each do |nag| %>
 	  <div class='row row-spacer'>
 	    <div class='four columns'>

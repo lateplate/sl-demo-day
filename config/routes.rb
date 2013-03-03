@@ -1,10 +1,12 @@
 Sldemoday::Application.routes.draw do
 
   root to: 'static_pages#index'
+  post '/email' => 'nags#send_mail', as: 'email_nags'
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
+  get 'send_nags', to: 'nags#send_nags', as: 'send_nags'
 
   resources :users
   resources :nags
