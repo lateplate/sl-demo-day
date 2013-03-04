@@ -3,6 +3,10 @@ class Nag < ActiveRecord::Base
 
   belongs_to :user
 
+  validates_presence_of :lendee_name
+  validates_presence_of :item
+  validates_presence_of :due_date
+
   # def user
   # 	return User.where(uid: :user_id)
   # end

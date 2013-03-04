@@ -1,4 +1,12 @@
 .form-container
+  -if @nag.errors.any?
+    %h3
+      ="#{pluralize(@nag.errors.count, "error")} prohibited this nag from being saved:"
+    %ul
+      -@nag.errors.full_messages.each do |message|
+        %li
+          =message
+  %br
   =form_for @nag do |f|
     =f.hidden_field :user_id, value: current_user.id
     =f.text_field :lendee_name, id: 'who', placeholder: 'Who owes you?'
