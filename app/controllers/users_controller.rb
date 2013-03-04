@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def show
-  	@nags = current_user.nags
+    @nags = Nag.where(user_id: current_user.id).order('due_date asc')
+    if params[:filter].present?
+      @nags = Nag.filter params[:filter]
+    end
   end
 
   def edit

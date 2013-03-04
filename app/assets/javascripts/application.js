@@ -17,7 +17,7 @@
 $(document).ready(function() {
   // Date picker
   $(function() {
-    $("#when").datepicker({ dateFormat: "yy-mm-dd" }); 
+    $("#when").datepicker({ dateFormat: "yy-mm-dd" });
   });
 
   // Type ahead
@@ -33,7 +33,7 @@ $(document).ready(function() {
     }).keyup(function (e) { // Dismiss the typeahead dropdown when hitting enter
           if(e.which === 13) {
               $(".ui-menu-item").hide();
-          }            
+          }
       });;
   });
 

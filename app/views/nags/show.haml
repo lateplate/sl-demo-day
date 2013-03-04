@@ -7,6 +7,7 @@
   .nag-actions
     =link_to "Edit", edit_nag_url(@nag), class: "btn"
     =link_to "Delete", nag_url(@nag), method: "delete", class: "btn"
+    / =link_to "Nag Now", send_nag_url(@nag.id), method: "put", class: "btn"
 / .send-reminder
 /   =link_to "Send your friend a reminder", "#", id: "send-reminder"
 / .inactive

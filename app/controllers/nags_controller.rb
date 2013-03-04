@@ -3,7 +3,9 @@ class NagsController < ApplicationController
     @nag = Nag.new
     if current_user
       @graph = Koala::Facebook::API.new(current_user.oauth_token)
-      @friends = @graph.get_connections("me", "friends")
+      @fb_friends = @graph.get_connections("me", "friends")
+
+      @friends = @fb_friends.map { |friend| "#{friend['name']}"}
     end
   end
 

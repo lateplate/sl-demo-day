@@ -1,16 +1,24 @@
 Sldemoday::Application.routes.draw do
 
   root to: 'static_pages#index'
-  post '/email' => 'nags#send_mail', as: 'email_nags'
 
+  # SENDING NAGS
+  post '/email' => 'nags#send_mail', as: 'email_nags'
+  get 'send_nags', to: 'nags#send_nags', as: 'send_nags'
+
+
+  # SIGNIN AND AUTHENTICATION
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
-  get 'send_nags', to: 'nags#send_nags', as: 'send_nags'
 
+
+  # MISCELLANEOUS
   get "/nags/borrower" => 'nags#borrower'
   get "/admin" => 'static_pages#admin'
 
+
+  # RESOURCES
   resources :users
   resources :nags
 

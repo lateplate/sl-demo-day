@@ -6,6 +6,16 @@ class Nag < ActiveRecord::Base
   # def user
   # 	return User.where(uid: :user_id)
   # end
+	def self.filter(type)
+		case type
+			when 'all'
+				return Nag.order('due_date asc')
+			when 'overdue'
+				return Nag.where(["due_date <= ?", Time.now]).order('due_date asc')
+			when 'soon'
+				return Nag.where(["due_date >= ? AND due_date <= ?", Time.now, Time.now + 2.weeks]).order('due_date asc')
+		end
+	end
 
   def send_fb_message(token)
   	   unless sent? || self.lendee_name.include?('@')
@@ -28,4 +38,5 @@ class Nag < ActiveRecord::Base
       sent = true
       save
   end
+
 end
