@@ -11,8 +11,10 @@
     =f.hidden_field :user_id, value: current_user.id
     =f.text_field :lendee_name, id: 'who', placeholder: 'Who owes you?'
     %div#friend-list
+    owes me
     =f.text_field :item, id: 'what', placeholder: 'What do they owe you?'
+    by
     =f.text_field :due_date, id: 'when', placeholder: 'When is it due?'
-    =f.text_field :lendee_uid, placeholder: 'Lendee uid?'#, value: '1080574448'
+    =f.text_field :lendee_uid, id: 'lendee_uid', placeholder: 'Lendee uid?'
     =f.submit "Submit", :disable_with => 'Submiting...', class: 'btn'
     =link_to 'Cancel', user_url(current_user), class: 'btn'

@@ -32,9 +32,16 @@ h2
 a
   color: $link-color
   text-decoration: none
+  &:hover
+    color: $hover-color
+    text-decoration: underline
 
 nav
   +clearfix
+  a:hover
+    color: $nav-hover-color
+  width: 200px
+  margin: 0 auto
 
 nav ul 
   list-style: none
@@ -42,7 +49,22 @@ nav ul
 
 nav li
   float: left
-  margin: 0 5px
+  margin: 0 8px
+
+footer
+  background: #2ba6cb
+  width: 100%
+  padding: 20px 2%
+  color: black
+  height: 15px
+  text-align: center
+  margin-top: 50px
+  a
+    color: black
+
+section
+  width: 90%
+  margin: 5%
 
 .subnav
   +clearfix
@@ -54,10 +76,6 @@ nav li
 .sitelogo
   height: 50px
   width: 87px
-
-section
-  width: 90%
-  margin: 5%
 
 .due-date
   padding: 0
@@ -87,12 +105,9 @@ section
   text-align: center
 
 .signed-in-username
-  font-size: +em(13)
   padding-top: 7px
-  display: block
-  text-align: center
   padding-right: 5px
-  margin-top: 15px
+  margin-top: 20px
 
 .btn
   +button($button-color)
@@ -100,7 +115,7 @@ section
 
 .btn-new
   +button($button-color)
-  font-size: +em(14)
+  font-size: +em(12)
   float: right
 
 .btn-filter
@@ -159,17 +174,11 @@ section
 // *****
 // MEDIA QUERIES
 // *****
-@media all and (min-width:490px)
-  .toolbar
-    float: right
-    padding: 20px 5px 0 0 
+
 
 @media all and (min-width:600px)
-  .signed-in-username
-    display: block
-    text-align: right
-    padding-right: 5px
-    margin-top: 15px
+  nav
+    width: 100%
 
   h1
     font-size: +em(64)
@@ -202,17 +211,30 @@ section
     width: 90%
     margin: 5%
 
+  .toolbar
+    float: right
+    padding: 20px 5px 0 0 
+
+  .site-logo
+    float: left
+
+  .signed-in-username
+    display: block
+    text-align: right
+    padding-right: 5px
+    margin-top: 15px
+
   .btn
     font-size: +em(32)
 
   .btn-new
-    font-size: +em(24)
+    font-size: +em(14)
 
   .site-title
     float: left
 
   .new-nag
-    float: right
+    margin-top: 25px
 
   .nag 
     +clearfix
