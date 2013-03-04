@@ -2,17 +2,20 @@
 @import "normalize"
 @import "bourbon"
 
+html, 
 body 
   margin: 0
   padding: 0
   font-family: $helvetica
+  height: 100%
+
 
 input[type="text"]
   height: 50px
   margin: 2px
   width: 96%
   padding-left: 5px
-  font-size: +em(20)
+  +font-size-and_spacing(20)
 
 ul, ol
   list-style: none
@@ -26,7 +29,7 @@ h1
   margin: 10px 0
 
 h2
-  font-size: +em(32)
+  +font-size-and-spacing(24)
   margin: 0 0 10px 0
 
 a
@@ -51,20 +54,28 @@ nav li
   float: left
   margin: 0 8px
 
+.container
+  position: relative
+  min-height: 100%
+
 footer
-  background: #2ba6cb
+  position: absolute
+  bottom: 0
+  background: #D5E2F1
   width: 100%
-  padding: 20px 2%
+  height: 50px
   color: black
-  height: 15px
   text-align: center
-  margin-top: 50px
   a
     color: black
 
-section
+.utility-links
+  margin: 15px auto
+
+.main
   width: 90%
-  margin: 5%
+  margin: 0 5%
+  padding-bottom: 100px // This padding is required for the footer to pin
 
 .subnav
   +clearfix
@@ -77,16 +88,11 @@ section
   height: 50px
   width: 87px
 
-.due-date
-  padding: 0
-  margin-bottom: 3%
-
 .alert-box
   background-color: #f7941e
   color: white
   padding: 5px
   +border-radius(5px)
-  width: 150px
   text-align: center
 
 .alert-box.comingup
@@ -143,11 +149,6 @@ section
 .site-logo
   height: 100px
 
-.nag
-  margin-top: 5%    
-  border-bottom: 1px solid #eaeaea
-  clear: both
-
 // Used for jQuery autocomplete
 #friend-list
   background: yellow
@@ -170,6 +171,8 @@ section
   a 
     padding: 5px
 
+.nag 
+  padding: 20px 0
 
 // *****
 // MEDIA QUERIES
@@ -181,17 +184,17 @@ section
     width: 100%
 
   h1
-    font-size: +em(64)
+    +font-size-and_spacing(64)
     margin: 10px 0
 
   h2
-    font-size: +em(48)
-    margin: 0 0 10px 0
+    +font-size-and_spacing(32)
+    // margin: 0 0 10px 0
 
   input[type="text"]
     height: 80px
     padding-left: 10px
-    font-size: +em(38)
+    +font-size-and_spacing(38)
     margin-bottom: 10px
 
   figure
@@ -207,13 +210,12 @@ section
     top: 0
     width: 100% 
 
-  section
-    width: 90%
-    margin: 5%
-
   .toolbar
     float: right
     padding: 20px 5px 0 0 
+
+  .alert-box
+    width: 150px
 
   .site-logo
     float: left
@@ -225,39 +227,36 @@ section
     margin-top: 15px
 
   .btn
-    font-size: +em(32)
+    +font-size-and_spacing(32)
 
   .btn-new
-    font-size: +em(14)
+    +font-size-and_spacing(14)
 
   .site-title
     float: left
 
   .new-nag
-    margin-top: 25px
+    // margin-top: 25px
 
   .nag 
     +clearfix
-    margin-top: 2%
+    padding: 2% 0
+    border-bottom: 1px solid #eaeaea
 
   .nag-image
     display: block
-    float: left
-    margin-right: 2%  
+    float: left 
     img 
       +border-radius(50%)
-      height: 75px
-      width: 75px
+      height: 100px
       filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale") /* Firefox 10+, Firefox on Android */
       filter: gray /* IE6-9 */
       -webkit-filter: grayscale(100%) /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 
   .nag-details
-    // float: left
-    margin: 0 25px 0 93px
-
-  .due-date
-    margin-bottom: 5%
+    float: left
+    width: 78%
+    padding: 0 1.5%
 
   .filters
     +clearfix
@@ -283,27 +282,28 @@ section
   .center-container
     width: 570px
     margin: 0 auto
+    padding-bottom: 100px
 
 @media all and (min-width:768px)
-  section
-    width: 90%
-    margin: 3% 5%
+  .nag-details
+    float: left
+    width: 82%
 
-  .due-date
-    margin-bottom: 2%
+  h2
+    +font-size-and_spacing(36)
 
   .center-container
     width: 740px
     margin: 0 auto
 
 @media all and (min-width:1240px)
+  .nag-details
+    float: left
+    width: 88%
+
+  h2
+    +font-size-and_spacing(44)
+
   .center-container
     width: 900px
     margin: 0 auto
-
-@media all and (min-width:1440px)
-  .container
-    width: 1360px
-    margin: 0 auto
-
-

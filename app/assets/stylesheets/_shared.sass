@@ -5,7 +5,8 @@ $link-color: #2ba6cb
 $button-color: #2ba6cb
 $border-color: #222
 $nav-hover-color: #F1E6D5
-$hover-color: #14393D
+$hover-color: #3889A8
+
 
 
 // MIXINS
@@ -15,6 +16,9 @@ $hover-color: #14393D
   -moz-border-radius: $border-radius
   border-radius: $border-radius
 
+@mixin font-size-and-spacing($font-size)
+  font-size: +em($font-size)
+  line-height: (1.5 * $font-size)px
 
 // PLACEHOLDERS
 // ************

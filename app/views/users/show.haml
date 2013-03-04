@@ -1,32 +1,30 @@
-%section
-	.subnav
-		%ul.filters
-			%li
-				=link_to "All", root_url(:filter => 'all')
-			%li
-				=link_to "Overdue", root_url(:filter => 'overdue')
-			%li
-				=link_to "Coming Up", root_url(:filter => 'soon')
-	-unless @nags.blank?
-		-@nags.each do |nag|
-			.nag
-				.nag-image
-					%img{:src => "/assets/ankur-patel.jpg", :alt => "Borrower Picture"}
-				.nag-details
-					%h2
-						=link_to "#{nag.lendee_name} owes you #{nag.item}.", nag
-					.due-date
-						-if nag.due_date + 1.second > Time.now + 1.week
-							.alert-box
-								="Due: #{nag.due_date}"
-						-else
-							.alert-box.comingup
-								="Due: #{nag.due_date}"
+.subnav
+	%ul.filters
+		%li
+			=link_to "All", root_url(:filter => 'all')
+		%li
+			=link_to "Overdue", root_url(:filter => 'overdue')
+		%li
+			=link_to "Coming Up", root_url(:filter => 'soon')
+-unless @nags.blank?
+	-@nags.each do |nag|
+		.nag
+			.nag-image
+				%img{:src => "/assets/ankur-patel.jpg", :alt => "Borrower Picture"}
+			.nag-details
+				%h2
+					=link_to "#{nag.lendee_name} owes you #{nag.item}.", nag
+				.due-date
+					-if nag.due_date + 1.second > Time.now + 1.week
+						.alert-box
+							="Due: #{nag.due_date}"
+					-else
+						.alert-box.comingup
+							="Due: #{nag.due_date}"
+-else
+	-if params[:filter] == 'soon'
+		%h4
+			You don't have any items due in the next 2 weeks.
 	-else
-		-if params[:filter] == 'soon'
-			%h4
-				You don't have any items due in the next 2 weeks.
-		-else
-			%h4
-				You have No Nags! Let us know what you've lent out recently
-
+		%h4
+			You have No Nags! Let us know what you've lent out recently
