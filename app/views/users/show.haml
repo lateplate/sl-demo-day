@@ -9,7 +9,7 @@
 -unless @nags.blank?
 	-@nags.each do |nag|
 		.nag
-			.nag-image
+			.borrower-photo
 				%img{:src => "/assets/ankur-patel.jpg", :alt => "Borrower Picture"}
 			.nag-details
 				%h2
@@ -19,7 +19,7 @@
 						.alert-box
 							="Due: #{nag.due_date}"
 					-else
-						.alert-box.comingup
+						.alert-box-high-priority
 							="Due: #{nag.due_date}"
 -else
 	-if params[:filter] == 'soon'
