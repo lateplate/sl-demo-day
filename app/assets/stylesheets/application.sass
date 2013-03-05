@@ -3,11 +3,12 @@
 @import "normalize"
 
 html, 
-body 
+body
   margin: 0
   padding: 0
   font-family: $helvetica
   height: 100%
+  color: $main-color
 
 input[type="text"]
   height: 50px
@@ -28,7 +29,7 @@ li
 h2
   +font-size-and-spacing(24)
   margin: 0 0 10px 0 // Overrides higher margins from browser stylesheet
-  color: $header-color
+  color: $main-color
 
 a
   color: $link-color
@@ -116,6 +117,7 @@ footer
 
 .nag-actions
   +font-size-and-spacing(16)
+  padding-top: 30px
   a 
     padding-right: 10px
 
@@ -143,3 +145,4 @@ footer
 @import "media-query-1"
 @import "media-query-2"
 @import "media-query-3"
+@import "media-query-4"

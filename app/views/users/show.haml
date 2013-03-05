@@ -13,14 +13,13 @@
 				%img{:src => "/assets/ankur-patel.jpg", :alt => "Borrower Picture"}
 			.nag-details
 				%h2
-					=link_to "#{nag.lendee_name} owes you #{nag.item}.", nag
-				.due-date
-					-if nag.due_date + 1.second > Time.now + 1.week
-						.alert-box
-							="Due: #{nag.due_date}"
-					-else
-						.alert-box-high-priority
-							="Due: #{nag.due_date}"
+					=link_to "#{nag.lendee_name} owes you #{nag.item}", nag
+				-if nag.due_date + 1.second > Time.now + 1.week
+					.alert-box
+						="Due: #{nag.due_date}"
+				-else
+					.alert-box-high-priority
+						="Due: #{nag.due_date}"
 -else
 	-if params[:filter] == 'soon'
 		%h4
