@@ -39,12 +39,12 @@ $(document).ready(function() {
   });
 
   // Opens/closes the preview email on detail.html
-  $('#send-reminder').on('click', function(event){
-    $('.inactive').slideToggle('active');
-  });
+  // $('#send-reminder').on('click', function(event){
+  //   $('.inactive').slideToggle('active');
+  // });
 
-  $('#cancel-reminder').on('click', function(event){
-    $('.inactive').slideToggle('active');
-  });
+  // $('#cancel-reminder').on('click', function(event){
+  //   $('.inactive').slideToggle('active');
+  // });
 });
 
