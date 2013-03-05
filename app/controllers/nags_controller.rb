@@ -21,6 +21,11 @@ class NagsController < ApplicationController
 
   def edit
     @nag = Nag.find_by_id params[:id]
+    if current_user
+      @graph = Koala::Facebook::API.new(current_user.oauth_token)
+      @fb_friends = @graph.get_connections("me", "friends")
+      @friends_with_id = @fb_friends.map { |friend| {name: friend['name'], id: friend['id']}}.to_json
+    end
   end
 
   def update
