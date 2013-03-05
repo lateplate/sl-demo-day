@@ -2,6 +2,12 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :oauth_expires_at, :oauth_token, :provider, :uid
 
   has_many :nags, dependent: :destroy
+  validates_presence_of :email
+  validates_presence_of :name
+  validates_presence_of :oauth_expires_at
+  validates_presence_of :oauth_token
+  validates_presence_of :provider
+  validates_presence_of :uid
 
 	def self.from_omniauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
