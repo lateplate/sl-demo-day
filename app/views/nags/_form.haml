@@ -12,6 +12,6 @@
   %div#friend-list
   =f.text_field :item, id: "what", placeholder: "What do they owe you?", required: "true"
   =f.text_field :due_date, id: "when", placeholder: "When is it due?", required: "true"
-  =f.text_field :lendee_uid, id: "lendee_uid", placeholder: "Lendee uid?"
+  =f.text_field :lendee_uid, id: "lendee_uid", placeholder: "Lendee UID (this will be hidden in production)"
   =f.submit "Submit", :disable_with => "Submiting...", class: "submit btn"
   =link_to "Cancel", user_url(current_user), class: "btn"

@@ -2,42 +2,32 @@
   =render 'form'
   / =@friends_with_id.to_json
 
-/ :javascript
-/   var allFriends = [
-/     {
-/       value: "Ankur Patel",
-/       email: "emailankur@gmail.com",
-/       picture: "ankur.jpg"
-/     },
-/     {
-/       value: "Arif Poonawala",
-/       email: "arif.poonawala@gmail.com",
-/       picture: "arif.jpg"
-/     },
-/     {
-/       value: "Pedro Carmo",
-/       email: "1pedrocarmo@gmail.com",
-/       picture: "pedro.jpg"
-/     },
-/   ];
-
-/ %ul
-/   -@friends.each do |friend|
-/     %li
-/       =friend['name'] + ' - ' + friend['id']
-/   -username = @graph.get_object(@friends.first['id'])['username']
-/   -image_tag "https://graph.facebook.com/#{username}/picture"
-
 :javascript
-  var allFriends = #{@friends};
 
-  // This works for simple sort of single valued lists, but will be trickier with JS objects
-  // allFriends.sort();
+  // This is an ugly, but only way of commenting Ruby in JS in Haml
+  #{ #var fbFriendData = #{@friends_with_id.to_json}; 
+  }
 
-
-
-
-
-
-
-
+  // Test data only
+  var fbFriendData = [
+    {
+      "name": "Ankur Patel",
+      "id": "1936835" 
+    },
+    {
+      "name": "Arif Poonawala",
+      "id": "1905134" 
+    },
+    {
+      "name": "Dan Kim",
+      "id": "1080574448" 
+    },
+    {
+      "name": "Will Piers",
+      "id": "1175798581" 
+    },
+    {
+      "name": "Karen Wei",
+      "id": "22015966" 
+    },
+  ];

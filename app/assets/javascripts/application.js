@@ -21,22 +21,11 @@ $(document).ready(function() {
   console.log("validate ran");
 
   $(window).keydown(function(event){
-    if( (event.keyCode == 13) && (validationFunction() == false) ) {
+    if( (event.keyCode == 13) ) {
       event.preventDefault();
       return false;
     }
   });
-
-  // function validationFunction() {
-  //   $('input').each(function() {
-  //     ...
-
-  //   }
-  //   if(good) {
-  //     return true;
-  //   } 
-  //   return false;
-  // }
 
   // Date picker
   $(function() {
@@ -45,12 +34,24 @@ $(document).ready(function() {
 
   // Type ahead
   $(function() {
+    var allFriends = $.map(fbFriendData, function (i) {
+      return {
+        label: i.name,
+        value: i.id
+      };
+    });
+
     $("#who").autocomplete({
       source: allFriends,
       appendTo: $("#friend-list"),
       focus: function( event, ui ) {
-        $( "#who" ).val( ui.item.value );
+        $( "#who" ).val( ui.item.label );
         return false;
+      },
+      select: function (event, ui) {
+          $("#who").val(ui.item.label);
+          $("#lendee_uid").val(ui.item.value);
+          return false;
       },
       position: { of: "#friend-list", at: "left top" },
       change: function (event, ui) {
@@ -66,9 +67,8 @@ $(document).ready(function() {
   });
 
   function clearWho() {
-    var whoField = $("#who");
-    whoField.val("");
-    console.log("clearWho called");
+    $("#who").val("");
+    $("#lendee_uid").val("");
   }
 
   // Opens/closes the preview email on detail.html
