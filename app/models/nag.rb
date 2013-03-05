@@ -6,7 +6,6 @@ class Nag < ActiveRecord::Base
   validates_presence_of :lendee_name
   validates_presence_of :item
   validates_presence_of :due_date
-  # validates_presence_of :description
   validates_presence_of :user_id
 
   scope :by_date, order('due_date asc')
