@@ -16,6 +16,28 @@
 //= require_tree .
 
 $(document).ready(function() {
+
+  $("#nag-form").validate();
+  console.log("validate ran");
+
+  $(window).keydown(function(event){
+    if( (event.keyCode == 13) && (validationFunction() == false) ) {
+      event.preventDefault();
+      return false;
+    }
+  });
+
+  // function validationFunction() {
+  //   $('input').each(function() {
+  //     ...
+
+  //   }
+  //   if(good) {
+  //     return true;
+  //   } 
+  //   return false;
+  // }
+
   // Date picker
   $(function() {
     $("#when").datepicker({ dateFormat: "yy-mm-dd" });
@@ -30,13 +52,24 @@ $(document).ready(function() {
         $( "#who" ).val( ui.item.value );
         return false;
       },
-      position: { of: "#friend-list", at: "left top" }
+      position: { of: "#friend-list", at: "left top" },
+      change: function (event, ui) {
+        if (ui.item == null || ui.item == undefined) {
+          clearWho();
+        }
+      } 
     }).keyup(function (e) { // Dismiss the typeahead dropdown when hitting enter
           if(e.which === 13) {
               $(".ui-menu-item").hide();
           }
       });;
   });
+
+  function clearWho() {
+    var whoField = $("#who");
+    whoField.val("");
+    console.log("clearWho called");
+  }
 
   // Opens/closes the preview email on detail.html
   // $('#send-reminder').on('click', function(event){

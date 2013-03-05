@@ -6,12 +6,12 @@
       %li
         =message
 %br
-=form_for @nag do |f|
+=form_for @nag, html: {id: "#nag-form"} do |f|
   =f.hidden_field :user_id, value: current_user.id
-  =f.text_field :lendee_name, id: 'who', placeholder: 'Who owes you?'
+  =f.text_field :lendee_name, id: "who", placeholder: "Who owes you?", required: "true"
   %div#friend-list
-  =f.text_field :item, id: 'what', placeholder: 'What do they owe you?'
-  =f.text_field :due_date, id: 'when', placeholder: 'When is it due?'
-  =f.text_field :lendee_uid, id: 'lendee_uid', placeholder: 'Lendee uid?'
-  =f.submit "Submit", :disable_with => 'Submiting...', class: 'btn'
-  =link_to 'Cancel', user_url(current_user), class: 'btn'
+  =f.text_field :item, id: "what", placeholder: "What do they owe you?", required: "true"
+  =f.text_field :due_date, id: "when", placeholder: "When is it due?", required: "true"
+  =f.text_field :lendee_uid, id: "lendee_uid", placeholder: "Lendee uid?"
+  =f.submit "Submit", :disable_with => "Submiting...", class: "submit btn"
+  =link_to "Cancel", user_url(current_user), class: "btn"
