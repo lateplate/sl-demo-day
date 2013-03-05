@@ -16,6 +16,7 @@ Sldemoday::Application.routes.draw do
   # MISCELLANEOUS
   get "/nags/borrower" => 'nags#borrower'
   get "/admin" => 'static_pages#admin'
+  put "nags/:id/send" => 'nags#remind', as: 'send_nag'
 
 
   # RESOURCES

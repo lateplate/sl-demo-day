@@ -1,4 +1,14 @@
 class UsersController < ApplicationController
+
+  # before_filter :authorize_user
+
+  # def authorize_user
+  #   if params[:id] == session[:user_id]
+  #   else
+  #     redirect_to root_url, notice: 'Logged out'
+  #   end
+  # end
+
   def show
     @nags = Nag.where(user_id: current_user.id)
     @nags = @nags.filter params[:filter]

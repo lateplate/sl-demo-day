@@ -72,4 +72,10 @@ class NagsController < ApplicationController
     end
         redirect_to root_url
   end
+
+  def remind
+    @nag = Nag.find_by_id params[:id]
+    @nag.send_fb_message(current_user.oauth_token)
+    redirect_to nag_url(@nag)
+  end
 end

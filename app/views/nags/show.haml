@@ -11,6 +11,10 @@
     =form_for @nag, html: {id: "#nag-complete-form"} do |f|
       =link_to "Edit", edit_nag_url(@nag)
       =link_to "Delete", nag_url(@nag), method: "delete", confirm: "Are you sure you want to delete this nag?"
-      =link_to "Send a reminder", "#", confirm: "Are you sure you want to nag your friend?"
-      =f.submit "Complete", :disable_with => 'Completing...', class: "button-to-link"
-      =f.hidden_field :completed, value: true
+      =link_to "Send a reminder", send_nag_url(@nag.id), method: 'put', confirm: "Are you sure you want to nag your friend?"
+      -if @nag.completed?
+        =f.submit "Mark incomplete", :disable_with => 'Completing...', class: "button-to-link"
+        =f.hidden_field :completed, value: false
+      -else
+        =f.submit "Complete", :disable_with => 'Completing...', class: "button-to-link"
+        =f.hidden_field :completed, value: true
