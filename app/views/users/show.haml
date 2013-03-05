@@ -1,16 +1,18 @@
 .subnav
 	%ul.filters
 		%li
-			=link_to "All", root_url(:filter => 'all')
+			=link_to "Outstanding", root_url(:filter => 'outstanding')
 		%li
 			=link_to "Overdue", root_url(:filter => 'overdue')
 		%li
 			=link_to "Coming Up", root_url(:filter => 'soon')
+		%li
+			=link_to "Completed", root_url(:filter => 'completed')
 -unless @nags.blank?
 	-@nags.each do |nag|
 		.nag
 			.borrower-photo
-				%img{:src => "/assets/ankur-patel.jpg", :alt => "Borrower Picture"}
+				=image_tag "https://graph.facebook.com/#{nag.lendee_uid}/picture?type=large"
 			.nag-details
 				%h2
 					=link_to "#{nag.lendee_name} owes you #{nag.item}", nag

@@ -1,23 +1,29 @@
 class Nag < ActiveRecord::Base
-  attr_accessible :description, :due_date, :item, :lendee_name, :lendee_uid, :user_id
+  attr_accessible :description, :due_date, :item, :lendee_name, :lendee_uid, :user_id, :completed
 
   belongs_to :user
 
   validates_presence_of :lendee_name
   validates_presence_of :item
   validates_presence_of :due_date
+  scope :by_date, order('due_date asc')
+  scope :outstanding, where(completed: false).by_date
 
   # def user
   # 	return User.where(uid: :user_id)
   # end
-	def self.filter(type)
+	def self.filter(type=nil)
 		case type
-			when 'all'
-				return Nag.order('due_date asc')
+			when nil
+				return outstanding
+			when 'outstanding'
+				return outstanding
 			when 'overdue'
-				return Nag.where(["due_date <= ?", Time.now]).order('due_date asc')
+				return where(["due_date <= ?", Time.now]).outstanding
 			when 'soon'
-				return Nag.where(["due_date >= ? AND due_date <= ?", Time.now, Time.now + 2.weeks]).order('due_date asc')
+				return where(["due_date >= ? AND due_date <= ?", Time.now, Time.now + 2.weeks]).outstanding
+			when 'completed'
+				return where(completed: true).by_date
 		end
 	end
 

@@ -6,6 +6,7 @@ class NagsController < ApplicationController
       @fb_friends = @graph.get_connections("me", "friends")
 
       @friends = @fb_friends.map { |friend| "#{friend['name']}"}
+      # @friends = @fb_friends.map { |friend| {name: friend['name'], id: friend['id']}
     end
   end
 
