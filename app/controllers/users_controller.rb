@@ -5,8 +5,7 @@ class UsersController < ApplicationController
   def authorize_user
     @user = User.find_by_id(params[:id])
     if current_user.blank? || current_user != @user
-      logger.info "Not authorized! #{current_user.inspect}"
-      redirect_to root_url, notice: "Nice try"
+      redirect_to root_url
     end
   end
 
