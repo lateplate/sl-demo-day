@@ -1,0 +1,72 @@
+@media all and (min-width:600px)
+  nav
+    width: 100%
+
+  h1
+    +font-size-and_spacing(64)
+    margin: 10px 0
+
+  h2
+    +font-size-and_spacing(32)
+
+  input[type="text"]
+    height: 80px
+    padding-left: 10px
+    +font-size-and_spacing(38)
+    margin-bottom: 10px
+
+  figure
+    height: 0
+    padding-bottom: 56.25%
+    position: relative
+    width: 100%
+
+  iframe
+    height: 100%
+    left: 0
+    position: absolute
+    top: 0
+    width: 100% 
+
+  .site-title
+    float: left
+
+  .site-logo
+    float: left
+
+  .toolbar
+    float: right
+    padding: 20px 0
+
+  .btn
+    +font-size-and_spacing(32)
+
+  .btn-new
+    +font-size-and_spacing(14)
+
+  .nag 
+    +clearfix // Breaking into larger widths, we start to float elements so need to clear
+
+  .borrower-photo
+    display: block // Unhides
+    float: left 
+    padding-right: 2%
+    img 
+      +border-radius(50%)
+      height: 100px
+      +grayscale
+
+  .nag-details
+    float: left
+    width: 78%
+
+  .optional-message
+    margin: 20px 0 10px 0
+
+  .borrower-view
+    width: 90%
+    margin: 0 5% 0 5%
+
+  .center-container
+    width: 570px
+    margin: 0 auto

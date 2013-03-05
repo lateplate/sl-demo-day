@@ -9,28 +9,24 @@
     %meta{charset: "UTF-8"}
     %meta{content: "width=device-width", name: "viewport"}
   %body
-    .title-bar
-      %nav
-        =link_to image_tag("naglogo.png", class: "site-logo"), root_url       
-        -if current_user
-          %ul.toolbar
-            %li
-              =link_to 'Dashboard', user_url(current_user)
-              \/
-            %li
-              =link_to 'Settings', edit_user_url(current_user)
-              \/
-            %li
-              =link_to 'Admin', '/admin'
-              \/
-            %li
-              =link_to "Sign out", signout_url, id: "sign_out"
-            %p.signed-in-username
-              Currently signed in as
-              =current_user.name
-            
     .container
-      =notice
-      =yield
+      %header.title-bar
+        %nav
+          =link_to image_tag("naglogo.png", class: "site-logo"), root_url       
+          -if current_user
+            .toolbar
+              %ul
+                %li
+                  =link_to 'Settings', edit_user_url(current_user)
+                %li
+                  =link_to "Sign out", signout_url, id: "sign_out"          
+                %li
+                  =link_to "+ New Nag", new_nag_url, class: "btn-new"
+      %section.main
+        =notice
+        =yield
+      %footer
+        %section.utility-links
+          =link_to 'Admin Console', '/admin'
     %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
     %script{src: "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"}

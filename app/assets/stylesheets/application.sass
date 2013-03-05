@@ -1,39 +1,46 @@
+@import "bourbon"
 @import "shared"
 @import "normalize"
-@import "bourbon"
 
+<<<<<<< HEAD
 body
+=======
+html,
+body
+>>>>>>> f3dfc89f01a3482a3138b47346e5b2bdf5ce0214
   margin: 0
   padding: 0
   font-family: $helvetica
+  height: 100%
 
 input[type="text"]
   height: 50px
   margin: 2px
   width: 96%
   padding-left: 5px
-  font-size: +em(20)
+  +font-size-and-spacing(20)
 
 ul, ol
   list-style: none
 
 ul, ol, p
-  padding: 0
-  margin: 0
+  @extend .zero-box
 
-h1
-  font-size: +em(48)
-  margin: 10px 0
+li
+  display: inline-block
 
 h2
-  font-size: +em(32)
-  margin: 0 0 10px 0
+  +font-size-and-spacing(24)
+  margin: 0 0 10px 0 // Overrides higher margins from browser stylesheet
 
 a
   color: $link-color
   text-decoration: none
+  &:hover
+    text-decoration: underline
 
 nav
+<<<<<<< HEAD
   +clearfix
 
 nav ul
@@ -43,75 +50,83 @@ nav ul
 nav li
   float: left
   margin: 0 5px
+=======
+  +clearfix // Even in narrow view, elements are floated so a clear is needed
+  width: 300px
+  margin: 0 auto
 
-.subnav
-  +clearfix
-
-.filters li
-  float: left
-  margin: 0 5px
-
-.sitelogo
+footer
+  position: absolute
+  bottom: 0
+  background: $footer-background
+  width: 100%
   height: 50px
-  width: 87px
+  text-align: center
+>>>>>>> f3dfc89f01a3482a3138b47346e5b2bdf5ce0214
 
-section
+.container
+  position: relative // Needed to make sure the footer can be positioned absolutely to the bottom
+  min-height: 100% // Needed to make sure the footer can be positioned absolutely to the bottom
+
+.utility-links // Contains the links in the footer without messing up the height/positioning of the footer element itself
+  margin: 15px auto
+
+.main // Contains the "body" of the page. Instead of applying to section elements, this is applied as %section.main
   width: 90%
-  margin: 5%
+  margin: 0 5%
+  padding-bottom: 100px // Padding required to pin and position the footer
 
-.due-date
+.title-bar
+  background: $title-bar-background
+  color: $title-bar-color
+  width: 100%
+  margin: 0 0 20px 0
   padding: 0
-  margin-bottom: 3%
 
-.alert-box
-  background-color: #f7941e
-  color: white
+.site-title
+  padding-left: 5px
+
+.site-logo
+  height: 100px
+
+.toolbar // Actions users can take globally - settings, sign out, new nag, etc.
+  margin: 5px 0
+  li
+    padding: 0 8px // Padding between items in the toolbar
+
+.filters
+  li
+    padding: 0 5px
+
+.alert-box // Used for due dates mostly
+  background-color: $alert-background
+  color: $alert-color
   padding: 5px
   +border-radius(5px)
-  width: 150px
   text-align: center
+  width: 150px
 
-.alert-box.comingup
+.alert-box-high-priority // Different color for due dates coming soon
+  @extend .alert-box
   background-color: #ef3c59
 
-.inactive
-  display: none
-
-.active
-  display: block
-
-.no-padding
-  padding: 0
-
-.center-text
-  text-align: center
-
-.signed-in-username
-  font-size: +em(13)
-  padding-top: 7px
-  display: block
-  text-align: center
-  padding-right: 5px
-  margin-top: 15px
-
 .btn
-  +button($button-color)
+  +button($button-background)
   font-size: +em(24)
 
 .btn-new
-  +button($button-color)
-  font-size: +em(14)
+  +button($button-background)
+  font-size: +em(12) // In narrow view since it's in the toolbar, keep the button smaller
   float: right
 
-.btn-filter
-  +button(pill, $button-color)
+.nag
+  padding: 4% 0
+  border-bottom: 1px solid $nag-border-color
 
-.toolbar
-  margin: 5px 0
-
-.nag-image
+.borrower-photo // In narrow view, hide the person's face
   display: none
 
+<<<<<<< HEAD
 .send-reminder
   margin: 10px 0
 
@@ -132,156 +147,33 @@ section
   margin-top: 5%
   border-bottom: 1px solid #eaeaea
   clear: both
+=======
+.text-highlight
+  color: $text-highlight-color
+>>>>>>> f3dfc89f01a3482a3138b47346e5b2bdf5ce0214
 
 // Used for jQuery autocomplete
 #friend-list
-  background: yellow
-  ul
-    list-style: none
   li
-    font-size: 32px
+    +font-size-and-spacing(24)
+    display: block
 
-// Hides an unnecessary span in the jQuery autocomplate
+// Hides an unnecessary span in the jQuery autocomplete
 .ui-helper-hidden-accessible
   display: none
 
+// Styling for jQuery date picker used on new/edit form
 #ui-datepicker-div
-  background: black
+  background: $date-picker-background
   .ui-datepicker-header
     margin: 10px
   .ui-datepicker-title
-    color: red
+    color: $date-picker-title-color
     padding: 5px
   a
     padding: 5px
 
-
-// *****
-// MEDIA QUERIES
-// *****
-@media all and (min-width:490px)
-  .toolbar
-    float: right
-    padding: 20px 5px 0 0
-
-@media all and (min-width:600px)
-  .signed-in-username
-    display: block
-    text-align: right
-    padding-right: 5px
-    margin-top: 15px
-
-  h1
-    font-size: +em(64)
-    margin: 10px 0
-
-  h2
-    font-size: +em(48)
-    margin: 0 0 10px 0
-
-  input[type="text"]
-    height: 80px
-    padding-left: 10px
-    font-size: +em(38)
-    margin-bottom: 10px
-
-  figure
-    height: 0
-    padding-bottom: 56.25%
-    position: relative
-    width: 100%
-
-  iframe
-    height: 100%
-    left: 0
-    position: absolute
-    top: 0
-    width: 100%
-
-  section
-    width: 90%
-    margin: 5%
-
-  .btn
-    font-size: +em(32)
-
-  .btn-new
-    font-size: +em(24)
-
-  .site-title
-    float: left
-
-  .new-nag
-    float: right
-
-  .nag
-    +clearfix
-    margin-top: 2%
-
-  .nag-image
-    display: block
-    float: left
-    margin-right: 2%
-    img
-      +border-radius(50%)
-      height: 75px
-      width: 75px
-      filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale") /* Firefox 10+, Firefox on Android */
-      filter: gray /* IE6-9 */
-      -webkit-filter: grayscale(100%) /* Chrome 19+, Safari 6+, Safari 6+ iOS */
-
-  .nag-details
-    // float: left
-    margin: 0 25px 0 93px
-
-  .due-date
-    margin-bottom: 5%
-
-  .filters
-    +clearfix
-    margin: 0
-
-  .filters ul
-    list-style: none
-    float:left
-
-  li.new-nag
-    float: right
-
-  .item-due, .money-owed, .lender
-    color: #2ba6cb
-
-  .optional-message
-    margin: 20px 0 10px 0
-
-  .borrowerview
-    width: 90%
-    margin: 0 5% 0 5%
-
-  .center-container
-    width: 570px
-    margin: 0 auto
-
-@media all and (min-width:768px)
-  section
-    width: 90%
-    margin: 3% 5%
-
-  .due-date
-    margin-bottom: 2%
-
-  .center-container
-    width: 740px
-    margin: 0 auto
-
-@media all and (min-width:1240px)
-  .center-container
-    width: 900px
-    margin: 0 auto
-
-@media all and (min-width:1440px)
-  .container
-    width: 1360px
-    margin: 0 auto
-
+@import "media-query-1"
+@import "media-query-2"
+@import "media-query-3"
 
