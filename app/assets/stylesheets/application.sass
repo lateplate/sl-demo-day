@@ -2,8 +2,7 @@
 @import "shared"
 @import "normalize"
 
-
-html,
+html, // html tag had to be height 100% for the footer to work
 body
   margin: 0
   padding: 0
@@ -19,13 +18,13 @@ input[type="text"]
   +font-size-and-spacing(20)
 
 ul, ol
-  list-style: none
+  list-style: none // We don't really use lists except for navigation, so we don't want any bullets or numbering usually
 
 ul, ol, p
   @extend .zero-box
 
 li
-  display: inline-block
+  display: inline-block // Same as having no list styles. We usually want lists for horizontal nav.
 
 h2
   +font-size-and-spacing(24)
@@ -44,7 +43,7 @@ nav
   margin: 0 auto
 
 footer
-  position: absolute
+  position: absolute // Needs to be absolute, relative to parent's container to pin to the bottom
   bottom: 0
   background: $footer-background
   width: 100%
@@ -70,9 +69,6 @@ footer
   margin: 0 0 20px 0
   padding: 0
 
-.site-title
-  padding-left: 5px
-
 .site-logo
   height: 100px
 
@@ -95,7 +91,7 @@ footer
 
 .alert-box-high-priority // Different color for due dates coming soon
   @extend .alert-box
-  background-color: #ef3c59
+  background-color: $alert-background-high-priority
 
 .btn
   +button($button-background)
@@ -106,33 +102,12 @@ footer
   font-size: +em(12) // In narrow view since it's in the toolbar, keep the button smaller
   float: right
 
-.nag
+.nag // A row on the dashboard
   padding: 4% 0
   border-bottom: 1px solid $nag-border-color
 
 .borrower-photo // In narrow view, hide the person's face
   display: none
-
-.send-reminder
-  margin: 10px 0
-
-.title-bar
-  background: black
-  width: 100%
-  margin: 0 0 20px 0
-  padding: 0
-  color: white
-
-.site-title
-  padding-left: 5px
-
-.site-logo
-  height: 100px
-
-.nag
-  margin-top: 5%
-  border-bottom: 1px solid #eaeaea
-  clear: both
 
 .text-highlight
   color: $text-highlight-color
@@ -143,7 +118,7 @@ footer
   a
     padding-right: 10px
 
-.button-to-link
+.button-to-link // Makes a button look like a link. Used for form submit buttons sometimes.
   @extend a
   background-color: transparent
   border: none
