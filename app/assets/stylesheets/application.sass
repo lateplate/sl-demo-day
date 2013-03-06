@@ -42,6 +42,20 @@ nav
   width: 300px
   margin: 0 auto
 
+figure
+  height: 0
+  padding-bottom: 56.25%
+  position: relative
+  width: 100%
+  margin-left: 0
+
+iframe
+  height: 100%
+  left: 0
+  position: absolute
+  top: 0
+  width: 100% 
+
 footer
   position: absolute // Needs to be absolute, relative to parent's container to pin to the bottom
   bottom: 0
@@ -120,7 +134,6 @@ footer
   text-align: center
   cursor: pointer
 
-
 .checkbox:before 
   content: "✓"
   color: #ccc
@@ -130,40 +143,24 @@ footer
   top: 1px
   // text-shadow: 1px 1px 1px rgba(0,0,0,.4)
 
-.checkbox:hover:before
+.checkbox:hover:before, .checked:before
   color: #fff
 
-.checkbox:hover
+.checkbox:hover, .checked
   background-color: #5da423
-
-.checked
-  display: block
-  float: left
-  width: 30px
-  height: 30px
-  margin-right: 2%
-  border-radius: 3px
-  background-color: #5da423
-  text-align: center
-  cursor: pointer
-
-
-.checked:before 
-  content: "✓"
-  color:  #fff
-  font-size: 20px
-  line-height: 30px
-  position: relative
-  top: 1px
-  // text-shadow: 1px 1px 1px rgba(0,0,0,.4)
-
-
 
 .borrower-photo // In narrow view, hide the person's face
   display: none
 
+.borrower-view
+  width: 100%
+  margin: 0
+
 .text-highlight
   color: $text-highlight-color
+
+.optional-message
+  margin: 20px 0 10px 0
 
 .nag-actions
   +font-size-and-spacing(16)
