@@ -1,7 +1,7 @@
 .subnav
 	%ul.filters
 		%li
-			=link_to "Outstanding", root_url(:filter => 'outstanding'), class: "active-filter"
+			=link_to "Open", root_url(:filter => 'outstanding'), class: "active-filter"
 		%li
 			=link_to "Completed", root_url(:filter => 'completed'), class: ""
 -unless @nags.blank?
