@@ -1,13 +1,9 @@
 .subnav
 	%ul.filters
 		%li
-			=link_to "Outstanding", root_url(:filter => 'outstanding')
-		/ %li
-		/ 	=link_to "Overdue", root_url(:filter => 'overdue')
-		/ %li
-		/ 	=link_to "Coming Up", root_url(:filter => 'soon')
+			=link_to "Outstanding", root_url(:filter => 'outstanding'), class: "active-filter"
 		%li
-			=link_to "Completed", root_url(:filter => 'completed')
+			=link_to "Completed", root_url(:filter => 'completed'), class: ""
 -unless @nags.blank?
 	-@nags.each do |nag|
 		.nag
@@ -24,9 +20,9 @@
 					.alert-box-high-priority
 						="Due: #{nag.due_date}"
 -else
-	-if params[:filter] == 'soon'
-		%h4
-			You don't have any items due in the next 2 weeks.
-	-else
-		%h4
-			You have No Nags! Let us know what you've lent out recently
+	.nag
+		%h2
+			You've collected all your stuff. Congrats!
+		%p
+			If you've got more stuff out there, go ahead and 
+			=link_to "add a new nag.", new_nag_url
