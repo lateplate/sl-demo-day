@@ -25,7 +25,7 @@ ul, ol, p
   @extend .zero-box
 
 li
-  // display: inline-block // Same as having no list styles. We usually want lists for horizontal nav.
+  display: inline-block // Same as having no list styles. We usually want lists for horizontal nav.
 
 h2
   +font-size-and-spacing(24)
@@ -76,7 +76,7 @@ footer
 .main // Contains the "body" of the page. Instead of applying to section elements, this is applied as %section.main
   width: 90%
   margin: 0 5%
-  padding-bottom: 100px // Padding required to pin and position the footer
+  // padding-bottom: 100px // Padding required to pin and position the footer
 
 .title-bar
   background: $title-bar-background
@@ -93,7 +93,11 @@ footer
 .toolbar // Actions users can take globally - settings, sign out, new nag, etc.
   margin: 5px auto
   li
+    display: block // Makes list go vertical instead of horizontal
     text-align: center
+    padding: 5px 0
+  a 
+    text-decoration: underline
 
 .filters
   li
@@ -123,6 +127,8 @@ footer
 .nag // A row on the dashboard
   padding: 4% 0
   border-bottom: 1px solid $nag-border-color
+  &:last-child
+    border: none // clears the border on the last nag in the list so it doesn't run into footer
 
 .nag-details
   margin-left: 40px
