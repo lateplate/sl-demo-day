@@ -12,14 +12,14 @@
     .container
       %header.title-bar
         %nav
-          =link_to image_tag("naglogo.png", class: "site-logo"), root_url       
+          =link_to image_tag("naglogo.png", class: "site-logo"), root_url
           -if current_user
             .toolbar
               %ul
                 %li
                   =link_to 'Settings', edit_user_url(current_user)
                 %li
-                  =link_to "Sign out", signout_url, id: "sign_out"          
+                  =link_to "Sign out", signout_url, id: "sign_out"
                 %li
                   =link_to "+ New Nag", new_nag_url, class: "btn-new"
       %section.main

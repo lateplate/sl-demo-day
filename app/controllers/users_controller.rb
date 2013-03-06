@@ -12,8 +12,6 @@ class UsersController < ApplicationController
   def show
     @nags = Nag.where(user_id: current_user.id)
     @nags = @nags.filter params[:filter]
-    # if params[:filter].present?
-    # end
   end
 
   def edit
