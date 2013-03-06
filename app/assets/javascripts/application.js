@@ -58,6 +58,8 @@ $(document).ready(function() {
         if (ui.item == null || ui.item == undefined) {
           clearWho();
         }
+
+
       } 
     }).keyup(function (e) { // Dismiss the typeahead dropdown when hitting enter
           if(e.which === 13) {

@@ -125,9 +125,16 @@ footer
 
 // Used for jQuery autocomplete
 #friend-list
+  position: relative
+  top: -10px
+  width: 98%
+  margin: 0 3px
+  +font-size-and-spacing(20)
+  background: $friend-list-background
+  color: $friend-list-color
   li
-    +font-size-and-spacing(24)
-    display: block
+    padding-left: 10px
+    display: block // override our general li styles to actually be in a vertical list
 
 // Hides an unnecessary span in the jQuery autocomplete
 .ui-helper-hidden-accessible

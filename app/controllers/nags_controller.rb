@@ -1,4 +1,16 @@
 class NagsController < ApplicationController
+
+  before_filter :authorize_user, except: [:send_nags, :send_mail, :remind]
+
+  def authorize_user
+    @nag= Nag.find_by_id(params[:id])
+    @user = User.find_by_id(@nag.user_id)
+    if current_user.blank? || current_user != @user
+      redirect_to root_url
+    end
+  end
+
+
   def new
     @nag = Nag.new
     if current_user
@@ -77,5 +89,9 @@ class NagsController < ApplicationController
     @nag = Nag.find_by_id params[:id]
     @nag.send_fb_message(current_user.oauth_token)
     redirect_to nag_url(@nag)
+  end
+
+  def index
+    redirect_to new_nag_url
   end
 end
