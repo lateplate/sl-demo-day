@@ -1,6 +1,10 @@
 @media all and (min-width:600px)
-  nav
-    width: 100%
+
+  // ****************************************************************************
+  // ELEMENTS
+  // ****************************************************************************
+  header
+    margin-bottom: 20px
 
   h1
     +font-size-and_spacing(64)
@@ -15,8 +19,40 @@
     +font-size-and_spacing(28)
     width: 92%
 
-  header
-    margin-bottom: 20px
+  nav
+    width: 100%
+
+  // ****************************************************************************
+  // CLASSES
+  // ****************************************************************************
+  .borrower-photo
+    display: block // Unhides
+    float: left 
+    padding-right: 2%
+    img 
+      +border-radius(50%)
+      height: 100px
+      +grayscale
+
+  .btn
+    +font-size-and_spacing(28)
+
+  .center-container
+    width: 570px
+    margin: 0 auto
+
+  .nag 
+    +clearfix // Breaking into larger widths, we start to float elements so need to clear
+
+  .nag-actions
+    +font-size-and-spacing(20)
+    a 
+      padding-right: 10px
+
+  .nag-details
+    float: left
+    margin-left: 0
+    width: 71%
 
   .site-logo
     float: left
@@ -31,34 +67,8 @@
       text-align: left
       padding: 0 10px
 
-  .btn
-    +font-size-and_spacing(28)
-
-  .nag 
-    +clearfix // Breaking into larger widths, we start to float elements so need to clear
-
-  .borrower-photo
-    display: block // Unhides
-    float: left 
-    padding-right: 2%
-    img 
-      +border-radius(50%)
-      height: 100px
-      +grayscale
-
-  .nag-details
-    float: left
-    margin-left: 0
-    width: 71%
-
-  .nag-actions
-    +font-size-and-spacing(20)
-    a 
-      padding-right: 10px
-
-  .center-container
-    width: 570px
-    margin: 0 auto
-
+  // ****************************************************************************
+  // IDS
+  // ****************************************************************************
   #friend-list
     +font-size-and-spacing(38)

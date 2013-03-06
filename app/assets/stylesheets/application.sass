@@ -2,50 +2,20 @@
 @import "shared"
 @import "normalize"
 
+// ****************************************************************************
+// ELEMENTS
+// ****************************************************************************
+
+a
+  color: $link-color
+
 // html tag had to be height 100% for the footer to work
-html, 
-body
+body, html
   margin: 0
   padding: 0
   font-family: $helvetica
   height: 100%
   color: $main-color
-
-input[type="text"]
-  height: 40px
-  width: 97% // This accounts for 2px border around form fields
-  padding-left: 1%
-  +font-size-and-spacing(20)
-  margin: 5px auto
-
-header
-  margin-bottom: 10px
-  background: $title-bar-background
-  color: $title-bar-color
-  width: 100%
-  padding-bottom: 10px
-
-ul, ol
-  list-style: none // We don't really use lists except for navigation, so we don't want any bullets or numbering usually
-
-ul, ol, p
-  @extend .zero-box
-
-li
-  display: inline-block // Same as having no list styles. We usually want lists for horizontal nav.
-
-h2
-  +font-size-and-spacing(20)
-  margin: 0 0 10px 0 // Overrides higher margins from browser stylesheet
-  color: $main-color
-
-a
-  color: $link-color
-
-nav
-  +clearfix // Even in narrow view, elements are floated so a clear is needed
-  width: 300px
-  margin: 0 auto
 
 figure
   height: 0
@@ -53,13 +23,6 @@ figure
   position: relative
   width: 100%
   margin-left: 0
-
-iframe
-  height: 100%
-  left: 0
-  position: absolute
-  top: 0
-  width: 100% 
 
 footer
   position: absolute // Needs to be absolute, relative to parent's container to pin to the bottom
@@ -69,40 +32,53 @@ footer
   height: 50px
   text-align: center
 
-.container
-  position: relative // Needed to make sure the footer can be positioned absolutely to the bottom
-  min-height: 100% // Needed to make sure the footer can be positioned absolutely to the bottom
+header
+  margin-bottom: 10px
+  background: $title-bar-background
+  color: $title-bar-color
+  width: 100%
+  padding-bottom: 10px
 
-.utility-links // Contains the links in the footer without messing up the height/positioning of the footer element itself
-  margin: 15px auto
-  a 
-    padding: 0 5px
-    text-decoration: underline
+h2
+  +font-size-and-spacing(20)
+  margin: 0 0 10px 0 // Overrides higher margins from browser stylesheet
+  color: $main-color
 
-.main // Contains the "body" of the page. Instead of applying to section elements, this is applied as %section.main
-  width: 90%
-  margin: 0 5%
-  padding-bottom: 100px // Padding required to pin and position the footer
+iframe
+  height: 100%
+  left: 0
+  position: absolute
+  top: 0
+  width: 100% 
 
-.site-logo
-  width: 120px
-  margin: 10px auto
-  display: block
-
-.toolbar // Actions users can take globally - settings, sign out, new nag, etc.
+input[type="text"]
+  height: 40px
+  width: 97% // This accounts for 2px border around form fields
+  padding-left: 1%
+  +font-size-and-spacing(20)
   margin: 5px auto
-  +font-size-and-spacing(16)
-  li
-    display: block // Makes list go vertical instead of horizontal
-    text-align: center
-    padding: 5px 0
-  a 
 
-.filters
+li
+  display: inline-block // Same as having no list styles. We usually want lists for horizontal nav.
+
+nav
+  +clearfix // Even in narrow view, elements are floated so a clear is needed
+  width: 300px
   margin: 0 auto
-  li
-    padding: 0 5px
-  a 
+
+ol, ul
+  list-style: none // We don't really use lists except for navigation, so we don't want any bullets or numbering usually
+
+ol, p, ul
+  @extend .zero-box
+
+
+// ****************************************************************************
+// CLASSES
+// ****************************************************************************
+
+.active-filter // not in place yet, but will be added
+  color: $active-filter-color // temp color for testing
 
 .alert-box // Used for due dates mostly
   background-color: $alert-background
@@ -116,35 +92,17 @@ footer
   @extend .alert-box
   background-color: $alert-background-high-priority
 
+.borrower-photo // In narrow view, hide the person's face
+  display: none
+
 .btn
   +button($button-background)
   font-size: +em(20)
 
-.nag-form
-  margin: 0 auto
-  width: 100%
-  text-align: center // Needed to center input fields
-  max-width: 900px // At a certain point we don't want the form to get any wider by %
-
-.nag-form-buttons // Positions the submit/cancel buttons on the form
-  margin: 15px auto
-  width: 100%
-
-.nag // A row on the dashboard
-  padding: 4% 0
-  border-bottom: 1px solid $nag-border-color
-  &:last-child
-    border: none // clears the border on the last nag in the list so it doesn't run into footer
-
-.nag-details
-  margin: 0 0 15px 40px
-  a 
-    text-decoration: none
-    &:hover
-      text-decoration: underline
-
-.active-filter // not in place yet, but will be added
-  color: $active-filter-color // temp color for testing
+.button-to-link // Makes a button look like a link. Used for form submit buttons sometimes.
+  @extend a
+  background-color: transparent
+  border: none
 
 .checkbox
   display: block
@@ -172,14 +130,20 @@ footer
 .checkbox:hover, .checked
   background-color: #5da423
 
-.borrower-photo // In narrow view, hide the person's face
-  display: none
+.container
+  position: relative // Needed to make sure the footer can be positioned absolutely to the bottom
+  min-height: 100% // Needed to make sure the footer can be positioned absolutely to the bottom
 
-.text-highlight
-  color: $text-highlight-color
+.filters
+  margin: 0 auto
+  li
+    padding: 0 5px
+  a 
 
-.optional-message
-  margin: 20px 0 10px 0
+.main // Contains the "body" of the page. Instead of applying to section elements, this is applied as %section.main
+  width: 90%
+  margin: 0 5%
+  padding-bottom: 100px // Padding required to pin and position the footer
 
 .nag-actions
   +font-size-and-spacing(16)
@@ -187,10 +151,63 @@ footer
   a
     padding-right: 10px
 
-.button-to-link // Makes a button look like a link. Used for form submit buttons sometimes.
-  @extend a
-  background-color: transparent
-  border: none
+.nag // A row on the dashboard
+  padding: 4% 0
+  border-bottom: 1px solid $nag-border-color
+  &:last-child
+    border: none // clears the border on the last nag in the list so it doesn't run into footer
+
+.nag-details
+  margin: 0 0 15px 40px
+  a 
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+
+.nag-form
+  margin: 0 auto
+  width: 100%
+  text-align: center // Needed to center input fields
+  max-width: 900px // At a certain point we don't want the form to get any wider by %
+
+.nag-form-buttons // Positions the submit/cancel buttons on the form
+  margin: 15px auto
+  width: 100%
+
+.optional-message
+  margin: 20px 0 10px 0
+
+.site-logo
+  width: 120px
+  margin: 10px auto
+  display: block
+
+.text-highlight
+  color: $text-highlight-color
+
+.toolbar // Actions users can take globally - settings, sign out, new nag, etc.
+  margin: 5px auto
+  +font-size-and-spacing(16)
+  li
+    display: block // Makes list go vertical instead of horizontal
+    text-align: center
+    padding: 5px 0
+  a 
+
+// Hides an unnecessary span in the jQuery autocomplete
+.ui-helper-hidden-accessible
+  display: none
+
+.utility-links // Contains the links in the footer without messing up the height/positioning of the footer element itself
+  margin: 15px auto
+  a 
+    padding: 0 5px
+    text-decoration: underline
+
+
+// ****************************************************************************
+// IDS
+// ****************************************************************************
 
 // Used for jQuery autocomplete
 #friend-list
@@ -205,10 +222,6 @@ footer
     padding-left: 10px
     display: block // override our general li styles to actually be in a vertical list
 
-// Hides an unnecessary span in the jQuery autocomplete
-.ui-helper-hidden-accessible
-  display: none
-
 // Styling for jQuery date picker used on new/edit form
 #ui-datepicker-div
   background: $date-picker-background
@@ -219,6 +232,11 @@ footer
     padding: 5px
   a
     padding: 5px
+
+
+// ****************************************************************************
+// MEDIA QUERIES
+// ****************************************************************************
 
 @import "media-query-1"
 @import "media-query-2"
