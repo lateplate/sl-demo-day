@@ -2,15 +2,16 @@
 	%ul.filters
 		%li
 			=link_to "Outstanding", root_url(:filter => 'outstanding')
-		%li
-			=link_to "Overdue", root_url(:filter => 'overdue')
-		%li
-			=link_to "Coming Up", root_url(:filter => 'soon')
+		/ %li
+		/ 	=link_to "Overdue", root_url(:filter => 'overdue')
+		/ %li
+		/ 	=link_to "Coming Up", root_url(:filter => 'soon')
 		%li
 			=link_to "Completed", root_url(:filter => 'completed')
 -unless @nags.blank?
 	-@nags.each do |nag|
 		.nag
+			.checkbox
 			.borrower-photo
 				=image_tag "https://graph.facebook.com/#{nag.lendee_uid}/picture?width=100&height=100"
 			.nag-details

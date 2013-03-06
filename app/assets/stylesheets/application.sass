@@ -106,6 +106,59 @@ footer
   padding: 4% 0
   border-bottom: 1px solid $nag-border-color
 
+.nag-details
+  margin-left: 40px
+
+.checkbox
+  display: block
+  float: left
+  width: 30px
+  height: 30px
+  margin-right: 2%
+  border-radius: 3px
+  background-color: #eaeaea
+  text-align: center
+  cursor: pointer
+
+
+.checkbox:before 
+  content: "✓"
+  color: #ccc
+  font-size: 20px
+  line-height: 30px
+  position: relative
+  top: 1px
+  // text-shadow: 1px 1px 1px rgba(0,0,0,.4)
+
+.checkbox:hover:before
+  color: #fff
+
+.checkbox:hover
+  background-color: #5da423
+
+.checked
+  display: block
+  float: left
+  width: 30px
+  height: 30px
+  margin-right: 2%
+  border-radius: 3px
+  background-color: #5da423
+  text-align: center
+  cursor: pointer
+
+
+.checked:before 
+  content: "✓"
+  color:  #fff
+  font-size: 20px
+  line-height: 30px
+  position: relative
+  top: 1px
+  // text-shadow: 1px 1px 1px rgba(0,0,0,.4)
+
+
+
 .borrower-photo // In narrow view, hide the person's face
   display: none
 
@@ -150,6 +203,9 @@ footer
     padding: 5px
   a
     padding: 5px
+
+
+
 
 @import "media-query-1"
 @import "media-query-2"

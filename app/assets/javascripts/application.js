@@ -73,6 +73,12 @@ $(document).ready(function() {
     $("#lendee_uid").val("");
   }
 
+  $('.checkbox:not(.checked)').on('click', function(event){
+    $(this).parent().slideUp('slow', 'linear');
+    $(this).toggleClass('checked');
+  });
+
+
   // Opens/closes the preview email on detail.html
   // $('#send-reminder').on('click', function(event){
   //   $('.inactive').slideToggle('active');
@@ -81,5 +87,8 @@ $(document).ready(function() {
   // $('#cancel-reminder').on('click', function(event){
   //   $('.inactive').slideToggle('active');
   // });
+
+
+
 });
 
