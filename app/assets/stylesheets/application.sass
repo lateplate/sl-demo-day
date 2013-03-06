@@ -25,7 +25,7 @@ ul, ol, p
   @extend .zero-box
 
 li
-  display: inline-block // Same as having no list styles. We usually want lists for horizontal nav.
+  // display: inline-block // Same as having no list styles. We usually want lists for horizontal nav.
 
 h2
   +font-size-and-spacing(24)
@@ -42,6 +42,7 @@ nav
   +clearfix // Even in narrow view, elements are floated so a clear is needed
   width: 300px
   margin: 0 auto
+  padding-bottom: 20px
 
 figure
   height: 0
@@ -85,12 +86,14 @@ footer
   padding: 0
 
 .site-logo
-  height: 100px
+  width: 170px
+  margin: 0 auto
+  display: block
 
 .toolbar // Actions users can take globally - settings, sign out, new nag, etc.
-  margin: 5px 0
+  margin: 5px auto
   li
-    padding: 0 8px // Padding between items in the toolbar
+    text-align: center
 
 .filters
   li
