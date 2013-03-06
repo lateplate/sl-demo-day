@@ -12,14 +12,18 @@ body
   color: $main-color
 
 input[type="text"]
-  height: 50px
-  margin: 2px
-  width: 96%
-  padding-left: 5px
+  height: 40px
+  width: 97% // This accounts for 2px border around form fields
+  padding-left: 1%
   +font-size-and-spacing(20)
+  margin: 5px auto
 
 header
   margin-bottom: 10px
+  background: $title-bar-background
+  color: $title-bar-color
+  width: 100%
+  padding-bottom: 10px
 
 ul, ol
   list-style: none // We don't really use lists except for navigation, so we don't want any bullets or numbering usually
@@ -31,7 +35,7 @@ li
   display: inline-block // Same as having no list styles. We usually want lists for horizontal nav.
 
 h2
-  +font-size-and-spacing(24)
+  +font-size-and-spacing(20)
   margin: 0 0 10px 0 // Overrides higher margins from browser stylesheet
   color: $main-color
 
@@ -42,7 +46,6 @@ nav
   +clearfix // Even in narrow view, elements are floated so a clear is needed
   width: 300px
   margin: 0 auto
-  padding-bottom: 20px
 
 figure
   height: 0
@@ -81,19 +84,14 @@ footer
   margin: 0 5%
   padding-bottom: 100px // Padding required to pin and position the footer
 
-.title-bar
-  background: $title-bar-background
-  color: $title-bar-color
-  width: 100%
-  padding: 0
-
 .site-logo
-  width: 170px
-  margin: 0 auto
+  width: 120px
+  margin: 10px auto
   display: block
 
 .toolbar // Actions users can take globally - settings, sign out, new nag, etc.
   margin: 5px auto
+  +font-size-and-spacing(16)
   li
     display: block // Makes list go vertical instead of horizontal
     text-align: center
@@ -120,15 +118,17 @@ footer
 
 .btn
   +button($button-background)
-  font-size: +em(18)
+  font-size: +em(20)
+
+.nag-form
+  margin: 0 auto
+  width: 100%
+  text-align: center // Needed to center input fields
+  max-width: 900px // At a certain point we don't want the form to get any wider by %
 
 .nag-form-buttons // Positions the submit/cancel buttons on the form
-  margin: 5px auto
-
-.btn-new
-  +button($button-background)
-  font-size: +em(12) // In narrow view since it's in the toolbar, keep the button smaller
-  float: right
+  margin: 15px auto
+  width: 100%
 
 .nag // A row on the dashboard
   padding: 4% 0
@@ -137,7 +137,7 @@ footer
     border: none // clears the border on the last nag in the list so it doesn't run into footer
 
 .nag-details
-  margin-left: 40px
+  margin: 0 0 15px 40px
   a 
     text-decoration: none
     &:hover
@@ -180,10 +180,6 @@ footer
 
 .optional-message
   margin: 20px 0 10px 0
-
-.nag-form
-  margin: 0 auto
-  width: 100%
 
 .nag-actions
   +font-size-and-spacing(16)
