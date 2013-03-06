@@ -74,7 +74,7 @@ $(document).ready(function() {
   }
 
   $('.checkbox:not(.checked)').on('click', function(event){
-    // $(this).parent().slideUp('slow', 'linear');
+    $(this).parent().slideUp('slow', 'linear');
     $(this).toggleClass('checked');
   });
 
