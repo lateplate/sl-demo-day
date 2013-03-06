@@ -61,7 +61,7 @@ class NagsController < ApplicationController
   end
 
   def send_mail
-     @nags = current_user.nags
+    @nags = current_user.nags
 
     @nags.each do |nag|
       unless nag.sent? || !self.lendee_name.include?('@')

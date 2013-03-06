@@ -47,8 +47,8 @@ class Nag < ActiveRecord::Base
 	      client.send(jabber_message)
 	      client.close
     	end
-      sent = true
-      save
+      self.sent = true
+      self.save!
   end
 
 end
