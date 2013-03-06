@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def authorize_user
     @user = User.find_by_id(params[:id])
     if current_user.blank? || current_user != @user
-      redirect_to root_url
+      redirect_to login_url
     end
   end
 

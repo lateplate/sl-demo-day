@@ -1,6 +1,6 @@
 Sldemoday::Application.routes.draw do
 
-  root to: 'static_pages#index'
+  root to: 'users#show'
 
   # SENDING NAGS
   post '/email' => 'nags#send_mail', as: 'email_nags'
@@ -17,7 +17,7 @@ Sldemoday::Application.routes.draw do
   # MISCELLANEOUS
   get "/nags/borrower" => 'nags#borrower'
   get "/admin" => 'static_pages#admin'
-
+  get "/login" => 'sessions#new', as: 'login'
 
   # RESOURCES
   resources :users
