@@ -4,9 +4,11 @@ class NagsController < ApplicationController
 
   def authorize_user
     @nag= Nag.find_by_id(params[:id])
-    @user = User.find_by_id(@nag.user_id)
-    if current_user.blank? || current_user != @user
-      redirect_to root_url
+    unless @nag.blank?
+      @user = User.find_by_id(@nag.user_id)
+      if current_user.blank? || current_user != @user
+        redirect_to root_url
+      end
     end
   end
 
@@ -88,7 +90,7 @@ class NagsController < ApplicationController
   def remind
     @nag = Nag.find_by_id params[:id]
     @nag.send_fb_message(current_user.oauth_token)
-    redirect_to nag_url(@nag)
+    redirect_to nag_url(@nag), notice: "Nags sent"
   end
 
   def index
