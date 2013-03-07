@@ -149,6 +149,9 @@ textarea
   position: relative // Needed to make sure the footer can be positioned absolutely to the bottom
   min-height: 100% // Needed to make sure the footer can be positioned absolutely to the bottom
 
+.facebook-sign-in
+  width: 200px
+
 .filters
   margin: 0 auto
   li
@@ -188,6 +191,12 @@ textarea
     text-decoration: none
     &:hover
       text-decoration: underline
+
+.nag-completed // this one needs to stay below .nag-details to cascade the a:hover style
+  text-decoration: line-through
+  a
+    &:hover
+      text-decoration: none
 
 .nag-form
   margin: 0 auto
