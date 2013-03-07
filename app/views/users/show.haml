@@ -32,11 +32,6 @@
 				-else
 					.alert-box-high-priority
 						="Due in #{distance_of_time_in_words(Time.now, nag.due_date)}"
-		=form_for nag, html: {id: "nag-complete-form"} do |f|
-			-if nag.completed?
-				=f.hidden_field :completed, value: false
-			-else
-				=f.hidden_field :completed, value: true
 -else
 	.nag
 		%h2
@@ -45,8 +40,11 @@
 			If you've got more stuff out there, go ahead and
 			=link_to "add a new nag.", new_nag_url
 
-
-
+/ =form_for nag, html: {id: "nag-complete-form"} do |f|
+/ 	-if nag.completed?
+/ 		=f.hidden_field :completed, value: false
+/ 	-else
+/ 		=f.hidden_field :completed, value: true
 
 :javascript
 	function changeStatus() {
