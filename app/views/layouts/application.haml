@@ -10,24 +10,26 @@
     %meta{content: "width=device-width", name: "viewport"}
   %body
     .container
-      %header.title-bar
+      %header
         %nav
           =link_to image_tag("naglogo.png", class: "site-logo"), root_url
           -if current_user
             .toolbar
               %ul
                 %li
+                  =link_to "New Nag", new_nag_url
+                %li
                   =link_to 'Settings', edit_user_url(current_user)
                 %li
                   =link_to "Sign out", signout_url, id: "sign_out"
-                %li
-                  =link_to "+ New Nag", new_nag_url, class: "btn-new"
       %section.main
         =notice
         =yield
       %footer
         %section.utility-links
-          =link_to 'Admin Console', '/admin'
+          %a{href: "#"} About
+          %a{href: "#"} How it works
+          %a{href: "#"} Contact
     %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
     %script{src: "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"}
     %script{src: "//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js"}

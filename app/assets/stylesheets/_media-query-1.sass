@@ -1,6 +1,10 @@
 @media all and (min-width:600px)
-  nav
-    width: 100%
+
+  // ****************************************************************************
+  // ELEMENTS
+  // ****************************************************************************
+  header
+    margin-bottom: 20px
 
   h1
     +font-size-and_spacing(64)
@@ -10,40 +14,17 @@
     +font-size-and_spacing(32)
 
   input[type="text"]
-    height: 80px
+    height: 60px
     padding-left: 10px
-    +font-size-and_spacing(38)
-    margin-bottom: 10px
+    +font-size-and_spacing(28)
+    width: 92%
 
-  figure
-    height: 0
-    padding-bottom: 56.25%
-    position: relative
+  nav
     width: 100%
 
-  iframe
-    height: 100%
-    left: 0
-    position: absolute
-    top: 0
-    width: 100% 
-
-  .site-logo
-    float: left
-
-  .toolbar
-    float: right
-    padding: 20px 0
-
-  .btn
-    +font-size-and_spacing(32)
-
-  .btn-new
-    +font-size-and_spacing(14)
-
-  .nag 
-    +clearfix // Breaking into larger widths, we start to float elements so need to clear
-
+  // ****************************************************************************
+  // CLASSES
+  // ****************************************************************************
   .borrower-photo
     display: block // Unhides
     float: left 
@@ -53,26 +34,42 @@
       height: 100px
       +grayscale
 
-  .nag-details
-    float: left
-    margin-left: 0
-    width: 71%
+  .btn
+    +font-size-and_spacing(28)
+
+  .center-container
+    width: 96%
+    max-width: 570px
+    margin: 0 auto
+
+  .nag 
+    +clearfix // Breaking into larger widths, we start to float elements so need to clear
 
   .nag-actions
     +font-size-and-spacing(20)
     a 
       padding-right: 10px
 
-  .optional-message
-    margin: 20px 0 10px 0
+  .nag-details
+    float: left
+    margin-left: 0
+    width: 71%
 
-  .borrower-view
-    width: 90%
-    margin: 0 5% 0 5%
+  .site-logo
+    float: left
+    margin-left: 20px
 
-  .center-container
-    width: 570px
-    margin: 0 auto
+  .toolbar
+    float: right
+    padding: 20px 
+    +font-size-and-spacing(18)
+    li
+      display: inline-block // Goes back to horizontal instead of vertical
+      text-align: left
+      padding: 0 10px
 
+  // ****************************************************************************
+  // IDS
+  // ****************************************************************************
   #friend-list
     +font-size-and-spacing(38)

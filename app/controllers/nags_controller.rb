@@ -11,7 +11,6 @@ class NagsController < ApplicationController
     end
   end
 
-
   def new
     @nag = Nag.new
     if current_user

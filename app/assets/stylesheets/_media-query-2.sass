@@ -1,9 +1,25 @@
 @media all and (min-width:768px)
+
+  // ****************************************************************************
+  // ELEMENTS
+  // ****************************************************************************
   h2
-    +font-size-and_spacing(36)
+    +font-size-and_spacing(34)
+
+  input[type="text"]
+    height: 70px
+    +font-size-and_spacing(32)
+
+
+  // ****************************************************************************
+  // CLASSES
+  // ****************************************************************************
+  .btn
+    +font-size-and_spacing(32)
+
+  .center-container
+    width: 95%
+    max-width: 740px // Takes into account margin in the .main class
 
   .nag-details
     width: 77%
-
-  .center-container
-    width: 740px
