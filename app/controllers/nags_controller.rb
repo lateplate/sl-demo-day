@@ -1,5 +1,6 @@
 class NagsController < ApplicationController
 
+
   before_filter :authorize_user, except: [:send_nags, :send_mail, :remind, :new]
 
   def authorize_user
@@ -8,7 +9,6 @@ class NagsController < ApplicationController
       redirect_to root_url
     end
   end
-
 
   def new
     @nag = Nag.new
@@ -44,7 +44,7 @@ class NagsController < ApplicationController
     @nag.update_attributes params[:nag]
 
     if @nag.save
-      redirect_to root_url, notice: "nag updated!"
+      redirect_to nag_url(@nag), notice: "nag updated!"
     else
       render 'edit'
     end
@@ -58,6 +58,7 @@ class NagsController < ApplicationController
 
   def show
     @nag = Nag.find_by_id params[:id]
+    redirect_to(root_url) if @nag.blank?
   end
 
   def send_nags
@@ -87,10 +88,10 @@ class NagsController < ApplicationController
   def remind
     @nag = Nag.find_by_id params[:id]
     @nag.send_fb_message(current_user.oauth_token)
-    redirect_to nag_url(@nag), notice: "Nags sent"
+    redirect_to nag_url(@nag), notice: "Nag sent"
   end
 
   def index
-    redirect_to new_nag_url
+    redirect_to root_url
   end
 end

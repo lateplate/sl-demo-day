@@ -3,7 +3,7 @@
 		%li
 			=link_to "Open", root_url(:filter => 'outstanding'), class: "active-filter"
 		%li
-			=link_to "Completed", root_url(:filter => 'completed'), class: ""
+			=link_to "Completed", root_url(id: current_user.id, :filter => 'completed'), class: ""
 -unless @nags.blank?
 	-@nags.each do |nag|
 		.nag
@@ -15,14 +15,15 @@
 					=link_to "#{nag.lendee_name} owes you #{nag.item}", nag
 				-if nag.due_date + 1.second > Time.now + 1.week
 					.alert-box
-						="Due: #{nag.due_date}"
+						="Due: #{nag.due_date.strftime('%b %-d, %Y')}"
 				-else
 					.alert-box-high-priority
-						="Due: #{nag.due_date}"
+						="#{nag.due_date.to_time.strftime("Due in %u days!")}"
+
 -else
 	.nag
 		%h2
 			You've collected all your stuff. Congrats!
 		%p
-			If you've got more stuff out there, go ahead and 
+			If you've got more stuff out there, go ahead and
 			=link_to "add a new nag.", new_nag_url

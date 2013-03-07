@@ -12,7 +12,7 @@
     .container
       %header
         %nav
-          =link_to image_tag("naglogo.png", class: "site-logo"), root_url       
+          =link_to image_tag("naglogo.png", class: "site-logo"), root_url
           -if current_user
             .toolbar
               %ul
@@ -21,7 +21,7 @@
                 %li
                   =link_to 'Settings', edit_user_url(current_user)
                 %li
-                  =link_to "Sign out", signout_url, id: "sign_out"          
+                  =link_to "Sign out", signout_url, id: "sign_out"
       %section.main
         =notice
         =yield
