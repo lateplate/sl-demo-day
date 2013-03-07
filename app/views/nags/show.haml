@@ -1,11 +1,18 @@
 .center-container
   .nag
-    .checkbox
+    -if @nag.completed?
+      .checkbox.checked
+    - else
+      .checkbox 
     .borrower-photo
       =image_tag "https://graph.facebook.com/#{@nag.lendee_uid}/picture?width=100&height=100"
     .nag-details
-      %h2
-        ="#{@nag.lendee_name} owes you #{@nag.item}"
+      -if @nag.completed?
+        %h2.nag-completed
+          ="#{@nag.lendee_name} owes you #{@nag.item}"
+      -else
+        %h2
+          ="#{@nag.lendee_name} owes you #{@nag.item}"
       -if @nag.due_date + 1.second > Time.now + 1.week
         .alert-box
           ="Due: #{@nag.due_date.strftime('%b %-d, %Y')}"

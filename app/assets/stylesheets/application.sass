@@ -192,6 +192,12 @@ textarea
     &:hover
       text-decoration: underline
 
+.nag-completed // this one needs to stay below .nag-details to cascade the a:hover style
+  text-decoration: line-through
+  a
+    &:hover
+      text-decoration: none
+
 .nag-form
   margin: 0 auto
   width: 100%
