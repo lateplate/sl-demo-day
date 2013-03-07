@@ -6,7 +6,7 @@
       ="Due: #{@nag.due_date.strftime('%b %-d, %Y')}"
   -else
     .alert-box-high-priority
-      ="#{@nag.due_date.to_time.strftime("Due in %u days!")}"
+      ="Due in #{((((@nag.due_date.to_time - Time.now)/60)/60)/24).to_i} days"
   .nag-actions
     =form_for @nag, html: {id: "#nag-complete-form"} do |f|
       =link_to "Edit", edit_nag_url(@nag)

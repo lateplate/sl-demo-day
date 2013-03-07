@@ -13,12 +13,13 @@
 			.nag-details
 				%h2
 					=link_to "#{nag.lendee_name} owes you #{nag.item}", nag
-				-if nag.due_date + 1.second > Time.now + 1.week
+				-if nag.due_date.to_time > Time.now + 1.week
 					.alert-box
 						="Due: #{nag.due_date.strftime('%b %-d, %Y')}"
 				-else
 					.alert-box-high-priority
-						="#{nag.due_date.to_time.strftime("Due in %u days!")}"
+						="Due in #{((((nag.due_date.to_time - Time.now)/60)/60)/24).to_i} days"
+						/ ="#{nag.due_date.to_time.strftime("Due in %u days!")}"
 
 -else
 	.nag
