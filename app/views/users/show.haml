@@ -7,7 +7,7 @@
 -unless @nags.blank?
 	-@nags.each do |nag|
 		.nag
-			.checkbox
+			%a.checkbox{:href => "#"} 
 			.borrower-photo
 				=image_tag "https://graph.facebook.com/#{nag.lendee_uid}/picture?width=100&height=100"
 			.nag-details

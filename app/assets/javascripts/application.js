@@ -78,6 +78,15 @@ $(document).ready(function() {
     $(this).toggleClass('checked');
   });
 
+/* prepend menu icon */
+  $('#nav-wrap').append('<div id="menu-icon">Menu</div>');
+  
+  /* toggle nav */
+  $("#menu-icon").on("click", function(){
+    $("#nav").slideToggle();
+    $(this).toggleClass("active");
+  });
+
   // Opens/closes the preview email on detail.html
   $('#show-message-preview').on('click', function(event){
     $('.reminder-form').slideToggle();

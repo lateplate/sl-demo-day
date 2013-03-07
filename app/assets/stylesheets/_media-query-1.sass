@@ -5,6 +5,7 @@
   // ****************************************************************************
   header
     margin-bottom: 20px
+    height: 65px
 
   h1
     +font-size-and_spacing(64)
@@ -24,6 +25,8 @@
 
   nav
     width: 100%
+    display: inline
+    +clearfix
 
   textarea
     +font-size-and_spacing(18)
@@ -49,6 +52,9 @@
     max-width: 570px
     margin: 0 auto
 
+  #menu-icon
+    display: none
+
   .nag 
     +clearfix // Breaking into larger widths, we start to float elements so need to clear
 
@@ -62,9 +68,13 @@
     margin-left: 0
     width: 71%
 
+  #nav
+    display: block
+
   .site-logo
     float: left
     margin-left: 20px
+    width: 120px
 
   .toolbar
     float: right

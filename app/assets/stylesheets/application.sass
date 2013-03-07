@@ -8,6 +8,8 @@
 
 a
   color: $link-color
+  &.checkbox
+    text-decoration: none
 
 // html tag had to be height 100% for the footer to work
 body, html
@@ -38,6 +40,7 @@ header
   color: $title-bar-color
   width: 100%
   padding-bottom: 10px
+  height: 45px
 
 h2
   +font-size-and-spacing(20)
@@ -63,8 +66,10 @@ li
 
 nav
   +clearfix // Even in narrow view, elements are floated so a clear is needed
-  width: 300px
-  margin: 0 auto
+  // width: 300px
+  width: 105px
+  margin: 0
+  display: inline-block
 
 ol, ul
   list-style: none // We don't really use lists except for navigation, so we don't want any bullets or numbering usually
@@ -154,6 +159,16 @@ textarea
   margin: 0 5%
   padding-bottom: 100px // Padding required to pin and position the footer
 
+#menu-icon
+  color: #eaeaea
+  width: 42px
+  height: 30px
+  background: #000 url('menu-icon2.png') no-repeat 10px center
+  padding: 12px 10px 0 42px
+  cursor: pointer
+  display: block
+
+
 .nag // A row on the dashboard
   padding: 4% 0
   border-bottom: 1px solid $nag-border-color
@@ -196,8 +211,10 @@ textarea
     text-align: center
 
 .site-logo
-  width: 120px
-  margin: 10px auto
+  float: left
+  width: 85px
+  margin: 0
+  padding: 10px 0 0 10px
   display: block
 
 .text-highlight
@@ -250,6 +267,29 @@ textarea
     padding: 5px
   a
     padding: 5px
+
+@media all and (max-width:599px)
+  #nav
+    clear: both
+    position: absolute
+    top: 50px
+    width: 95px
+    z-index: 10000
+    padding: 5px
+    background: #000
+    // border: solid 1px #999
+    display: none
+    li
+      text-align: left
+      padding-left: 5px
+      a
+        text-decoration: none
+        color: #eaeaea
+      a:hover
+        color: $link-color
+
+  nav
+    float: right
 
 
 // ****************************************************************************
