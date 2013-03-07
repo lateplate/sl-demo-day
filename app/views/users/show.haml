@@ -7,7 +7,7 @@
 -unless @nags.blank?
 	-@nags.each do |nag|
 		.nag
-			%a.checkbox{:href => "#"} 
+			%a.checkbox{:href => "#"}
 			.borrower-photo
 				=image_tag "https://graph.facebook.com/#{nag.lendee_uid}/picture?width=100&height=100"
 			.nag-details
@@ -16,11 +16,15 @@
 				-if nag.due_date.to_time > Time.now + 1.week
 					.alert-box
 						="Due: #{nag.due_date.strftime('%b %-d, %Y')}"
+				-elsif nag.due_date == Time.now.to_date
+					.alert-box-high-priority
+						="Due Today"
+				-elsif nag.due_date < Time.now.to_date
+					.alert-box-high-priority
+						="Was due #{distance_of_time_in_words(Time.now, nag.due_date)} ago"
 				-else
 					.alert-box-high-priority
-						="Due in #{((((nag.due_date.to_time - Time.now)/60)/60)/24).to_i} days"
-						/ ="#{nag.due_date.to_time.strftime("Due in %u days!")}"
-
+						="Due in #{distance_of_time_in_words(Time.now, nag.due_date)}"
 -else
 	.nag
 		%h2

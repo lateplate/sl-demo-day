@@ -94,4 +94,6 @@ class NagsController < ApplicationController
   def index
     redirect_to root_url
   end
+  def borrower
+  end
 end

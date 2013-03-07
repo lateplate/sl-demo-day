@@ -9,9 +9,15 @@
       -if @nag.due_date + 1.second > Time.now + 1.week
         .alert-box
           ="Due: #{@nag.due_date.strftime('%b %-d, %Y')}"
+      -elsif @nag.due_date == Time.now.to_date
+        .alert-box-high-priority
+          ="Due Today"
+      -elsif @nag.due_date < Time.now.to_date
+        .alert-box-high-priority
+          ="Was due #{distance_of_time_in_words(Time.now, @nag.due_date)} ago"
       -else
         .alert-box-high-priority
-          ="Due in #{((((@nag.due_date.to_time - Time.now)/60)/60)/24).to_i} days"
+          ="Due in #{distance_of_time_in_words(Time.now,@nag.due_date)}"
   .nag-actions
     =form_for @nag, html: {id: "#nag-complete-form"} do |f|
       =link_to "Edit", edit_nag_url(@nag)
