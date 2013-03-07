@@ -3,7 +3,7 @@
     -if @nag.completed?
       .checkbox.checked
     - else
-      .checkbox 
+      .checkbox
     .borrower-photo
       =image_tag "https://graph.facebook.com/#{@nag.lendee_uid}/picture?width=100&height=100"
     .nag-details
@@ -21,10 +21,10 @@
           ="Due Today"
       -elsif @nag.due_date < Time.now.to_date
         .alert-box-high-priority
-          ="Was due #{distance_of_time_in_words(Time.now, @nag.due_date)} ago"
+          ="Was due #{distance_of_time_in_words(Time.now.to_date, @nag.due_date)} ago"
       -else
         .alert-box-high-priority
-          ="Due in #{distance_of_time_in_words(Time.now,@nag.due_date)}"
+          ="Due in #{distance_of_time_in_words(Time.now.to_date,@nag.due_date)}"
   .nag-actions
     =form_for @nag, html: {id: "#nag-complete-form"} do |f|
       =link_to "Edit", edit_nag_url(@nag)
