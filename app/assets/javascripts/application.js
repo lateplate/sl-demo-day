@@ -73,10 +73,12 @@ $(document).ready(function() {
     $("#lendee_uid").val("");
   }
 
-  $('.checkbox:not(.checked)').on('click', function(event){
-    $(this).parent().slideUp('slow', 'linear');
-    $(this).toggleClass('checked');
-  });
+  // Dan: temporarily commented out while I work on the submit through checkbox
+  // $('.checkbox:not(.checked)').on('click', function(event){
+  //   $(this).parent().slideUp('slow', 'linear');
+  //   $(this).toggleClass('checked');
+  // });
+
 
 /* prepend menu icon */
   $('#nav-wrap').append('<div id="menu-icon">Menu</div>');
