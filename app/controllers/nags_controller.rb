@@ -1,7 +1,7 @@
 class NagsController < ApplicationController
 
 
-  before_filter :authorize_user, except: [:send_nags, :send_mail, :remind, :new]
+  before_filter :authorize_user, except: [:send_nags, :send_mail, :remind, :new, :create]
 
   def authorize_user
     @nag=Nag.find_by_id(params[:id])
