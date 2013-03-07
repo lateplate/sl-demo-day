@@ -3,7 +3,7 @@
     ="#{@nag.lendee_name} owes you #{@nag.item}"
   -if @nag.due_date.to_time > Time.now + 1.week
     .alert-box
-      ="Due: #{@nag.due_date}"
+      ="Due: #{@nag.due_date.strftime('%b %-d, %Y')}"
   -else
     .alert-box-high-priority
       ="#{@nag.due_date.to_time.strftime("Due in %u days!")}"
