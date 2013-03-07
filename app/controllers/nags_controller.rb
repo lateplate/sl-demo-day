@@ -1,16 +1,17 @@
 class NagsController < ApplicationController
 
-  before_filter :authorize_user, except: [:send_nags, :send_mail, :remind]
+  # before_filter :authorize_user, except: [:send_nags, :send_mail, :remind]
 
-  def authorize_user
-    @nag= Nag.find_by_id(params[:id])
-    unless @nag.blank?
-      @user = User.find_by_id(@nag.user_id)
-      if current_user.blank? || current_user != @user
-        redirect_to root_url
-      end
-    end
-  end
+  # def authorize_user
+  #   @nag= Nag.find_by_id(params[:id])
+  #   unless @nag.blank?
+  #     @user = User.find_by_id(@nag.user_id)
+  #     if current_user.blank? || current_user != @user
+  #       redirect_to root_url
+  #     end
+  #   end
+  #   redirect_to root_url
+  # end
 
 
   def new
