@@ -72,6 +72,13 @@ ol, ul
 ol, p, ul
   @extend .zero-box
 
+textarea
+  width: 97%
+  height: 300px
+  font-style: italic
+  border: 2px solid $nag-border-color
+  padding: 5px
+  +font-size-and_spacing(14)
 
 // ****************************************************************************
 // CLASSES
@@ -157,7 +164,7 @@ ol, p, ul
   +font-size-and-spacing(16)
   padding-top: 15px
   a
-    padding-right: 10px
+    padding-right: 5px
 
 .nag-details
   margin: 0 0 15px 40px
@@ -178,6 +185,15 @@ ol, p, ul
 
 .optional-message
   margin: 20px 0 10px 0
+
+.reminder-buttons
+  margin: 10px auto
+
+.reminder-form
+  display: none
+  margin-top: 40px
+  form 
+    text-align: center
 
 .site-logo
   width: 120px
