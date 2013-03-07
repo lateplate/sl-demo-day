@@ -78,17 +78,13 @@ $(document).ready(function() {
     $(this).toggleClass('checked');
   });
 
-
   // Opens/closes the preview email on detail.html
-  // $('#send-reminder').on('click', function(event){
-  //   $('.inactive').slideToggle('active');
-  // });
+  $('#show-message-preview').on('click', function(event){
+    $('.reminder-form').slideToggle();
+  });
 
-  // $('#cancel-reminder').on('click', function(event){
-  //   $('.inactive').slideToggle('active');
-  // });
-
-
-
+  $('#cancel-reminder').on('click', function(event){
+    $('.reminder-form').slideToggle();
+  });
 });
 
