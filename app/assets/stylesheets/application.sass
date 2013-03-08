@@ -127,7 +127,7 @@ textarea
   height: 30px
   margin-right: 2%
   border-radius: 3px
-  background-color: #A9A9A9
+  background-color: $checkbox-background
   text-align: center
   cursor: pointer
 
@@ -139,11 +139,11 @@ textarea
   // text-shadow: 1px 1px 1px rgba(0,0,0,.4)
 
 .checkbox:hover:before, .checked:before
-  color: #fff
+  color: $checkbox-hover-color
   content: "✓"
 
 .checkbox:hover, .checked
-  background-color: #5da423
+  background-color: $checkbox-completed-background
 
 .container
   position: relative // Needed to make sure the footer can be positioned absolutely to the bottom
@@ -265,7 +265,7 @@ textarea
       background: yellow
 
 #menu-icon
-  color: #eaeaea
+  color: $menu-icon-color
   width: 42px
   height: 30px
   background: #000 url('menu-icon2.png') no-repeat 10px center
@@ -292,8 +292,7 @@ textarea
     width: 95px
     z-index: 10000
     padding: 5px
-    background: #000
-    // border: solid 1px #999
+    background: $title-bar-background
     display: none
     li
       text-align: left
@@ -303,6 +302,7 @@ textarea
         color: #eaeaea
       a:hover
         color: $link-color
+        text-decoration: underline
 
   nav
     float: right
