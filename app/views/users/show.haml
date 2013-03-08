@@ -13,17 +13,15 @@
 -unless @nags.blank?
 	-@nags.each do |nag|
 		.nag
-			-if nag.completed?
-				.checkbox.checked{onclick: "javascript:changeStatus();"}
-			-else
-				.checkbox{onclick: "javascript:changeStatus();"}
 			.borrower-photo
 				=image_tag "https://graph.facebook.com/#{nag.lendee_uid}/picture?width=100&height=100"
 			.nag-details
 				-if nag.completed?
+					.checkbox.checked{onclick: "javascript:changeStatus();"}
 					%h2.nag-completed
 						=link_to "#{nag.lendee_name} owes you #{nag.item}", nag
 				-else
+					.checkbox{onclick: "javascript:changeStatus();"}
 					%h2
 						=link_to "#{nag.lendee_name} owes you #{nag.item}", nag
 				-if nag.due_date.to_time > Time.now + 1.week

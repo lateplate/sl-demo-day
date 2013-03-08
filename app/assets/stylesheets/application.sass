@@ -99,6 +99,7 @@ textarea
   +border-radius(5px)
   text-align: center
   width: 150px
+  margin: 15px 0
 
 .alert-box-high-priority // Different color for due dates coming soon
   @extend .alert-box
@@ -126,13 +127,11 @@ textarea
   height: 30px
   margin-right: 2%
   border-radius: 3px
-  background-color: #eaeaea
+  background-color: #A9A9A9
   text-align: center
   cursor: pointer
 
 .checkbox:before 
-  content: "✓"
-  color: #ccc
   font-size: 20px
   line-height: 30px
   position: relative
@@ -141,6 +140,7 @@ textarea
 
 .checkbox:hover:before, .checked:before
   color: #fff
+  content: "✓"
 
 .checkbox:hover, .checked
   background-color: #5da423
@@ -166,16 +166,6 @@ textarea
   margin: 0 5%
   padding-bottom: 100px // Padding required to pin and position the footer
 
-#menu-icon
-  color: #eaeaea
-  width: 42px
-  height: 30px
-  background: #000 url('menu-icon2.png') no-repeat 10px center
-  padding: 12px 10px 0 42px
-  cursor: pointer
-  display: block
-
-
 .nag // A row on the dashboard
   padding: 4% 0
   border-bottom: 1px solid $nag-border-color
@@ -189,7 +179,7 @@ textarea
     padding-right: 5px
 
 .nag-details
-  margin: 0 0 15px 40px
+  margin: 0 0 15px 0px
   a 
     text-decoration: none
     &:hover
@@ -273,6 +263,15 @@ textarea
       background: yellow
     &:active
       background: yellow
+
+#menu-icon
+  color: #eaeaea
+  width: 42px
+  height: 30px
+  background: #000 url('menu-icon2.png') no-repeat 10px center
+  padding: 12px 10px 0 42px
+  cursor: pointer
+  display: block
 
 // Styling for jQuery date picker used on new/edit form
 #ui-datepicker-div
