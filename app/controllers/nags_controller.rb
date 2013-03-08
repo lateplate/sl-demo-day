@@ -88,10 +88,4 @@ class NagsController < ApplicationController
     @nag.send_fb_message(current_user.oauth_token)
     redirect_to nag_url(@nag), notice: "Nag sent"
   end
-
-  def index
-    redirect_to root_url
-  end
-  def borrower
-  end
 end

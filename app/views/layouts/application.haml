@@ -5,14 +5,14 @@
       Nag
     =stylesheet_link_tag "application", :media => "all"
     / %link{href: "/assets/application.css"}
-   
+
     =csrf_meta_tags
     %meta{charset: "UTF-8"}
     %meta{content: "width=device-width", name: "viewport"}
   %body
     .container
       %header
-        =link_to image_tag("naglogo.png", class: "site-logo"), root_url
+        =link_to image_tag("naglogo.png", class: "site-logo"), login_url
         %nav#nav-wrap
           -if current_user
             .toolbar

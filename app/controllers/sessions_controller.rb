@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
 
+  skip_before_filter :check_oauth_token, :only => [:new, :create]
+
   def new
-     if current_user
+     if current_user && Time.now < current_user.oauth_expires_at
       redirect_to user_url(current_user.id, filter: params[:filter], id: current_user.id)
     end
   end
