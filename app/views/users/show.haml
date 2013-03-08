@@ -17,11 +17,11 @@
 				=image_tag "https://graph.facebook.com/#{nag.lendee_uid}/picture?width=100&height=100"
 			.nag-details
 				-if nag.completed?
-					.checkbox.checked{onclick: "javascript:changeStatus();"}
+					.checkbox.checked{onclick: "javascript:changeStatus(#{nag.id.to_s});"}
 					%h2.nag-completed
 						=link_to "#{nag.lendee_name} owes you #{nag.item}", nag
 				-else
-					.checkbox{onclick: "javascript:changeStatus();"}
+					.checkbox{onclick: "javascript:changeStatus(#{nag.id.to_s});"}
 					%h2
 						=link_to "#{nag.lendee_name} owes you #{nag.item}", nag
 				-if nag.due_date.to_time > Time.now + 1.week
@@ -36,6 +36,11 @@
 				-else
 					.alert-box-high-priority
 						="Due in #{distance_of_time_in_words(Time.now.to_date, nag.due_date)}"
+			=form_for nag, html: {id: "nag-complete-form-" + nag.id.to_s} do |f|
+				-if nag.completed?
+					=f.hidden_field :completed, value: false
+				-else
+					=f.hidden_field :completed, value: true
 -else
 	.nag
 		%h2
@@ -44,14 +49,7 @@
 			If you've got more stuff out there, go ahead and
 			=link_to "add a new nag.", new_nag_url
 
-/ =form_for nag, html: {id: "nag-complete-form"} do |f|
-/ 	-if nag.completed?
-/ 		=f.hidden_field :completed, value: false
-/ 	-else
-/ 		=f.hidden_field :completed, value: true
-
 :javascript
-	function changeStatus() {
-		console.log('this is working');
-		document.forms['nag-complete-form'].submit();
+	function changeStatus(nagID) {
+		document.forms['nag-complete-form-'+nagID].submit();
 	}
