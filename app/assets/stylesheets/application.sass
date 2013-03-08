@@ -158,6 +158,9 @@ textarea
     padding: 0 5px
   a 
 
+.highlight
+  background: yellow
+
 .main // Contains the "body" of the page. Instead of applying to section elements, this is applied as %section.main
   width: 90%
   margin: 0 5%
@@ -266,6 +269,10 @@ textarea
   li
     padding-left: 10px
     display: block // override our general li styles to actually be in a vertical list
+    &:hover
+      background: yellow
+    &:active
+      background: yellow
 
 // Styling for jQuery date picker used on new/edit form
 #ui-datepicker-div
