@@ -24,7 +24,7 @@ class NagsController < ApplicationController
     @nag = Nag.new params[:nag]
     if @nag.save
       flash[:notice] = "Nag created"
-      redirect_to user_url(current_user), notice: "Nag created!"
+      redirect_to user_url(current_user), notice: "Nag created"
     else
       render 'new'
     end
@@ -43,7 +43,7 @@ class NagsController < ApplicationController
     @nag.update_attributes params[:nag]
 
     if @nag.save
-      redirect_to nag_url(@nag), notice: "nag updated!"
+      redirect_to nag_url(@nag), notice: "Nag updated"
     else
       render 'edit'
     end
@@ -52,7 +52,7 @@ class NagsController < ApplicationController
   def destroy
     @nag = Nag.find_by_id params[:id]
     @nag.destroy
-    redirect_to user_url(current_user), notice: "nag destroyed!"
+    redirect_to user_url(current_user), notice: "Nag removed"
   end
 
   def show
@@ -67,7 +67,7 @@ class NagsController < ApplicationController
         nag.send_fb_message(current_user.oauth_token)
       end
     end
-    redirect_to user_url(current_user.id), notice: 'nags sent'
+    redirect_to user_url(current_user.id), notice: 'Nags sent'
   end
 
   def send_mail
@@ -80,7 +80,7 @@ class NagsController < ApplicationController
         nag.save
       end
     end
-        redirect_to user_url(current_user), notice: "Nag emails sent!"
+        redirect_to user_url(current_user), notice: "Nag emails sent"
   end
 
   def remind

@@ -92,6 +92,13 @@ textarea
 .active-filter // not in place yet, but will be added
   color: $active-filter-color // temp color for testing
 
+.alert // confirmation messages that the rails apps throws into =notice
+  +font-size-and-spacing(20)
+  margin: 10px 0
+  border: 2px solid $alert-border-color
+  padding: 10px
+  +border-radius(5px)
+
 .alert-box // Used for due dates mostly
   background-color: $alert-background
   color: $alert-color

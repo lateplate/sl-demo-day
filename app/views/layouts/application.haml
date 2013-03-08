@@ -24,7 +24,9 @@
                 %li
                   =link_to "Sign out", signout_url, id: "sign_out", method: 'delete'
       %section.main
-        =notice
+        -if notice
+          .alert
+            =notice
         =yield
       %footer
         %section.utility-links
