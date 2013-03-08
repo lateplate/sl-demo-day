@@ -14,4 +14,7 @@
   =f.text_field :lendee_uid, id: "lendee_uid", placeholder: "Lendee UID (this will be hidden in production)"
   .nag-form-buttons
     =f.submit "Submit", :disable_with => "Submitting...", class: "btn"
-    =link_to "Cancel", user_url(current_user), class: "btn"
+    -if @nag.new_record?
+      =link_to "Cancel", user_url(current_user), class: "btn"
+    -else
+      =link_to "Cancel", nag_url(@nag), class: "btn"
