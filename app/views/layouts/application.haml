@@ -32,9 +32,7 @@
           %a{href: "#"} About
           %a{href: "#"} How it works
           %a{href: "#"} Contact
-    / DO NOT ADD RAILS VERSIONS OF JS FILES IN HERE. WE WILL MINIFY INTO ONE FILE EVENTUALLY. WE WANT TO HIT THE GOOGLE CDNS, NOT LOCAL FILES
-    %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+    / Order of the script files matters. Should stay in the body tag but at the bottom of the page for performance and to prevent blocking scenarios.
+    =javascript_include_tag "application"
     %script{src: "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"}
     %script{src: "//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js"}
-    =javascript_include_tag "application"
-    =javascript_include_tag "defaults"

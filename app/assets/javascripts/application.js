@@ -1,5 +1,3 @@
-// DO NOT ADD RAILS VERSIONS OF JS FILES IN HERE. WE WILL MINIFY INTO ONE FILE EVENTUALLY. WE WANT TO HIT THE GOOGLE CDNS, NOT LOCAL FILES
-// rails needs these files.... rails does certain things under the hood with these javascript files to help us. They let us submit and receive form data in a nice way and they allow us to submit DELETE and PUT http requests for RESTful routing purposes. Any link that uses a DELETE verb on our site will not process correctly without these.
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
