@@ -1,9 +1,15 @@
 .subnav
 	%ul.filters
-		%li
-			=link_to "Open", root_url(:filter => 'outstanding'), class: "active-filter"
-		%li
-			=link_to "Completed", root_url(id: current_user.id, :filter => 'completed'), class: ""
+		-unless params[:filter] == 'completed'
+			%li
+				=link_to "Open", user_url(:filter => 'outstanding'), class: "active-filter"
+			%li
+				=link_to "Completed", user_url(id: current_user.id, :filter => 'completed')
+		-else
+			%li
+				=link_to "Open", user_url(id: current_user.id, :filter => 'outstanding')
+			%li
+				=link_to "Completed", user_url(id: current_user.id, :filter => 'completed'), class: "active-filter"
 -unless @nags.blank?
 	-@nags.each do |nag|
 		.nag

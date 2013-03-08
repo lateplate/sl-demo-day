@@ -6,7 +6,7 @@ class NagsController < ApplicationController
   def authorize_user
     @nag=Nag.find_by_id(params[:id])
     if @nag.blank? || @nag.user_id != session[:user_id]
-      redirect_to root_url
+      redirect_to login_url
     end
   end
 
@@ -24,7 +24,8 @@ class NagsController < ApplicationController
   def create
     @nag = Nag.new params[:nag]
     if @nag.save
-      redirect_to root_url, notice: "Nag created!"
+      flash[:notice] = "Nag created"
+      redirect_to user_url(current_user), notice: "Nag created!"
     else
       render 'new'
     end
@@ -53,12 +54,11 @@ class NagsController < ApplicationController
   def destroy
     @nag = Nag.find_by_id params[:id]
     @nag.destroy
-    redirect_to root_url, notice: "nag destroyed!"
+    redirect_to user_url(current_user), notice: "nag destroyed!"
   end
 
   def show
     @nag = Nag.find_by_id params[:id]
-    redirect_to(root_url) if @nag.blank?
   end
 
   def send_nags
@@ -82,7 +82,7 @@ class NagsController < ApplicationController
         nag.save
       end
     end
-        redirect_to root_url
+        redirect_to user_url(current_user), notice: "Nag emails sent!"
   end
 
   def remind
