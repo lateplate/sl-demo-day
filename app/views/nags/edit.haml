@@ -1,26 +1,4 @@
 .center-container
   =render 'form'
-  / =@friends_with_id.to_json
 :javascript
-  var fbFriendData = [
-    {
-      "name": "Ankur Patel",
-      "id": "1936835"
-    },
-    {
-      "name": "Arif Poonawala",
-      "id": "1905134"
-    },
-    {
-      "name": "Dan Kim",
-      "id": "1080574448"
-    },
-    {
-      "name": "Will Piers",
-      "id": "1175798581"
-    },
-    {
-      "name": "Karen Wei",
-      "id": "22015966"
-    }
-  ];
+  var fbFriendData = #{@friends_with_id.to_json};

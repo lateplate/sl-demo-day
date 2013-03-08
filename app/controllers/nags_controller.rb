@@ -15,8 +15,7 @@ class NagsController < ApplicationController
     if current_user
       @graph = Koala::Facebook::API.new(current_user.oauth_token)
       @fb_friends = @graph.get_connections("me", "friends")
-
-      @friends = @fb_friends.map { |friend| "#{friend['name']}"}
+      @fb_friends.sort_by! { |hash| hash['name'] }
       @friends_with_id = @fb_friends.map { |friend| {name: friend['name'], id: friend['id']}}
     end
   end
@@ -33,11 +32,10 @@ class NagsController < ApplicationController
 
   def edit
     @nag = Nag.find_by_id params[:id]
-    if current_user
-      @graph = Koala::Facebook::API.new(current_user.oauth_token)
-      @fb_friends = @graph.get_connections("me", "friends")
-      @friends_with_id = @fb_friends.map { |friend| {name: friend['name'], id: friend['id']}}.to_json
-    end
+    @graph = Koala::Facebook::API.new(current_user.oauth_token)
+    @fb_friends = @graph.get_connections("me", "friends")
+    @fb_friends.sort_by! { |hash| hash['name'] }
+    @friends_with_id = @fb_friends.map { |friend| {name: friend['name'], id: friend['id']}}.to_json
   end
 
   def update
