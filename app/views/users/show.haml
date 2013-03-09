@@ -1,53 +1,54 @@
-.subnav
-	%ul.filters
-		-unless params[:filter] == 'completed'
-			%li
-				=link_to "Open", user_url(:filter => 'outstanding'), class: "active-filter"
-			%li
-				=link_to "Completed", user_url(id: current_user.id, :filter => 'completed')
-		-else
-			%li
-				=link_to "Open", user_url(id: current_user.id, :filter => 'outstanding')
-			%li
-				=link_to "Completed", user_url(id: current_user.id, :filter => 'completed'), class: "active-filter"
--unless @nags.blank?
-	-@nags.each do |nag|
+.center-container
+	.subnav
+		%ul.filters
+			-unless params[:filter] == 'completed'
+				%li
+					=link_to "Open", user_url(:filter => 'outstanding'), class: "active-filter"
+				%li
+					=link_to "Completed", user_url(id: current_user.id, :filter => 'completed')
+			-else
+				%li
+					=link_to "Open", user_url(id: current_user.id, :filter => 'outstanding')
+				%li
+					=link_to "Completed", user_url(id: current_user.id, :filter => 'completed'), class: "active-filter"
+	-unless @nags.blank?
+		-@nags.each do |nag|
+			.nag
+				.borrower-photo
+					=image_tag "https://graph.facebook.com/#{nag.lendee_uid}/picture?width=100&height=100"
+				.nag-details
+					-if nag.completed?
+						.checkbox.checked{onclick: "javascript:changeStatus(#{nag.id.to_s});"}
+						%h2.nag-completed
+							=link_to "#{nag.lendee_name} owes you #{nag.item}", nag
+					-else
+						.checkbox{onclick: "javascript:changeStatus(#{nag.id.to_s});"}
+						%h2
+							=link_to "#{nag.lendee_name} owes you #{nag.item}", nag
+					-if nag.due_date.to_time > Time.now + 1.week
+						.alert-box
+							="Due: #{nag.due_date.strftime('%b %-d, %Y')}"
+					-elsif nag.due_date == Time.now.to_date
+						.alert-box-high-priority
+							="Due Today"
+					-elsif nag.due_date < Time.now.to_date
+						.alert-box-high-priority
+							="Was due #{distance_of_time_in_words(Time.now.to_date, nag.due_date)} ago"
+					-else
+						.alert-box-high-priority
+							="Due in #{distance_of_time_in_words(Time.now.to_date, nag.due_date)}"
+				=form_for nag, html: {id: "nag-complete-form-" + nag.id.to_s} do |f|
+					-if nag.completed?
+						=f.hidden_field :completed, value: false
+					-else
+						=f.hidden_field :completed, value: true
+	-else
 		.nag
-			.borrower-photo
-				=image_tag "https://graph.facebook.com/#{nag.lendee_uid}/picture?width=100&height=100"
-			.nag-details
-				-if nag.completed?
-					.checkbox.checked{onclick: "javascript:changeStatus(#{nag.id.to_s});"}
-					%h2.nag-completed
-						=link_to "#{nag.lendee_name} owes you #{nag.item}", nag
-				-else
-					.checkbox{onclick: "javascript:changeStatus(#{nag.id.to_s});"}
-					%h2
-						=link_to "#{nag.lendee_name} owes you #{nag.item}", nag
-				-if nag.due_date.to_time > Time.now + 1.week
-					.alert-box
-						="Due: #{nag.due_date.strftime('%b %-d, %Y')}"
-				-elsif nag.due_date == Time.now.to_date
-					.alert-box-high-priority
-						="Due Today"
-				-elsif nag.due_date < Time.now.to_date
-					.alert-box-high-priority
-						="Was due #{distance_of_time_in_words(Time.now.to_date, nag.due_date)} ago"
-				-else
-					.alert-box-high-priority
-						="Due in #{distance_of_time_in_words(Time.now.to_date, nag.due_date)}"
-			=form_for nag, html: {id: "nag-complete-form-" + nag.id.to_s} do |f|
-				-if nag.completed?
-					=f.hidden_field :completed, value: false
-				-else
-					=f.hidden_field :completed, value: true
--else
-	.nag
-		%h2
-			You've collected all your stuff. Congrats!
-		%p
-			If you've got more stuff out there, go ahead and
-			=link_to "add a new nag.", new_nag_url
+			%h2
+				You've collected all your stuff. Congrats!
+			%p
+				If you've got more stuff out there, go ahead and
+				=link_to "add a new nag.", new_nag_url
 
 :javascript
 	function changeStatus(nagID) {
