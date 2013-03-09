@@ -7,3 +7,4 @@ db/*.sqlite3
 public/system/**/*
 db/*.sqlite3
 .sass-cache/
+#/config/application.yml

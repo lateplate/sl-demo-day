@@ -46,6 +46,8 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.6)
       multipart-post (~> 1.1)
+    figaro (0.6.2)
+      rails (>= 3, < 5)
     haml (4.0.0)
       tilt
     haml-rails (0.4)
@@ -146,6 +148,7 @@ PLATFORMS
 DEPENDENCIES
   bourbon (~> 3.1.1)
   coffee-rails (~> 3.2.1)
+  figaro
   haml-rails
   jquery-rails
   koala
