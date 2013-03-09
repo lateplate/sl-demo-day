@@ -42,8 +42,15 @@ class NagsController < ApplicationController
     @nag = Nag.find_by_id params[:id]
     @nag.update_attributes params[:nag]
 
+    if params[:completed] == 'true'
+      @nag.completed = true
+    end
+
     if @nag.save
-      redirect_to nag_url(@nag), notice: "Nag updated"
+        respond_to do |f|
+          f.html { redirect_to nag_url(@nag), notice: "Nag updated" }
+          f.js
+        end
     else
       render 'edit'
     end

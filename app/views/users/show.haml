@@ -12,7 +12,8 @@
 				=link_to "Completed", user_url(id: current_user.id, :filter => 'completed'), class: "active-filter"
 -unless @nags.blank?
 	-@nags.each do |nag|
-		.nag
+		.nag{id: "nag_#{nag.id}"}
+			=link_to "Mark as Complete", nag_url(nag, completed: 'true'), method: :put, remote: true
 			.borrower-photo
 				=image_tag "https://graph.facebook.com/#{nag.lendee_uid}/picture?width=100&height=100"
 			.nag-details
