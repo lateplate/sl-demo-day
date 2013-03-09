@@ -50,8 +50,8 @@ class Nag < ActiveRecord::Base
           #  'd8e0bf02966a46740a7674d947d3d8e7'), nil)
 
           #heroku settings
-          '521194684598530', token,
-           'a58fbed7c39dc194038dab093c81e7ae'), nil)
+          '224676817673489', token,
+           'dee566d81462e87246a361ef7be382a3'), nil)
 	      client.send(jabber_message)
 	      client.close
     	end
