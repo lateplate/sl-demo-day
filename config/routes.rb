@@ -5,7 +5,7 @@ Sldemoday::Application.routes.draw do
   # SENDING NAGS
   post '/email' => 'nags#send_mail', as: 'email_nags'
   get 'send_nags', to: 'nags#send_nags', as: 'send_nags'
-  put "nags/:id/send" => 'nags#remind', as: 'send_nag'
+  post "nags/:id/send" => 'nags#remind', as: 'send_nag'
 
 
   # SIGNIN AND AUTHENTICATION
