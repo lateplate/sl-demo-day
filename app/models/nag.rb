@@ -42,8 +42,16 @@ class Nag < ActiveRecord::Base
 	      client = Jabber::Client.new(Jabber::JID.new(sender_chat_id))
 	      client.connect
 	      client.auth_sasl(Jabber::SASL::XFacebookPlatform.new(client,
-	         '521194684598530', token,
-	         'a58fbed7c39dc194038dab093c81e7ae'), nil)
+	         # '521194684598530', token,
+	         # 'a58fbed7c39dc194038dab093c81e7ae'), nil)
+          
+          # dan localhost settings
+          # '436592866423465', token,
+          #  'd8e0bf02966a46740a7674d947d3d8e7'), nil)
+
+          #heroku settings
+          '521194684598530', token,
+           'a58fbed7c39dc194038dab093c81e7ae'), nil)
 	      client.send(jabber_message)
 	      client.close
     	end
