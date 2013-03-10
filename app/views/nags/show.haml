@@ -1,17 +1,17 @@
 .center-container
-  .nag
+  .nag{id: "nag_detail_#{@nag.id}"}
     .borrower-photo
       =image_tag "https://graph.facebook.com/#{@nag.lendee_uid}/picture?width=100&height=100"
     .nag-details
       -if @nag.completed?
-        .checkbox.checked{onclick: "javascript:changeStatus();"}
+        =link_to "", nag_url(@nag, completed: 'false'), method: :put, remote: true, class: "checkbox checked"
         %h2.nag-completed
           ="#{@nag.lendee_name} owes you #{@nag.item}"
       -else
-        .checkbox{onclick: "javascript:changeStatus();"}
+        =link_to "", nag_url(@nag, completed: 'true'), method: :put, remote: true, class: 'checkbox'
         %h2
           ="#{@nag.lendee_name} owes you #{@nag.item}"
-        =render "due_date_partial", nag: @nag
+      =render "due_date_partial", nag: @nag
   .nag-actions
     =link_to "Edit", edit_nag_url(@nag)
     =link_to "Delete", nag_url(@nag), method: "delete", confirm: "Are you sure you want to delete this nag?"

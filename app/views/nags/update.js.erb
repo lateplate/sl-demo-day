@@ -1,3 +1,9 @@
+// Dashboard does strikethrough and slide up to hide
 $('#nag_<%= @nag.id %> a.checkbox').toggleClass('checked');
-$('#nag_<%= @nag.id %>').fadeTo(500, .0).slideUp(500).dequeue();
+$('#nag_<%= @nag.id %>').fadeTo(700, .0).slideUp(700).dequeue();
+$('#nag_<%= @nag.id %> h2').toggleClass('nag-completed');
 // $('#nag_<%= @nag.id %>').box2d({'y-velocity':10});
+
+// Detail page doesn't slide up, just strikethrough
+$('#nag_detail_<%= @nag.id %> a.checkbox').toggleClass('checked');
+$('#nag_detail_<%= @nag.id %> h2').toggleClass('nag-completed');
