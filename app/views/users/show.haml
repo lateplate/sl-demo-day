@@ -25,23 +25,7 @@
 						=link_to "", nag_url(nag, completed: 'true'), method: :put, remote: true, class: 'checkbox'
 						%h2
 							=link_to "#{nag.lendee_name} owes you #{nag.item}", nag
-					-if nag.due_date.to_time > Time.now + 1.week
-						.alert-box
-							="Due: #{nag.due_date.strftime('%b %-d, %Y')}"
-					-elsif nag.due_date == Time.now.to_date
-						.alert-box-high-priority
-							="Due Today"
-					-elsif nag.due_date < Time.now.to_date
-						.alert-box-high-priority
-							="Was due #{distance_of_time_in_words(Time.now.to_date, nag.due_date)} ago"
-					-else
-						.alert-box-high-priority
-							="Due in #{distance_of_time_in_words(Time.now.to_date, nag.due_date)}"
-				=form_for nag, html: {id: "nag-complete-form-" + nag.id.to_s} do |f|
-					-if nag.completed?
-						=f.hidden_field :completed, value: false
-					-else
-						=f.hidden_field :completed, value: true
+					=render "due_date_partial", nag: nag
 	-else
 		.nag
 			%h2
@@ -49,8 +33,3 @@
 			%p
 				If you've got more stuff out there, go ahead and
 				=link_to "add a new nag.", new_nag_url
-
-:javascript
-	function changeStatus(nagID) {
-		document.forms['nag-complete-form-'+nagID].submit();
-	}

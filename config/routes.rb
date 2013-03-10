@@ -10,7 +10,7 @@ Sldemoday::Application.routes.draw do
 
   # SIGNIN AND AUTHENTICATION
   match 'auth/:provider/callback', to: 'sessions#create'
-  match 'auth/failure', to: redirect('/')
+  match 'auth/failure', to: redirect('/login')
   delete 'signout', to: 'sessions#destroy', as: 'signout'
   get 'kill', to: 'sessions#destroy', as: 'kill' #convenience get for testing (dk)
 

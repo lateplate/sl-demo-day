@@ -11,29 +11,11 @@
         .checkbox{onclick: "javascript:changeStatus();"}
         %h2
           ="#{@nag.lendee_name} owes you #{@nag.item}"
-      -if @nag.due_date + 1.second > Time.now + 1.week
-        .alert-box
-          ="Due: #{@nag.due_date.strftime('%b %-d, %Y')}"
-      -elsif @nag.due_date == Time.now.to_date
-        .alert-box-high-priority
-          ="Due Today"
-      -elsif @nag.due_date < Time.now.to_date
-        .alert-box-high-priority
-          ="Was due #{distance_of_time_in_words(Time.now.to_date, @nag.due_date)} ago"
-      -else
-        .alert-box-high-priority
-          ="Due in #{distance_of_time_in_words(Time.now.to_date,@nag.due_date)}"
+        =render "due_date_partial", nag: @nag
   .nag-actions
-    =form_for @nag, html: {id: "nag-complete-form"} do |f|
-      =link_to "Edit", edit_nag_url(@nag)
-      =link_to "Delete", nag_url(@nag), method: "delete", confirm: "Are you sure you want to delete this nag?"
-      %a#show-message-preview{href: "#"}Send a reminder
-      -if @nag.completed?
-        =f.submit "Re-open", :disable_with => 'Re-opening...', class: "button-to-link"
-        =f.hidden_field :completed, value: false
-      -else
-        =f.submit "Mark as complete", :disable_with => 'Completing...', class: "button-to-link"
-        =f.hidden_field :completed, value: true
+    =link_to "Edit", edit_nag_url(@nag)
+    =link_to "Delete", nag_url(@nag), method: "delete", confirm: "Are you sure you want to delete this nag?"
+    %a#show-message-preview{href: "#"}Send a reminder
   .reminder-form
     %h3
       Deadbeat friend? Let us help. We'll send them the following private Facebook message from you.
@@ -42,7 +24,6 @@
         .reminder-buttons
           =submit_tag "Send", disable_with: "Sending...", class: 'submit btn'
           =link_to "Cancel", '#', class: 'button btn', id: "concel-reminder"
-
 
 :javascript
   function changeStatus() {
