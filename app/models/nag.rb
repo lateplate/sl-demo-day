@@ -42,8 +42,8 @@ class Nag < ActiveRecord::Base
 	      client = Jabber::Client.new(Jabber::JID.new(sender_chat_id))
 	      client.connect
 	      client.auth_sasl(Jabber::SASL::XFacebookPlatform.new(client,
-	         '521194684598530', token,
-	         'a58fbed7c39dc194038dab093c81e7ae'), nil)
+          ENV["FACEBOOK_APP_ID"], token,
+           ENV["FACEBOOK_SECRET_KEY"]), nil)
 	      client.send(jabber_message)
 	      client.close
     	end
