@@ -14,16 +14,15 @@
 	-unless @nags.blank?
 		-@nags.each do |nag|
 			.nag{id: "nag_#{nag.id}"}
-				=link_to "Mark as Complete", nag_url(nag, completed: 'true'), method: :put, remote: true
 				.borrower-photo
 					=image_tag "https://graph.facebook.com/#{nag.lendee_uid}/picture?width=100&height=100"
 				.nag-details
 					-if nag.completed?
-						.checkbox.checked{onclick: "javascript:changeStatus(#{nag.id.to_s});"}
+						=link_to "", nag_url(nag, completed: 'false'), method: :put, remote: true, class: "checkbox checked"
 						%h2.nag-completed
 							=link_to "#{nag.lendee_name} owes you #{nag.item}", nag
 					-else
-						.checkbox{onclick: "javascript:changeStatus(#{nag.id.to_s});"}
+						=link_to "", nag_url(nag, completed: 'true'), method: :put, remote: true, class: 'checkbox'
 						%h2
 							=link_to "#{nag.lendee_name} owes you #{nag.item}", nag
 					-if nag.due_date.to_time > Time.now + 1.week

@@ -42,9 +42,8 @@ class NagsController < ApplicationController
     @nag = Nag.find_by_id params[:id]
     @nag.update_attributes params[:nag]
 
-    if params[:completed] == 'true'
-      @nag.completed = true
-    end
+    @nag.completed = true if params[:completed] == 'true'
+    @nag.completed = false if params[:completed] == 'false'
 
     if @nag.save
         respond_to do |f|

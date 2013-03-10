@@ -1,2 +1,3 @@
-// $('#nag_<%= @nag.id %>').slideUp();
-$('#nag_<%= @nag.id %>').box2d({'y-velocity':10});
+$('#nag_<%= @nag.id %> a.checkbox').toggleClass('checked');
+$('#nag_<%= @nag.id %>').fadeTo(500, .0).slideUp(500).dequeue();
+// $('#nag_<%= @nag.id %>').box2d({'y-velocity':10});
