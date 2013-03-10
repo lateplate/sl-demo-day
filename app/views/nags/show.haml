@@ -19,11 +19,11 @@
   .reminder-form
     %h3
       Deadbeat friend? Let us help. We'll send them the following private Facebook message from you.
-      =form_tag send_nag_url(@nag.id) do
-        =text_area_tag :message, "Hi #{@nag.lendee_name.split(" ").first}! I'm using a new app called Nag to help me keep track of my stuff. I was hoping I could get that stuff you owe me back. Otherwise, we can no longer be friends. There's some more detail at the link below, and maybe even a funny cat video to pass the time. http://localhost:3000/nag/xyzxyzxyz123 Love ya, #{@nag.user.name}"
-        .reminder-buttons
-          =submit_tag "Send", disable_with: "Sending...", class: 'submit btn'
-          =link_to "Cancel", '#', class: 'button btn', id: "concel-reminder"
+    =form_tag send_nag_url(@nag.id) do
+      =text_area_tag :message, "Hi #{@nag.lendee_name.split(" ").first}!\n\nI'm using a new app called Nag to keep track of stuff I've loaned out. Any chance you could get me this stuff back?\n\n* #{@nag.item}\n\nIn return I'm sending you this awesome video of Maru the Cat as a thank you. There's more where that came from.\n\nhttp://www.youtube.com/watch?v=8uDuls5TyNE\n\nLove ya,\n\n #{@nag.user.name.split(" ").first}"
+      .reminder-buttons
+      =submit_tag "Send", disable_with: "Sending...", class: 'submit btn'
+      =link_to "Cancel", '#', class: 'button btn', id: "concel-reminder"
 
 :javascript
   function changeStatus() {
