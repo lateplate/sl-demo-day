@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :check_oauth_token
 
   def check_oauth_token
-  		user = User.find session[:user_id] if session[:user_id]
-  		if user.blank? || Time.now > user.oauth_expires_at
+      unless current_user.present? && current_user.has_valid_token?
   			redirect_to login_url
   		end
   end

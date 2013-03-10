@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   validates_presence_of :provider
   validates_presence_of :uid
 
+  	def has_valid_token?
+  		return Time.now < self.oauth_expires_at
+  	end
+
 	def self.from_omniauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
 	    user.provider = auth.provider

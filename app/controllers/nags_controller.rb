@@ -1,25 +1,24 @@
 class NagsController < ApplicationController
 
 
+  before_filter :get_nag, only: [:edit, :update, :destroy, :show, :remind, :authorize_user]
   before_filter :authorize_user, except: [:send_nags, :send_mail, :remind, :new, :create]
 
+  def get_nag
+    @nag = Nag.find(params[:id])
+  end
   def authorize_user
-    @nag=Nag.find_by_id(params[:id])
     if @nag.blank? || @nag.user_id != session[:user_id]
       redirect_to login_url
     end
   end
-
   def new
     @nag = Nag.new
-    if current_user
-      @graph = Koala::Facebook::API.new(current_user.oauth_token)
-      @fb_friends = @graph.get_connections("me", "friends")
-      @fb_friends.sort_by! { |hash| hash['name'] }
-      @friends_with_id = @fb_friends.map { |friend| {name: friend['name'], id: friend['id']}}
-    end
+    @graph = Koala::Facebook::API.new(current_user.oauth_token)
+    @fb_friends = @graph.get_connections("me", "friends")
+    @fb_friends.sort_by! { |hash| hash['name'] }
+    @friends_with_id = @fb_friends.map { |friend| {name: friend['name'], id: friend['id']}}
   end
-
   def create
     @nag = Nag.new params[:nag]
     if @nag.save
@@ -29,22 +28,16 @@ class NagsController < ApplicationController
       render 'new'
     end
   end
-
   def edit
-    @nag = Nag.find_by_id params[:id]
     @graph = Koala::Facebook::API.new(current_user.oauth_token)
     @fb_friends = @graph.get_connections("me", "friends")
     @fb_friends.sort_by! { |hash| hash['name'] }
     @friends_with_id = @fb_friends.map { |friend| {name: friend['name'], id: friend['id']}}.to_json
   end
-
   def update
-    @nag = Nag.find_by_id params[:id]
     @nag.update_attributes params[:nag]
-
     @nag.completed = true if params[:completed] == 'true'
     @nag.completed = false if params[:completed] == 'false'
-
     if @nag.save
         respond_to do |f|
           f.html { redirect_to nag_url(@nag), notice: "Nag updated" }
@@ -54,20 +47,14 @@ class NagsController < ApplicationController
       render 'edit'
     end
   end
-
   def destroy
-    @nag = Nag.find_by_id params[:id]
     @nag.destroy
     redirect_to user_url(current_user), notice: "Nag removed"
   end
-
   def show
-    @nag = Nag.find_by_id params[:id]
   end
-
   def send_nags
     @nags = current_user.nags
-
     @nags.each do |nag|
       unless nag.sent?
         nag.send_fb_message(current_user.oauth_token)
@@ -75,10 +62,8 @@ class NagsController < ApplicationController
     end
     redirect_to user_url(current_user.id), notice: 'Nags sent'
   end
-
   def send_mail
     @nags = current_user.nags
-
     @nags.each do |nag|
       unless nag.sent? || !self.lendee_name.include?('@')
         NagMailer.nag_borrower(nag).deliver
@@ -88,9 +73,7 @@ class NagsController < ApplicationController
     end
         redirect_to user_url(current_user), notice: "Nag emails sent"
   end
-
   def remind
-    @nag = Nag.find_by_id params[:id]
     @nag.send_fb_message(current_user.oauth_token, params[:message])
     redirect_to nag_url(@nag), notice: "Nag sent"
   end
