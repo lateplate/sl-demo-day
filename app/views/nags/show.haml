@@ -24,9 +24,3 @@
       .reminder-buttons
       =submit_tag "Send", disable_with: "Sending...", class: 'submit btn'
       =link_to "Cancel", '#', class: 'button btn', id: "concel-reminder"
-
-:javascript
-  function changeStatus() {
-    console.log('this is working');
-    document.forms['nag-complete-form'].submit();
-  }
