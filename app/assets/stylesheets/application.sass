@@ -95,9 +95,11 @@ textarea
 .alert // confirmation messages that the rails apps throws into =notice
   +font-size-and-spacing(20)
   margin: 10px 0
-  border: 2px solid $alert-border-color
+  border: 2px solid $alert-success-color
   padding: 10px
   +border-radius(5px)
+  color: $alert-success-color
+  background-color: #BDE7B5
 
 .alert-box // Used for due dates mostly
   background-color: $alert-background
@@ -111,6 +113,7 @@ textarea
 .alert-box-high-priority // Different color for due dates coming soon
   @extend .alert-box
   background-color: $alert-background-high-priority
+  color: #fff
 
 .borrower-photo // In narrow view, hide the person's face
   display: none
@@ -187,6 +190,8 @@ textarea
     text-decoration: none
     &:hover
       text-decoration: underline
+  .alert-box, .alert-box-high-priority
+    margin-left: 35px
 
 .nag-completed // this one needs to stay below .nag-details to cascade the a:hover style
   text-decoration: line-through
@@ -242,8 +247,12 @@ textarea
 .utility-links // Contains the links in the footer without messing up the height/positioning of the footer element itself
   margin: 15px auto
   a
+    color: #fff
     padding: 0 5px
-    text-decoration: underline
+    text-decoration: none
+
+    &:hover
+      color: $link-color
 
 
 // ****************************************************************************
