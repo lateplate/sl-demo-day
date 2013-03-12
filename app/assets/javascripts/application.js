@@ -3,8 +3,8 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $("#unsemantic").on('click', function() {
-    $(".alert").hide();
+  $("#close_flash").on('click', function() {
+    $(".alert").fadeOut(200);
   });
 
   $("#nag-form").validate();
