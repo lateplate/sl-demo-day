@@ -3,6 +3,9 @@
 //= require_tree .
 
 $(document).ready(function() {
+  $("#unsemantic").on('click', function() {
+    $(".alert").hide();
+  });
 
   $("#nag-form").validate();
   console.log("validate ran");

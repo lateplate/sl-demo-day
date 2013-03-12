@@ -29,6 +29,8 @@
             -flash.each do |msg, value|
               %p{class: "#{msg}"}
                 =value
+                %span{style: "float: right;", id: "unsemantic"}
+                  x
         =yield
       %footer
         %section.utility-links
