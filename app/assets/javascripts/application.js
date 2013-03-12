@@ -4,7 +4,7 @@
 
 $(document).ready(function() {
   $("#close_flash").on('click', function() {
-    $(".alert").fadeOut(200);
+    $(".flash-message").fadeOut(200);
   });
 
   $("#nag-form").validate();

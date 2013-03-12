@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to login_url, notice: 'Signed out successfully'
+    redirect_to login_url, alert: 'Signed out successfully'
   end
 end

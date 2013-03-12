@@ -5,7 +5,7 @@ class NagsController < ApplicationController
   before_filter :authorize_user, except: [:send_nags, :send_mail, :remind, :new, :create]
 
   def get_nag
-    @nag = Nag.find(params[:id])
+    @nag = Nag.find_by_id(params[:id])
   end
   def authorize_user
     if @nag.blank? || @nag.user_id != session[:user_id]

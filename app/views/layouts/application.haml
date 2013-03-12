@@ -24,8 +24,8 @@
                 %li
                   =link_to "Sign out", signout_url, id: "sign_out", method: 'delete'
       %section.main
-        -if notice
-          .alert
+        -if flash.present?
+          .flash-message
             -flash.each do |msg, value|
               %p{class: "#{msg}"}
                 =value
