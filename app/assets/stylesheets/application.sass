@@ -130,13 +130,14 @@ textarea
 .checkbox
   display: block
   float: left
-  width: 30px
-  height: 30px
+  width: 28px
+  height: 28px
   margin-right: 2%
-  border-radius: 3px
+  +border-radius(3px)
   background-color: $checkbox-background
   text-align: center
   cursor: pointer
+  +box-shadow(inset 1px 4px 9px -6px #000)
 
 .checkbox:before
   font-size: 20px
@@ -145,11 +146,13 @@ textarea
   top: 1px
   // text-shadow: 1px 1px 1px rgba(0,0,0,.4)
 
-.checkbox:hover:before, .checked:before
-  color: $checkbox-hover-color
-  content: "✓"
+// .checkbox:hover:before, .checked:before
+//   color: $checkbox-hover-color
+//   content: "✓"
 
-.checkbox:hover, .checked
+// .checkbox:hover, 
+
+.checked
   background-color: $checkbox-completed-background
 
 .container
