@@ -139,21 +139,14 @@ textarea
   cursor: pointer
   +box-shadow(inset 1px 4px 9px -6px #000)
 
-.checkbox:before
-  font-size: 20px
+.checked:before
+  content: "✓"
+  color: $check-color
+  font-size: 24px
   line-height: 30px
-  position: relative
-  top: 1px
-  // text-shadow: 1px 1px 1px rgba(0,0,0,.4)
-
-// .checkbox:hover:before, .checked:before
-//   color: $checkbox-hover-color
-//   content: "✓"
-
-// .checkbox:hover, 
 
 .checked
-  background-color: $checkbox-completed-background
+  background-color: $checkbox-background
 
 .container
   position: relative // Needed to make sure the footer can be positioned absolutely to the bottom
