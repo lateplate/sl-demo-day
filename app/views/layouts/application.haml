@@ -23,6 +23,7 @@
                   =link_to 'Settings', edit_user_url(current_user)
                 %li
                   =link_to "Sign out", signout_url, id: "sign_out", method: 'delete'
+            #menu-icon
       %section.main
         -if flash.present?
           .flash-message

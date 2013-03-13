@@ -249,7 +249,7 @@ textarea
   color: $text-highlight-color
 
 .toolbar // Actions users can take globally - settings, sign out, new nag, etc.
-  margin: 5px auto
+  margin: 0 auto
   +font-size-and-spacing(16)
   li
     display: block // Makes list go vertical instead of horizontal
@@ -294,12 +294,13 @@ textarea
 
 #menu-icon
   color: $menu-icon-color
-  width: 42px
-  height: 30px
-  background: #000 url('menu-icon2.png') no-repeat 10px center
-  padding: 12px 10px 0 42px
+  height: 40px
+  background: #000 url('menu-icon2.png') no-repeat 15px center
+  padding: 14px 3px 0 50px
   cursor: pointer
   display: block
+  float: right
+  border-left: 1px solid #666
 
 // Styling for jQuery date picker used on new/edit form
 #ui-datepicker-div
@@ -316,7 +317,7 @@ textarea
   #nav
     clear: both
     position: absolute
-    top: 50px
+    top: 55px
     width: 95px
     z-index: 10000
     padding: 5px

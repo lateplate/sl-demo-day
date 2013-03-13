@@ -69,7 +69,7 @@ $(document).ready(function() {
 
 
 /* prepend menu icon */
-  $('#nav-wrap').append('<div id="menu-icon">Menu</div>');
+  // $('#nav-wrap').append('<div id="menu-icon">Menu</div>');
 
   /* toggle nav */
   $("#menu-icon").on("click", function(){
