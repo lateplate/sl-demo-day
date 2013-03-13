@@ -25,6 +25,7 @@
 
   nav
     width: 100%
+    float: none
     display: inline
     +clearfix
 
@@ -58,9 +59,6 @@
     max-width: 570px
     margin: 0 auto
 
-  #menu-icon
-    display: none
-
   .nag 
     +clearfix // Breaking into larger widths, we start to float elements so need to clear
 
@@ -78,9 +76,6 @@
       margin-left: 40px
     .alert-box, .alert-box-high-priority
       margin-left: 40px
-
-  #nav
-    display: block
 
   .site-logo
     float: left
@@ -101,3 +96,17 @@
   // ****************************************************************************
   #friend-list
     +font-size-and-spacing(38)
+
+  #menu-icon
+    display: none
+
+  #nav
+    width: 100%
+    display: inline-block
+    position: static
+    padding: 5px
+    li
+      display: inline-block
+      a
+        text-decoration: underline
+        color: $link-color

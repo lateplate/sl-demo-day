@@ -65,11 +65,12 @@ li
   display: inline-block // Same as having no list styles. We usually want lists for horizontal nav.
 
 nav
-  +clearfix // Even in narrow view, elements are floated so a clear is needed
+  // +clearfix // Even in narrow view, elements are floated so a clear is needed
   // width: 300px
   width: 105px
   margin: 0
   display: inline-block
+  float: right
 
 ol, ul
   list-style: none // We don't really use lists except for navigation, so we don't want any bullets or numbering usually
@@ -264,11 +265,7 @@ textarea
 .utility-links // Contains the links in the footer without messing up the height/positioning of the footer element itself
   margin: 15px auto
   a
-    color: #fff
     padding: 0 5px
-    text-decoration: none
-    &:hover
-      text-decoration: underline
 
 
 // ****************************************************************************
@@ -302,6 +299,25 @@ textarea
   float: right
   border-left: 1px solid #666
 
+#nav
+  clear: both
+  position: absolute
+  top: 55px
+  width: 95px
+  z-index: 10000
+  padding: 5px
+  background: $title-bar-background
+  display: none
+  li
+    text-align: left
+    padding-left: 5px
+    a
+      text-decoration: none
+      color: #eaeaea
+    a:hover
+      color: $link-color
+      text-decoration: underline
+
 // Styling for jQuery date picker used on new/edit form
 #ui-datepicker-div
   background: $date-picker-background
@@ -312,30 +328,6 @@ textarea
     padding: 5px
   a
     padding: 5px
-
-@media all and (max-width:599px)
-  #nav
-    clear: both
-    position: absolute
-    top: 55px
-    width: 95px
-    z-index: 10000
-    padding: 5px
-    background: $title-bar-background
-    display: none
-    li
-      text-align: left
-      padding-left: 5px
-      a
-        text-decoration: none
-        color: #eaeaea
-      a:hover
-        color: $link-color
-        text-decoration: underline
-
-  nav
-    float: right
-
 
 // ****************************************************************************
 // MEDIA QUERIES
