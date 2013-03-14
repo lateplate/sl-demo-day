@@ -2,89 +2,141 @@
 //= require jquery_ujs
 //= require_tree .
 
-$(document).ready(function() {
-  $("#close_flash").on('click', function() {
+$(document).ready(function ()
+{
+
+  // ****************************************************************************
+  // FLASH MESSAGES
+  // ****************************************************************************
+  $("#close_flash").on('click', function ()
+  {
     $(".flash-message").fadeOut(200);
   });
 
+  // ****************************************************************************
+  // VALIDATION
+  // ****************************************************************************
   $("#nag-form").validate();
-  console.log("validate ran");
 
-  $(window).keydown(function(event){
-    if( (event.keyCode == 13) ) {
+
+  // ****************************************************************************
+  // DISABLE KEYS
+  // ****************************************************************************
+  // disables enter key to prevent accidental form inputs
+  $(window).keydown(function (event)
+  {
+    if ((event.keyCode == 13))
+    {
       event.preventDefault();
       return false;
     }
   });
 
-  // Date picker
-  $(function() {
-    $("#when").datepicker({ dateFormat: "yy-mm-dd" });
+  // ****************************************************************************
+  // DATE PICKER
+  // ****************************************************************************
+  $(function ()
+  {
+    $("#when").datepicker(
+    {
+      dateFormat: "yy-mm-dd"
+    });
   });
 
-  // Type ahead
-  $(function() {
-    var allFriends = $.map(fbFriendData, function (i) {
+  // ****************************************************************************
+  // FRIEND AUTOCOMPLETE / TYPE AHEAD
+  // ****************************************************************************
+  $(function ()
+  {
+
+    // parse the json from Rails
+    var allFriends = $.map(fbFriendData, function (i)
+    {
       return {
         label: i.name,
         value: i.id
       };
     });
 
-    $("#who").autocomplete({
+    // finde the right form field
+    $("#who").autocomplete(
+    {
       source: allFriends,
       minLength: 2,
+      // starts when user enters two characters
       appendTo: $("#friend-list"),
-      focus: function( event, ui ) {
-        $( "#who" ).val( ui.item.label );
+      // div to show the list in
+      focus: function (event, ui) // when friend hovered, show value in input field
+      {
+        $("#who").val(ui.item.label);
         return false;
       },
-      select: function (event, ui) {
-          $("#who").val(ui.item.label);
-          $("#lendee_uid").val(ui.item.value);
-          return false;
+      select: function (event, ui) // when friend selected, show value in input field and hidden lendee id field
+      {
+        $("#who").val(ui.item.label);
+        $("#lendee_uid").val(ui.item.value);
+        return false;
       },
-      position: { of: "#friend-list", at: "left top" },
-      change: function (event, ui) {
-        if (ui.item == null || ui.item == undefined) {
+      position: { // positions the div
+        of: "#friend-list",
+        at: "left top"
+      },
+      change: function (event, ui) // if they started typing something random that didn't match a friend, we clear the fields when they leave it
+      {
+        if (ui.item == null || ui.item == undefined)
+        {
           clearWho();
         }
       }
-    }).keyup(function (e) { // Dismiss the typeahead dropdown when hitting enter
-          if(e.which === 13) {
-              $(".ui-menu-item").hide();
-          }
-    });;
+    }).keyup(
+
+    function (e)
+    { // Dismiss the typeahead dropdown when hitting enter
+      if (e.which === 13)
+      {
+        $(".ui-menu-item").hide();
+      }
+    })
+
+    .keydown(
+
+    function (e)
+    { // Using Backspace or delete clears the entire friend's name, no partial deletes
+      if (e.which === 8 || e.which === 46)
+      {
+        clearWho();
+      }
+    });
   });
 
-  function clearWho() {
+  // helper to clear the values from the "who" and hidden lendee fields
+
+  function clearWho()
+  {
     $("#who").val("");
     $("#lendee_uid").val("");
   }
 
-  // Dan: temporarily commented out while I work on the submit through checkbox
-  // $('.checkbox:not(.checked)').on('click', function(event){
-  //   $(this).parent().slideUp('slow', 'linear');
-  //   $(this).toggleClass('checked');
-  // });
-
-
-/* prepend menu icon */
-  // $('#nav-wrap').append('<div id="menu-icon">Menu</div>');
-
-  /* toggle nav */
-  $("#menu-icon").on("click", function(){
+  // ****************************************************************************
+  // NAVIGATION
+  // ****************************************************************************
+  $("#menu-icon").on("click", function ()
+  {
     $("#nav").slideToggle();
     $(this).toggleClass("active");
   });
 
-  // Opens/closes the preview email on detail.html
-  $('#show-message-preview').on('click', function(event){
+
+  // ****************************************************************************
+  // EMAIL PREVIEW
+  // ****************************************************************************
+  $('#show-message-preview').on('click', function (event)
+  {
     $('.reminder-form').slideToggle();
   });
 
-  $('#cancel-reminder').on('click', function(event){
+  $('#cancel-reminder').on('click', function (event)
+  {
     $('.reminder-form').slideToggle();
   });
 });
-
