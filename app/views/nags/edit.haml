@@ -1,4 +1,31 @@
-.center-container
-  =render 'form'
+=render 'form'
+
 :javascript
-  var fbFriendData = #{@friends_with_id.to_json};
+
+  // This is an ugly, but only way of commenting Ruby in JS in Haml
+  #{ #var fbFriendData = #{@friends_with_id.to_json};
+  }
+
+  // Test data only
+  var fbFriendData = [
+    {
+      "name": "Ankur Patel",
+      "id": "1936835"
+    },
+    {
+      "name": "Arif Poonawala",
+      "id": "1905134"
+    },
+    {
+      "name": "Dan Kim",
+      "id": "1080574448"
+    },
+    {
+      "name": "Will Piers",
+      "id": "1175798581"
+    },
+    {
+      "name": "Karen Wei",
+      "id": "22015966"
+    }
+  ];

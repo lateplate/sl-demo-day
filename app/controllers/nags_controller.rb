@@ -32,7 +32,7 @@ class NagsController < ApplicationController
     @graph = Koala::Facebook::API.new(current_user.oauth_token)
     @fb_friends = @graph.get_connections("me", "friends")
     @fb_friends.sort_by! { |hash| hash['name'] }
-    @friends_with_id = @fb_friends.map { |friend| {name: friend['name'], id: friend['id']}}.to_json
+    @friends_with_id = @fb_friends.map { |friend| {name: friend['name'], id: friend['id']}}
   end
   def update
     @nag.update_attributes params[:nag]
