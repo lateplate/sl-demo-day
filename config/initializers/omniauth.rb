@@ -2,7 +2,7 @@ OmniAuth.config.logger = Rails.logger
 
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET_KEY"],
-        {scope: "email, xmpp_login, read_stream"}
+        {scope: "email, xmpp_login"}
 
 	def redirect_to_failure
 	  message_key = env['omniauth.error.type']
