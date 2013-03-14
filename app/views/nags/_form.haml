@@ -6,15 +6,15 @@
       %li
         =message
 =form_for @nag, html: {id: "#nag-form", class: "nag-form"} do |f|
-  =f.hidden_field :user_id, value: current_user.id
-  =f.text_field :lendee_name, id: "who", placeholder: "Who owes you?", required: "true"
+  =f.hidden_field :user_id, value: current_user.id, tabindex: 0
+  =f.text_field :lendee_name, id: "who", placeholder: "Who owes you?", required: "true", tabindex: 1
   %div#friend-list
-  =f.text_field :item, id: "what", placeholder: "What do they owe you?", required: "true"
-  =f.text_field :due_date, id: "when", placeholder: "When is it due?", required: "true"
-  =f.text_field :lendee_uid, id: "lendee_uid", placeholder: "Lendee UID (this will be hidden in production)"
+  =f.text_field :item, id: "what", placeholder: "What do they owe you?", required: "true", tabindex: 2
+  =f.text_field :due_date, id: "when", placeholder: "When is it due?", required: "true", tabindex: 3
+  =f.hidden_field :lendee_uid, id: "lendee_uid", placeholder: "Lendee UID (this will be hidden in production)", tabindex: 4
   .nag-form-buttons
-    =f.submit "Submit", :disable_with => "Submitting...", class: "btn"
+    =f.submit "Submit", :disable_with => "Submitting...", class: "btn", tabindex: 5
     -if @nag.new_record?
-      =link_to "Cancel", user_url(current_user), class: "btn"
+      =link_to "Cancel", user_url(current_user), class: "btn", tabindex: 6
     -else
-      =link_to "Cancel", nag_url(@nag), class: "btn"
+      =link_to "Cancel", nag_url(@nag), class: "btn", tabindex: 7

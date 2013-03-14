@@ -33,6 +33,7 @@ $(document).ready(function() {
 
     $("#who").autocomplete({
       source: allFriends,
+      minLength: 2,
       appendTo: $("#friend-list"),
       focus: function( event, ui ) {
         $( "#who" ).val( ui.item.label );

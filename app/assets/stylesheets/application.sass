@@ -275,9 +275,9 @@ textarea
 // Used for jQuery autocomplete
 #friend-list
   position: relative
-  top: -10px
-  width: 98%
-  margin: 0 3px
+  top: -5px
+  width: 100%
+  // margin: 10px 0 0 0 
   +font-size-and-spacing(20)
   background: $friend-list-background
   color: $friend-list-color
@@ -285,9 +285,9 @@ textarea
     padding-left: 10px
     display: block // override our general li styles to actually be in a vertical list
     &:hover
-      background: yellow
+      background: $friend-list-hover-background
     &:active
-      background: yellow
+      background: $friend-list-hover-background
 
 #menu-icon
   color: $menu-icon-color
@@ -319,15 +319,28 @@ textarea
       text-decoration: underline
 
 // Styling for jQuery date picker used on new/edit form
-#ui-datepicker-div
+#ui-datepicker-div 
+  z-index: 10
+  border: 1px solid $date-picker-border-color
+  +border-radius(2px)
   background: $date-picker-background
-  .ui-datepicker-header
-    margin: 10px
-  .ui-datepicker-title
-    color: $date-picker-title-color
-    padding: 5px
+  a 
+    text-decoration: none
+    margin: 5px
+
+.ui-datepicker-header
+  margin: 10px
+.ui-datepicker-title
+  color: $date-picker-title-color
+  padding: 5px
+.ui-datepicker-today
+  background: $date-picker-today-background
   a
-    padding: 5px
+    color: $date-picker-highlighted-link-color
+.ui-datepicker-current-day
+  background: $date-picker-selected-background
+  a
+    color: $date-picker-highlighted-link-color
 
 // ****************************************************************************
 // MEDIA QUERIES
