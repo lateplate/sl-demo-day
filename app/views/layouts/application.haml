@@ -17,13 +17,13 @@
     %link{rel: "apple-touch-icon-precomposed", sizes: "72x72", href: "/assets/apple-touch-icon-72x72.png"}
     %link{rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "/assets/apple-touch-icon-114x114.png"}
     %link{rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "/assets/apple-touch-icon-144x144.png"}
-
+    %link{href: "http://fonts.googleapis.com/css?family=Oxygen:400,700", rel: "stylesheet", type: "text/css"}
   %body
     .container
-      %header
-        =link_to image_tag("naglogo.png", class: "site-logo"), login_url
-        %nav#nav-wrap
-          -if current_user && current_user.has_valid_token?
+      -if current_user && current_user.has_valid_token?
+        %header
+          =link_to image_tag("naglogo.png", class: "site-logo"), login_url
+          %nav#nav-wrap
             .toolbar
               %ul#nav
                 %li
@@ -32,7 +32,7 @@
                   =link_to 'Settings', edit_user_url(current_user)
                 %li
                   =link_to "Sign out", signout_url, id: "sign_out", method: 'delete'
-            #menu-icon
+              #menu-icon
       %section.main
         -if flash.present?
           .flash-message

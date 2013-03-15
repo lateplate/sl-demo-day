@@ -20,11 +20,7 @@ body, html
   color: $main-color
 
 figure
-  height: 0
-  padding-bottom: 56.25%
-  position: relative
-  width: 100%
-  margin-left: 0
+  @extend .zero-box
 
 footer
   position: absolute // Needs to be absolute, relative to parent's container to pin to the bottom
@@ -93,18 +89,6 @@ textarea
 .active-filter // not in place yet, but will be added
   color: $active-filter-color // temp color for testing
 
-.flash-messages
-  +font-size-and-spacing(20)
-  margin: 10px 0
-  padding: 10px 10px 10px 20px
-  +border-radius(5px)  
-
-.notice // success message
-  @extend .flash-messages
-  border: 2px solid $alert-success-border-color
-  color: $alert-success-text-color
-  background-color: $alert-success-bg-color
-
 //This isn't the best way to break up alert
 //styles but it's the way Will structured these so we'll keep it for now.
 .alert //error message
@@ -112,10 +96,6 @@ textarea
   border: 2px solid $alert-error-border-color
   color: $alert-error-text-color
   background-color: $alert-error-bg-color
-
-#close_flash //Close flash messages
-  cursor: pointer
-  margin: -1px 8px 0 0
 
 .alert-box // Used for due dates mostly
   background-color: $alert-background
@@ -130,6 +110,13 @@ textarea
   @extend .alert-box
   background-color: $alert-background-high-priority
   color: #fff
+
+.black 
+  background: black
+  h2
+    color: white
+  p
+    color: #CCC
 
 .borrower-photo // In narrow view, hide the person's face
   display: none
@@ -184,7 +171,47 @@ textarea
   text-align: left
 
 .facebook-sign-in
-  width: 200px
+  width: 170px
+  float: right
+  padding: 15px 7px 0 0 
+
+.feature
+  padding-top: 50px
+
+.features
+  padding: 0
+  h2
+    text-align: center
+    +font-size-and-spacing(32)
+    padding: 0 40px
+    max-width: 700px
+    margin: 0 auto
+  p
+    text-align: center
+    +font-size-and-spacing(16)
+    padding: 20px 40px 40px 40px
+    max-width: 700px
+    margin: 0 auto
+
+.feature-1
+  padding-top: 75%
+  background-image: url("/assets/laptop.png")
+  background-size: cover
+
+.feature-2
+  padding-top: 66.640625%
+  background-image: url("/assets/iphone-white-reminder.png")
+  background-size: cover
+
+.feature-3
+  padding-top: 66.4285714%
+  background-image: url("/assets/ipad-mini.png")
+  background-size: cover
+
+.feature-4
+  padding-top: 66.640625%
+  background-image: url("/assets/iphone-black.png")
+  background-size: cover
 
 .filters
   margin: 20px auto
@@ -192,8 +219,52 @@ textarea
     padding: 0 5px
   a
 
+.flash-messages
+  +font-size-and-spacing(20)
+  margin: 10px 0
+  padding: 10px 10px 10px 20px
+  +border-radius(5px)  
+
+.hero 
+  max-width: 1280px
+  margin: 0
+  h2
+    padding: 10px 10px
+    text-align: center
+
+.hero-image
+  // padding-top: 66.640625%
+  // background-image: url("/assets/iphone-white.png")
+  // background-size: cover
+  padding-bottom: 56.25%
+  position: relative
+  height: 0
+  iframe 
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    border: none
+
 .highlight
   background: yellow
+
+.landing-container
+  width: 100%
+  margin: 0 auto
+  border: 1px solid #ccc
+  +border-radius(5px)
+  +box-shadow(0 1px 8px rgba(0,0,0,0.1))
+  position: relative
+  top: 0
+  left: 0
+  max-width: 960px
+  // font-family: "Oxygen", Helvetica , serif
+
+
+.landing-header
+  height: 75px
 
 .lender-photo
   display: none // hides in narrow view
@@ -248,6 +319,12 @@ textarea
   margin: 15px auto
   width: 100%
 
+.notice // success message
+  @extend .flash-messages
+  border: 2px solid $alert-success-border-color
+  color: $alert-success-text-color
+  background-color: $alert-success-bg-color
+
 .optional-message
   margin: 20px 0 10px 0
 
@@ -285,6 +362,7 @@ textarea
 
 .utility-links // Contains the links in the footer without messing up the height/positioning of the footer element itself
   margin: 15px auto
+  +font-size-and-spacing(13)
   a
     padding: 0 5px
 
@@ -292,6 +370,10 @@ textarea
 // ****************************************************************************
 // IDS
 // ****************************************************************************
+
+#close_flash //Close flash messages
+  cursor: pointer
+  margin: -1px 8px 0 0
 
 // Used for jQuery autocomplete
 #friend-list
