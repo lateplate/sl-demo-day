@@ -1,6 +1,6 @@
 desc "send nags for all items which are overdue and have a valid token."
 task :check_and_send_nags => :environment do
-	nags = Nag.where(["due_date <= ?", Time.now]).where(:sent => false)
+	nags = Nag.where(["due_date <= ?", Time.now]).where(sent: false, completed: false)
 	nags_with_bad_tokens = 0
 	messages_sent = 0
 	nags.each do |nag|

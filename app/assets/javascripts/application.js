@@ -10,8 +10,9 @@ $(document).ready(function ()
   // ****************************************************************************
   $("#close_flash").on('click', function ()
   {
-    $(".flash-message").fadeOut(200);
+    $(".flash-message").hide();
   });
+  $(".flash-message").delay(4000).fadeOut();
 
   // ****************************************************************************
   // VALIDATION

@@ -12,7 +12,7 @@
       %header
         =link_to image_tag("naglogo.png", class: "site-logo"), login_url
         %nav#nav-wrap
-          -if current_user
+          -if current_user && current_user.has_valid_token?
             .toolbar
               %ul#nav
                 %li
