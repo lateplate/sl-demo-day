@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def check_oauth_token
       unless current_user.present? && current_user.has_valid_token?
-  			redirect_to login_url, alert: "We logged you out because of inactivity. Login again to resume Nagging."
+  			redirect_to login_url
   		end
   end
 
