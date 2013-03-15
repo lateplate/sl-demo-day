@@ -198,6 +198,7 @@ textarea
 .nag-actions
   +font-size-and-spacing(16)
   padding-top: 15px
+  text-align: center
   a
     padding-right: 5px
 
@@ -222,6 +223,11 @@ textarea
   width: 100%
   text-align: center // Needed to center input fields
   max-width: 900px // At a certain point we don't want the form to get any wider by %
+
+.nag-form-header
+  @extend .nag-form
+  +font-size-and-spacing(20)
+  margin: 20px auto
 
 .nag-form-buttons // Positions the submit/cancel buttons on the form
   margin: 15px auto

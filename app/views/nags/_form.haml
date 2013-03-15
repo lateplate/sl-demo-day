@@ -1,3 +1,5 @@
+.nag-form-header
+  All fields are required.
 -if @nag.errors.any?
   %h3
     ="#{pluralize(@nag.errors.count, "error")} prohibited this nag from being saved:"
