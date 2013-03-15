@@ -1,6 +1,8 @@
-.center-container
-  =image_tag "https://graph.facebook.com/#{current_user.uid}/picture?type=large", class: 'borrower-photo'
-  =form_for current_user do |f|
+.center-container-edit
+  =image_tag "https://graph.facebook.com/#{current_user.uid}/picture?type=large", class: "lender-photo"
+  =form_for current_user, html: {id: "edit-user", class: "edit-user"} do |f|
     =f.text_field :name, placeholder: "Johnny Appleseed"
     =f.text_field :email, placeholder: "john@example.org"
-    =f.submit "Save", :disable_with => 'Saving...', class: 'btn'
+    .nag-form-buttons
+      =f.submit "Save", :disable_with => 'Saving...', class: 'btn'
+      =link_to "Cancel", user_url(current_user), class: "btn"

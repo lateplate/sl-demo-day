@@ -59,9 +59,19 @@
     max-width: 570px
     margin: 0 auto
 
+  .center-container-edit
+    @extend .center-container
+    +clearfix
+
   .error // jquery form validaton only
     margin: 5px 0 25px 25px
     +font-size-and-spacing(24)
+
+  .lender-photo
+    display: block // Unhides
+    +border-radius(50%)
+    height: 200px
+    margin: 20px auto
 
   .nag 
     +clearfix // Breaking into larger widths, we start to float elements so need to clear
