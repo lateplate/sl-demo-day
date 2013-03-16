@@ -36,7 +36,8 @@ footer
 
 header
   margin-bottom: 10px
-  background: $title-bar-background
+  // background: $title-bar-background
+  background: url('debut_dark.png') repeat
   color: $title-bar-color
   width: 100%
   padding-bottom: 10px
@@ -139,6 +140,14 @@ textarea
   font-size: +em(20)
   margin-left: 0
 
+.btn-newnag
+  +button($button-background)
+  font-size: +em(16)
+  display: inline-block
+  float: right
+  margin-top: 13px
+  font-weight: normal
+
 .button-to-link // Makes a button look like a link. Used for form submit buttons sometimes.
   @extend a
   background-color: transparent
@@ -187,6 +196,8 @@ textarea
   width: 200px
 
 .filters
+  display: block
+  float: left
   margin: 20px auto
   li
     padding: 0 5px
@@ -267,6 +278,9 @@ textarea
   padding: 10px 0 0 10px
   display: block
 
+.subnav
+  +clearfix
+
 .text-highlight
   color: $text-highlight-color
 
@@ -313,7 +327,7 @@ textarea
 #menu-icon
   color: $menu-icon-color
   height: 40px
-  background: #000 url('menu-icon2.png') no-repeat 15px center
+  background: url('menu-icon2.png') no-repeat 15px center
   padding: 14px 3px 0 50px
   cursor: pointer
   display: block
@@ -327,14 +341,14 @@ textarea
   width: 95px
   z-index: 10000
   padding: 5px
-  background: $title-bar-background
+  background: url('debut_dark.png') repeat
   display: none
   li
     text-align: left
     padding-left: 5px
     a
       text-decoration: none
-      color: #eaeaea
+      color: $title-bar-color
     a:hover
       color: $link-color
       text-decoration: underline
