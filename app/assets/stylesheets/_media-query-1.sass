@@ -1,8 +1,50 @@
+@media all and (min-width:450px)
+
+  nav
+    width: 100%
+    float: none
+    display: inline
+    +clearfix
+
+  .newnag-btn
+    +button($button-background)
+    font-size: +em(16)
+    display: inline-block
+    float: right
+    margin-top: 13px
+    font-weight: normal
+
+  .toolbar
+    float: right
+    padding: 13px 
+    +font-size-and-spacing(18)
+    li
+      display: inline-block // Goes back to horizontal instead of vertical
+      text-align: left
+      padding: 0 10px
+
+  #menu-icon
+    display: none
+
+  #nav
+    width: 100%
+    display: inline-block
+    position: static
+    padding: 5px
+    li
+      display: inline-block
+      a
+        text-decoration: none
+        color: $title-bar-color
+    .newnag-link
+      display: none
+
 @media all and (min-width:600px)
 
   // ****************************************************************************
   // ELEMENTS
   // ****************************************************************************
+
   header
     margin-bottom: 20px
     height: 65px
@@ -22,12 +64,6 @@
     padding-left: 10px
     +font-size-and_spacing(28)
     width: 92%
-
-  nav
-    width: 100%
-    float: none
-    display: inline
-    +clearfix
 
   textarea
     +font-size-and_spacing(18)
@@ -87,30 +123,13 @@
     .alert-box, .alert-box-high-priority
       margin-left: 40px
 
-  .newnag-btn
-    +button($button-background)
-    font-size: +em(16)
-    display: inline-block
-    float: right
-    margin-top: 13px
-    font-weight: normal
-
-  .newnag-link
-    display: none  
-
   .site-logo
     float: left
     margin-left: 20px
     width: 120px
 
   .toolbar
-    float: right
     padding: 20px 
-    +font-size-and-spacing(18)
-    li
-      display: inline-block // Goes back to horizontal instead of vertical
-      text-align: left
-      padding: 0 10px
 
   // ****************************************************************************
   // IDS
@@ -119,17 +138,3 @@
     +font-size-and-spacing(28)
     width: 95%
     margin-left: 15px
-
-  #menu-icon
-    display: none
-
-  #nav
-    width: 100%
-    display: inline-block
-    position: static
-    padding: 5px
-    li
-      display: inline-block
-      a
-        text-decoration: none
-        color: $title-bar-color
