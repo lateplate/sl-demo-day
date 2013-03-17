@@ -25,7 +25,7 @@ figure
 footer
   position: absolute // Needs to be absolute, relative to parent's container to pin to the bottom
   bottom: 0
-  background: $footer-background
+  // background: $footer-background
   width: 100%
   height: 50px
   text-align: center
@@ -119,13 +119,6 @@ textarea
   background-color: $alert-background-high-priority
   color: #fff
 
-.black 
-  background: black
-  h2
-    color: white
-  p
-    color: #CCC
-
 .borrower-photo // In narrow view, hide the person's face
   display: none
 
@@ -179,107 +172,86 @@ textarea
   text-align: left
 
 .facebook-sign-in
-  width: 200px
+  width: 210px
   float: right
   padding: 0 7px 0 0 
 
-.feature
-  position: relative
-  top: 0
-  left: 0
-
-.features
-  padding: 0
-
 .feature-1
   @extend .zero-box
-  height: 800px
-  background-image: url("/assets/laptop.png")
-  background-repeat: no-repeat
-  background-size: 900px 
-  background-position: 20px 60px
+  height: 900px
+  +linear-gradient(#FFF, #E3E3E3)
   position: relative
   top: 50px
   left: 0
-  border-bottom: 1px solid #F2F2F2
-  h2
-    font-size: +em(20)
-    line-height: +em(27)
-    padding: 0 40px
-    max-width: 700px
-    margin: 0 auto
-  p
-    font-size: +em(18)
-    line-height: +em(27)
-    padding: 20px 40px 40px 40px
-    max-width: 700px
-    margin: 0 auto
+  border-bottom: 1px solid $landing-border-color
   .feature-text
     position: absolute
     top: 0
-    left: 130px
-    width: 700px
+    left: 80px
+    width: 800px
     margin: 0 auto
     text-align: center
+  h2
+    font-size: +em(42)
+    padding: 0 40px
+    color: #000
+  p
+    font-size: +em(24)
+    line-height: +em(24)
+    padding: 20px 40px 40px 40px
+  img 
+    width: 900px
+    position: absolute
+    top: 120px
+    left: 20px
 
 .feature-2
   @extend .zero-box
-  padding-top: 75.625%
-  background-image: url("/assets/iphone-fb.png") 
-  background-position: 250px 0px
-  background-size: cover
+  height: 650px
+  background: url("/assets/iphone-fb.png") black no-repeat 400px 60px
+  background-size: 700px
   position: relative
   top: 0
   left: 0
   border-bottom: 1px solid #F2F2F2
-  h2
-    font-size: +em(20)
-    line-height: +em(27)
-    padding: 0 40px
-    max-width: 700px
-    margin: 0 auto
-  p
-    font-size: +em(18)
-    line-height: +em(27)
-    padding: 20px 40px 40px 40px
-    max-width: 700px
-    margin: 0 auto
   .feature-text
     position: absolute
     top: 100px 
     left: 0
     width: 575px
+  h2
+    font-size: +em(42)
+    padding: 0 40px
+    color: #FFF
+  p
+    font-size: +em(24)
+    line-height: +em(24)
+    padding: 20px 40px 40px 40px
+    color: #cccccc
 
 .feature-3
   @extend .zero-box
-  height: 800px
-  background-image: url("/assets/all-devices.png")
+  height: 900px
+  background: url("/assets/all-devices.png") no-repeat 0 175px
   background-size: 900px
-  background-repeat: no-repeat
-  background-position: 0 175px
   position: relative
-  top: 0
+  top: 50px
   left: 0
-  h2
-    font-size: +em(20)
-    line-height: +em(27)
-    padding: 0 40px
-    max-width: 700px
-    margin: 0 auto
-  p
-    font-size: +em(18)
-    line-height: +em(27)
-    padding: 20px 40px 40px 40px
-    max-width: 700px
-    margin: 0 auto
   .feature-text
     position: absolute
     top: 0
-    left: 130px
-    width: 700px
-    margin: 0 auto
+    left: 80px
     text-align: center
-    padding-top: 50px
+    width: 800px
+  h2
+    font-size: +em(42)
+    padding: 0 40px
+    max-width: 700px
+  p
+    font-size: +em(24)
+    line-height: +em(24)
+    padding: 20px 40px 40px 40px
+
 
 .filters
   display: block
@@ -300,22 +272,8 @@ textarea
   h2
     padding: 10px 10px 30px 10px
     text-align: center
-  border-bottom: 1px solid #F2F2F2
-
-.hero-image
-  // padding-top: 66.640625%
-  // background-image: url("/assets/iphone-white.png")
-  // background-size: cover
-  padding-bottom: 56.25%
-  position: relative
-  height: 0
-  iframe 
-    position: absolute
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    border: none
+    font-size: +em(50)
+  border-bottom: 1px solid $landing-border-color
 
 .highlight
   background: yellow
@@ -329,14 +287,14 @@ textarea
   position: relative
   top: 0
   left: 0
-  // font-family: "Oxygen", Helvetica , serif
+  font-family: 'Lato', sans-serif
 
 .landing-header
   height: 50px
   padding-top: 10px
 
 .landing-logo
-  width: 300px
+  width: 400px
   margin: 0 auto
   padding: 10px 0 0 10px
   display: block
@@ -367,7 +325,6 @@ textarea
   a
     text-decoration: none
     &:hover
-      // color: $nag-hover-color
       text-decoration: underline
   .alert-box, .alert-box-high-priority, h2
     margin-left: 35px

@@ -17,7 +17,7 @@
     %link{rel: "apple-touch-icon-precomposed", sizes: "72x72", href: "/assets/apple-touch-icon-72x72.png"}
     %link{rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "/assets/apple-touch-icon-114x114.png"}
     %link{rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "/assets/apple-touch-icon-144x144.png"}
-    %link{href: "http://fonts.googleapis.com/css?family=Oxygen:400,700", rel: "stylesheet", type: "text/css"}
+    %link{href: "http://fonts.googleapis.com/css?family=Lato:400,700|Merriweather:400,700", rel: "stylesheet", type: "text/css"}
   %body
     .container
       -if current_user && current_user.has_valid_token?
@@ -33,15 +33,19 @@
                 %li
                   =link_to "Sign out", signout_url, id: "sign_out", method: 'delete'
               #menu-icon
-      %section.main
-        -if flash.present?
-          .flash-message
-            -flash.each do |msg, value|
-              %p{class: "#{msg}"}
-                =value
-                %span{style: "float: right;", id: "close_flash"}
-                  x
-        =yield
+      -if current_user && current_user.has_valid_token?
+        %section.main
+          -if flash.present?
+            .flash-message
+              -flash.each do |msg, value|
+                %p{class: "#{msg}"}
+                  =value
+                  %span{style: "float: right;", id: "close_flash"}
+                    x
+          =yield
+      -else
+        %section
+          =yield
       %footer
         %section.utility-links
           %a{href: "mailto:hello@startnagging.com", title: "Email Us"} hello@startnagging.com
