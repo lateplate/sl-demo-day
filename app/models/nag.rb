@@ -16,16 +16,11 @@ class Nag < ActiveRecord::Base
   # end
 	def self.filter(type=nil)
 		case type
-			when nil
-				return outstanding
-			when 'outstanding'
-				return outstanding
-			when 'overdue'
-				return where(["due_date <= ?", Time.now]).outstanding
-			when 'soon'
-				return where(["due_date >= ? AND due_date <= ?", Time.now, Time.now + 2.weeks]).outstanding
-			when 'completed'
-				return where(completed: true).by_date
+			when nil then outstanding
+			when 'outstanding' then outstanding
+			when 'overdue' then where(["due_date <= ?", Time.now]).outstanding
+			when 'soon' then where(["due_date >= ? AND due_date <= ?", Time.now, Time.now + 2.weeks]).outstanding
+			when 'completed' then where(completed: true).by_date
 		end
 	end
 
