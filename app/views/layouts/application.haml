@@ -26,6 +26,8 @@
           -if current_user && current_user.has_valid_token?
             .toolbar
               %ul#nav
+                %li.link-newnag
+                  =link_to "New Nag", new_nag_url, class: "newnag-link"
                 %li
                   =link_to 'Settings', edit_user_url(current_user)
                 %li

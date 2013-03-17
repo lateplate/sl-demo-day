@@ -147,14 +147,6 @@ textarea
   font-size: +em(20)
   margin-left: 0
 
-.btn-newnag
-  +button($button-background)
-  font-size: +em(16)
-  display: inline-block
-  float: right
-  margin-top: 13px
-  font-weight: normal
-
 .button-to-link // Makes a button look like a link. Used for form submit buttons sometimes.
   @extend a
   background-color: transparent
@@ -265,6 +257,12 @@ textarea
 .nag-form-buttons // Positions the submit/cancel buttons on the form
   margin: 15px auto
   width: 100%
+
+.newnag-btn
+  display: none
+
+.newnag-link
+  display: block  
 
 .optional-message
   margin: 20px 0 10px 0

@@ -11,7 +11,7 @@
 					=link_to "Open", user_url(id: current_user.id, :filter => 'outstanding')
 				%li
 					=link_to "Completed", user_url(id: current_user.id, :filter => 'completed'), class: "active-filter"
-		=link_to "New Nag", new_nag_url, class: "btn-newnag"
+		=link_to "+ New Nag", new_nag_url, class: "newnag-btn"
 	-unless @nags.blank?
 		-@nags.each do |nag|
 			.nag{id: "nag_#{nag.id}"}
