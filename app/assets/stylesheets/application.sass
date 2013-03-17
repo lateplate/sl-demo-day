@@ -134,14 +134,6 @@ textarea
   font-size: +em(20)
   margin-left: 0
 
-.btn-newnag
-  +button($button-background)
-  font-size: +em(16)
-  display: inline-block
-  float: right
-  margin-top: 13px
-  font-weight: normal
-
 .button-to-link // Makes a button look like a link. Used for form submit buttons sometimes.
   @extend a
   background-color: transparent
@@ -342,6 +334,11 @@ textarea
   border: 2px solid $alert-success-border-color
   color: $alert-success-text-color
   background-color: $alert-success-bg-color
+.newnag-btn
+  display: none
+
+.newnag-link
+  display: block  
 
 .optional-message
   margin: 20px 0 10px 0
@@ -364,6 +361,8 @@ textarea
 
 .subnav
   +clearfix
+  a
+    text-decoration: none
 
 .text-highlight
   color: $text-highlight-color

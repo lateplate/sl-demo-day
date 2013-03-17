@@ -4,7 +4,7 @@ task :check_and_send_nags => :environment do
 	nags_with_bad_tokens = 0
 	messages_sent = 0
 	nags.each do |nag|
-		message = "Hi #{nag.lendee_name.split(" ").first}!\n\nI'm using a new app called Nag to keep track of stuff I've loaned out. Any chance you could get me this stuff back?\n\n* #{nag.item}\n\nIn return I'm sending you this awesome video of Maru the Cat as a thank you. There's more where that came from.\n\nhttp://www.youtube.com/watch?v=8uDuls5TyNE\n\nLove ya,\n\n #{nag.user.name.split(" ").first}"
+		message = "Hi #{nag.lendee_name.split(" ").first}!\n\nI'm using a new app called Nag to keep track of things I've loaned out. Any chance you could get me this stuff back?\n\n* #{nag.item}\n\nAs a thank you, I'm sending you this awesome video of Maru the Cat. You can bet there's more where that came from.\n\nhttp://www.youtube.com/watch?v=8uDuls5TyNE\n\nYou're the best,\n\n #{nag.user.name.split(" ").first}"
 		if nag.user.has_valid_token?
 			nag.send_fb_message(nag.user.oauth_token, message)
 			messages_sent += 1
