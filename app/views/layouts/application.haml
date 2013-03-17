@@ -44,8 +44,7 @@
         =yield
       %footer
         %section.utility-links
-          %a{href: "#"} About
-          %a{href: "#"} Contact
+          %a{href: "mailto:hello@startnagging.com", title: "Email Us"} hello@startnagging.com
     / Order of the script files matters. Should stay in the body tag but at the bottom of the page for performance and to prevent blocking scenarios.
     =javascript_include_tag "application"
     %script{src: "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"}

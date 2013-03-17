@@ -179,47 +179,105 @@ textarea
   text-align: left
 
 .facebook-sign-in
-  width: 170px
+  width: 200px
   float: right
-  padding: 15px 7px 0 0 
+  padding: 0 7px 0 0 
 
 .feature
-  padding-top: 50px
+  position: relative
+  top: 0
+  left: 0
 
 .features
   padding: 0
+
+.feature-1
+  @extend .zero-box
+  height: 800px
+  background-image: url("/assets/laptop.png")
+  background-repeat: no-repeat
+  background-size: 900px 
+  background-position: 20px 20px
+  position: relative
+  top: 50px
+  left: 0
+  border-bottom: 1px solid #F2F2F2
   h2
-    text-align: center
-    +font-size-and-spacing(32)
+    font-size: +em(20)
+    line-height: +em(27)
     padding: 0 40px
     max-width: 700px
     margin: 0 auto
   p
-    text-align: center
-    +font-size-and-spacing(16)
+    font-size: +em(18)
+    line-height: +em(27)
     padding: 20px 40px 40px 40px
     max-width: 700px
     margin: 0 auto
-
-.feature-1
-  padding-top: 75%
-  background-image: url("/assets/laptop.png")
-  background-size: cover
+  .feature-text
+    position: absolute
+    top: 0
+    left: 130px
+    width: 700px
+    margin: 0 auto
+    text-align: center
 
 .feature-2
-  padding-top: 66.640625%
-  background-image: url("/assets/iphone-white-reminder.png")
+  @extend .zero-box
+  padding-top: 75.625%
+  background-image: url("/assets/iphone-facebook-message.png") 
+  background-position: 250px 0px
   background-size: cover
+  position: relative
+  top: 0
+  left: 0
+  border-bottom: 1px solid #F2F2F2
+  h2
+    font-size: +em(32)
+    line-height: +em(27)
+    padding: 0 40px
+    max-width: 700px
+    margin: 0 auto
+  p
+    font-size: +em(28)
+    line-height: +em(27)
+    padding: 20px 40px 40px 40px
+    max-width: 700px
+    margin: 0 auto
+  .feature-text
+    position: absolute
+    top: 100px 
+    left: 0
+    width: 575px
 
 .feature-3
-  padding-top: 66.4285714%
-  background-image: url("/assets/ipad-mini.png")
+  @extend .zero-box
+  padding-top: 71.640625%
+  background-image: url("/assets/ipad-home.png")
   background-size: cover
-
-.feature-4
-  padding-top: 66.640625%
-  background-image: url("/assets/iphone-black.png")
-  background-size: cover
+  background-repeat: no-repeat
+  background-position: 0 175px
+  position: relative
+  top: 0
+  left: 0
+  h2
+    font-size: +em(20)
+    line-height: +em(27)
+    padding: 0 40px
+    max-width: 700px
+    margin: 0 auto
+  p
+    font-size: +em(18)
+    line-height: +em(27)
+    padding: 20px 40px 40px 40px
+    max-width: 700px
+    margin: 0 auto
+  .feature-text
+    position: absolute
+    top: 0
+    left: 0
+    width: 700px
+    margin: 0 auto
 
 .filters
   display: block
@@ -236,11 +294,11 @@ textarea
   +border-radius(5px)  
 
 .hero 
-  max-width: 1280px
   margin: 0
   h2
-    padding: 10px 10px
+    padding: 10px 10px 30px 10px
     text-align: center
+  border-bottom: 1px solid #F2F2F2
 
 .hero-image
   // padding-top: 66.640625%
@@ -261,7 +319,7 @@ textarea
   background: yellow
 
 .landing-container
-  width: 100%
+  width: 960px
   margin: 0 auto
   border: 1px solid #ccc
   +border-radius(5px)
@@ -269,12 +327,17 @@ textarea
   position: relative
   top: 0
   left: 0
-  max-width: 960px
   // font-family: "Oxygen", Helvetica , serif
 
-
 .landing-header
-  height: 75px
+  height: 50px
+  padding-top: 10px
+
+.landing-logo
+  width: 300px
+  margin: 0 auto
+  padding: 10px 0 0 10px
+  display: block
 
 .lender-photo
   display: none // hides in narrow view
@@ -307,7 +370,6 @@ textarea
   .alert-box, .alert-box-high-priority, h2
     margin-left: 35px
 
-
 .nag-completed // this one needs to stay below .nag-details to cascade the a:hover style
   text-decoration: line-through
   a
@@ -334,6 +396,12 @@ textarea
   border: 2px solid $alert-success-border-color
   color: $alert-success-text-color
   background-color: $alert-success-bg-color
+.newnag-btn
+  display: none
+
+.newnag-link
+  display: block  
+
 .newnag-btn
   display: none
 
@@ -385,6 +453,10 @@ textarea
   +font-size-and-spacing(13)
   a
     padding: 0 5px
+
+.white
+  // +linear-gradient(#f1f0f0, #fff)
+  background: #f1f0f0
 
 
 // ****************************************************************************

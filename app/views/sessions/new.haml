@@ -1,30 +1,27 @@
 .landing-container
   .landing-header
-    %img.site-logo{src: "/assets/naglogo.png"}
     =link_to "/auth/facebook", id: "sign_in" do
       =image_tag('facebook-sign-in.png', class: "facebook-sign-in")
   .hero
-    %figure.hero-image
-      %iframe{src: "http://www.youtube.com/embed/diP-o_JxysA?rel=0&showinfo=0&iv_load_policy=3"} 
+    %img.landing-logo{src: "/assets/naglogo.png"}
+    %h2
+      Friends forget. Let's remind them.
   .features
-    .feature.black
-      %h2
-        Being generous shouldn't be so hard. Let's get your stuff back.
-      %p
-        Nag is a simple app built to keep track of what you've lent out, to whom, and when you want it back. It's lightning fast and embraces readability. You'll know everything that's owed to you at a glance, and you can create a new item in 10 seconds flat. 
-      %figure.feature-1
-    .feature.white
-      %h2
-        Automated reminders.    
-      %p
-        When an item comes due, your friend is
-        %em
-          automatically
-        notified through a Facebook message reminding them about what they've borrowed. You don't need to take any action -- your friend always knows what's up. (We promise to be super friendly about it.)
-      %figure.feature-2
-    .feature.black
-      %h2
-        Works anywhere.
-      %p
-        Desktop or mobile, and whatever OS you like. Just fire up a modern browser and you'll have a fast, simple interface.
-      %figure.feature-3
+    .feature-1
+      .feature-text
+        %h2
+          Simple and fast.
+        %p
+          Nag was built from the ground up to do one thing, simply and lightning fast. You keep track of your stuff, we remind people to get it back to you. No clutter, no confusion, no noise.
+    .feature-2.black
+      .feature-text
+        %h2
+          Automated reminders.    
+        %p
+          When an item is due, we'll send you friend a personlized message from you, and your on your way to reclaiming your stuff. Oh, and we promise to be super friendly about it.
+    .feature-3
+      .feature-text
+        %h2
+          Works everywhere.
+        %p
+          On your phone or on your computer, you can do everything. Just fire up a modern browser and you'll have the same simple way to track your stuff.
