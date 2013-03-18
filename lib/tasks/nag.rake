@@ -14,8 +14,7 @@ task :check_and_send_nags => :environment do
 			nags_with_bad_tokens += 1
 		end
 	end
-	# Would like to log this information somewhere on Heroku TODO
-	# puts "==========================================================="
-	# puts "Sent #{messages_sent} message/s. Also, tried to send #{nags_with_bad_tokens} nag/s that did not send due to expired tokens."
-	# puts "==========================================================="
+	logger.info "==========================================================="
+	logger.info "Sent #{messages_sent} message/s. Also, tried to send #{nags_with_bad_tokens} nag/s that did not send due to expired tokens."
+	logger.info "==========================================================="
 end
