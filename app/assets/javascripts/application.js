@@ -18,7 +18,7 @@ $(document).ready(function ()
   // VALIDATION
   // ****************************************************************************
   $("#nag-form").validate();
-
+  $("input, textarea").placeholder(); // placeholder helper text for older browsers
 
   // ****************************************************************************
   // DISABLE KEYS
@@ -126,7 +126,6 @@ $(document).ready(function ()
     $("#nav").slideToggle();
     $(this).toggleClass("active");
   });
-
 
   // ****************************************************************************
   // EMAIL PREVIEW
