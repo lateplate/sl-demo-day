@@ -8,7 +8,7 @@ $(document).ready(function ()
   // ****************************************************************************
   // FLASH MESSAGES
   // ****************************************************************************
-  $("#close_flash").on('click', function ()
+  $(".main span").on('click', function ()
   {
     $(".flash-message").hide();
   });

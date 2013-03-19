@@ -13,10 +13,9 @@ a
 
 // html tag had to be height 100% for the footer to work
 body, html
-  margin: 0
-  padding: 0
-  font-family: $helvetica
+  @extend .zero-box
   height: 100%
+  font-family: $helvetica
   color: $main-color
 
 figure
@@ -25,19 +24,15 @@ figure
 footer
   position: absolute // Needs to be absolute, relative to parent's container to pin to the bottom
   bottom: 0
-  // background: $footer-background
-  width: 100%
-  height: 50px
+  +height-width(50px, 100%)
   text-align: center
 
 header
   margin-bottom: 10px
-  // background: $title-bar-background
   background: url('debut_dark.png') repeat
   color: $title-bar-color
-  width: 100%
   padding-bottom: 10px
-  height: 45px
+  +height-width(45px, 100%)
 
 h2
   font-size: +em(20)
@@ -45,25 +40,23 @@ h2
   color: $main-color
 
 iframe
-  height: 100%
-  left: 0
   position: absolute
+  left: 0
   top: 0
-  width: 100%
+  +height-width(100%, 100%)
 
 input[type="text"]
-  height: 40px
-  width: 97% // This accounts for 2px border around form fields
   padding-left: 1%
   font-size: +em(20)
   margin: 5px auto
+  +height-width(40px, 97%) // 97% accounts for 2px border around form fields
 
 li
   display: inline-block // Same as having no list styles. We usually want lists for horizontal nav.
 
 nav
+  @extend .zero-margin
   width: 105px
-  margin: 0
   display: inline-block
   float: right
   ul 
@@ -91,8 +84,7 @@ ol, p, ul
   @extend .zero-box
 
 textarea
-  width: 97%
-  height: 300px
+  +height-width(310px, 97%)
   font-style: italic
   border: 2px solid $nag-border-color
   padding: 5px
@@ -142,18 +134,10 @@ textarea
   font-size: +em(20)
   margin-left: 0
 
-.button-to-link // Makes a button look like a link. Used for form submit buttons sometimes.
-  @extend a
-  background-color: transparent
-  border: none
-  text-decoration: underline
-  padding: 0
-
 .checkbox
   display: block
   float: left
-  width: 28px
-  height: 28px
+  +height-width(28px, 28px)
   margin-right: 2%
   +border-radius(3px)
   background-color: $checkbox-background
@@ -191,21 +175,13 @@ textarea
   float: right
   padding: 0 7px 0 0
 
-.feature-1
-  @extend .zero-box
-  height: 900px
-  +linear-gradient(#FFF, #E3E3E3)
-  position: relative
-  top: 50px
-  left: 0
-  border-bottom: 1px solid $landing-border-color
-  .feature-text
-    position: absolute
-    top: 0
-    left: 80px
-    width: 800px
-    margin: 0 auto
-    text-align: center
+
+.feature-text
+  position: absolute
+  text-align: center
+  top: 0
+  left: 80px
+  width: 800px
   h2
     font-size: +em(42)
     padding: 0 40px
@@ -214,6 +190,17 @@ textarea
     font-size: +em(24)
     line-height: +em(24)
     padding: 20px 40px 40px 40px
+
+.feature
+  position: relative
+  top: 50px
+  left: 0
+
+.feature-1
+  @extend .zero-box
+  @extend .feature
+  height: 900px
+  +linear-gradient(#FFF, #E3E3E3)
   img
     width: 900px
     position: absolute
@@ -222,50 +209,27 @@ textarea
 
 .feature-2
   @extend .zero-box
+  @extend .feature
   height: 700px
   background: url("/assets/iphone-fb.png") black no-repeat 375px 50px
   background-size: 800px
-  position: relative
   top: 0
   left: 0
   .feature-text
-    position: absolute
     top: 80px
     left: 0
     width: 575px
   h2
-    font-size: +em(42)
-    padding: 0 40px
     color: #FFF
   p
-    font-size: +em(24)
-    line-height: +em(24)
-    padding: 20px 40px 40px 40px
     color: #cccccc
 
 .feature-3
   @extend .zero-box
+  @extend .feature
   height: 850px
   background: url("/assets/all-devices.png") no-repeat 0 120px
   background-size: 900px
-  position: relative
-  top: 50px
-  left: 0
-  .feature-text
-    position: absolute
-    top: 0
-    left: 80px
-    text-align: center
-    width: 800px
-  h2
-    font-size: +em(42)
-    padding: 0 40px
-    max-width: 700px
-  p
-    font-size: +em(24)
-    line-height: +em(24)
-    padding: 20px 40px 40px 40px
-
 
 .filters
   display: block
@@ -282,12 +246,12 @@ textarea
   +border-radius(5px)
 
 .hero
-  margin: 0
+  @extend .zero-margin
+  border-bottom: 1px solid $landing-border-color
   h2
     padding: 10px 10px 30px 10px
     text-align: center
     font-size: +em(50)
-  border-bottom: 1px solid $landing-border-color
 
 .highlight
   background: yellow
@@ -320,6 +284,10 @@ textarea
   width: 90%
   margin: 0 5%
   padding-bottom: 100px // Padding required to pin and position the footer
+  span
+    float: right
+    cursor: pointer
+    margin: -1px 8px 0 0
 
 .menu-icon
   color: $menu-icon-color
@@ -382,11 +350,6 @@ textarea
   border: 2px solid $alert-success-border-color
   color: $alert-success-text-color
   background-color: $alert-success-bg-color
-.newnag-btn
-  display: none
-
-.newnag-link
-  display: block
 
 .newnag-btn
   display: none
@@ -443,18 +406,10 @@ textarea
   a
     padding: 0 5px
 
-.white
-  // +linear-gradient(#f1f0f0, #fff)
-  background: #f1f0f0
-
 
 // ****************************************************************************
 // IDS
 // ****************************************************************************
-
-#close_flash //Close flash messages
-  cursor: pointer
-  margin: -1px 8px 0 0
 
 // Used for jQuery autocomplete
 #friend-list
@@ -484,13 +439,16 @@ textarea
 
 .ui-datepicker-header
   margin: 10px
+
 .ui-datepicker-title
   color: $date-picker-title-color
   padding: 5px
+
 .ui-datepicker-today
   background: $date-picker-today-background
   a
     color: $date-picker-highlighted-link-color
+    
 .ui-datepicker-current-day
   background: $date-picker-selected-background
   a

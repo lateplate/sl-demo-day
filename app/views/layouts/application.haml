@@ -40,7 +40,7 @@
               -flash.each do |msg, value|
                 %p{class: "#{msg}"}
                   =value
-                  %span{style: "float: right;", id: "close_flash"}
+                  %span
                     x
           =yield
       -else
