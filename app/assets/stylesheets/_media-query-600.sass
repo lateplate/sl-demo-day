@@ -9,30 +9,30 @@
     height: 65px
 
   h1
-    +font-size-and_spacing(64)
+    font-size: +em(64)
     margin: 10px 0
 
   h2
-    +font-size-and_spacing(32)
+    font-size: +em(32)
 
   h3
-    +font-size-and_spacing(28)
+    font-size: +em(28)
 
   input[type="text"]
     height: 60px
     padding-left: 10px
-    +font-size-and_spacing(28)
+    font-size: +em(28)
     width: 92%
 
   textarea
-    +font-size-and_spacing(18)
+    font-size: +em(18)
     height: 350px
 
   // ****************************************************************************
   // CLASSES
   // ****************************************************************************
   .alert, .notice // confirmation messages that the rails apps throws into =notice
-    +font-size-and-spacing(22)
+    font-size: +em(22)
 
   .borrower-photo
     display: block // Unhides
@@ -44,7 +44,7 @@
       // +grayscale
 
   .btn
-    +font-size-and_spacing(28)
+    font-size: +em(28)
 
   .center-container
     width: 96%
@@ -57,7 +57,7 @@
 
   .error // jquery form validaton only
     margin: 5px 0 25px 25px
-    +font-size-and-spacing(24)
+    font-size: +em(24)
 
   .lender-photo
     display: block // Unhides
@@ -69,7 +69,7 @@
     +clearfix // Breaking into larger widths, we start to float elements so need to clear
 
   .nag-actions
-    +font-size-and-spacing(20)
+    font-size: +em(20)
     a 
       padding-right: 10px
 
@@ -94,6 +94,6 @@
   // IDS
   // ****************************************************************************
   #friend-list
-    +font-size-and-spacing(28)
+    font-size: +em(28)
     width: 95%
     margin-left: 15px

@@ -40,7 +40,7 @@ header
   height: 45px
 
 h2
-  +font-size-and-spacing(20)
+  font-size: +em(20)
   margin: 0 0 10px 0 // Overrides higher margins from browser stylesheet
   color: $main-color
 
@@ -55,7 +55,7 @@ input[type="text"]
   height: 40px
   width: 97% // This accounts for 2px border around form fields
   padding-left: 1%
-  +font-size-and-spacing(20)
+  font-size: +em(20)
   margin: 5px auto
 
 li
@@ -96,7 +96,7 @@ textarea
   font-style: italic
   border: 2px solid $nag-border-color
   padding: 5px
-  +font-size-and_spacing(14)
+  font-size: +em(14)
 
 // ****************************************************************************
 // CLASSES
@@ -183,7 +183,7 @@ textarea
   display: block
   color: $form-error-color
   margin: 5px 0 15px 5px
-  +font-size-and-spacing(16)
+  font-size: +em(16)
   text-align: left
 
 .facebook-sign-in
@@ -276,7 +276,7 @@ textarea
   a
 
 .flash-messages
-  +font-size-and-spacing(20)
+  font-size: +em(20)
   margin: 10px 0
   padding: 10px 10px 10px 20px
   +border-radius(5px)
@@ -338,7 +338,7 @@ textarea
     border: none // clears the border on the last nag in the list so it doesn't run into footer
 
 .nag-actions
-  +font-size-and-spacing(16)
+  font-size: +em(16)
   padding-top: 15px
   text-align: center
   a
@@ -367,7 +367,7 @@ textarea
 
 .nag-form-header
   @extend .nag-form
-  +font-size-and-spacing(20)
+  font-size: +em(20)
   margin: 20px auto
 
 .nag-form-buttons // Positions the submit/cancel buttons on the form
@@ -426,7 +426,7 @@ textarea
 
 .toolbar // Actions users can take globally - settings, sign out, new nag, etc.
   margin: 0 auto
-  +font-size-and-spacing(16)
+  font-size: +em(16)
   li
     display: block // Makes list go vertical instead of horizontal
     text-align: center
@@ -439,7 +439,7 @@ textarea
 
 .utility-links // Contains the links in the footer without messing up the height/positioning of the footer element itself
   margin: 15px auto
-  +font-size-and-spacing(13)
+  font-size: +em(13)
   a
     padding: 0 5px
 
@@ -461,8 +461,7 @@ textarea
   position: relative
   top: -5px
   width: 100%
-  // margin: 10px 0 0 0
-  +font-size-and-spacing(20)
+  font-size: +em(20)
   background: $friend-list-background
   color: $friend-list-color
   li
