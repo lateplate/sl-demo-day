@@ -22,5 +22,5 @@
     =form_tag send_nag_url(@nag.id) do
       =text_area_tag :message, "Hi #{@nag.lendee_name.split(" ").first}!\n\nI'm using a new app called Nag to keep track of things I've loaned out. Any chance you could get me this stuff back?\n\n* #{@nag.item}\n\nAs a thank you, I'm sending you this awesome video of Maru the Cat. You can bet there's more where that came from.\n\nhttp://www.youtube.com/watch?v=8uDuls5TyNE\n\nYou're the best,\n#{@nag.user.name.split(" ").first}\n\nhttp://startnagging.com"
       .reminder-buttons
-      =submit_tag "Send", disable_with: "Sending...", class: 'submit btn'
-      =link_to "Cancel", '#', class: 'button btn', id: "cancel-reminder"
+        =submit_tag "Send", disable_with: "Sending...", class: 'submit btn'
+        =link_to "Cancel", '#', class: 'button btn', id: "cancel-reminder"
