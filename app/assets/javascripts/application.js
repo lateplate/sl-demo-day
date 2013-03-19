@@ -121,10 +121,14 @@ $(document).ready(function ()
   // ****************************************************************************
   // NAVIGATION
   // ****************************************************************************
-  $("#menu-icon").on("click", function ()
+  $(".menu-icon").on("click", function ()
   {
-    $("#nav").slideToggle();
-    $(this).toggleClass("active");
+    $("nav ul").toggleClass("nav-shown", 100);
+
+    // this adds a display:none inline, which can't be overridden in the css
+    // this is what's causing the bug where the regular nav disappears when you
+    // open/close the mobile nav
+    // $("nav ul").slideToggle(); 
   });
 
   // ****************************************************************************

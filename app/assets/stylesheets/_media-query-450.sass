@@ -1,0 +1,36 @@
+@media all and (min-width:450px)
+  nav
+    width: 100%
+    float: none
+    display: inline
+    +clearfix
+    ul 
+      clear: both
+      width: 100%
+      display: inline-block
+      position: static
+      padding: 5px
+    li
+      display: inline-block
+    .newnag-link
+      display: none
+
+  .menu-icon
+    display: none
+
+  .newnag-btn
+    +button($button-background)
+    font-size: +em(16)
+    display: inline-block
+    float: right
+    margin-top: 13px
+    font-weight: normal
+
+  .toolbar
+    float: right
+    padding: 13px 
+    +font-size-and-spacing(18)
+    li
+      display: inline-block // Goes back to horizontal instead of vertical
+      text-align: left
+      padding: 0 10px

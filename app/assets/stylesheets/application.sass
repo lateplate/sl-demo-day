@@ -62,12 +62,27 @@ li
   display: inline-block // Same as having no list styles. We usually want lists for horizontal nav.
 
 nav
-  // +clearfix // Even in narrow view, elements are floated so a clear is needed
-  // width: 300px
   width: 105px
   margin: 0
   display: inline-block
   float: right
+  ul 
+    position: absolute
+    top: 55px
+    width: 95px
+    z-index: 10000
+    padding: 5px
+    background: url('debut_dark.png') repeat
+    display: none // menu collapsed by default until user clicks
+  li
+    text-align: left
+    padding-left: 5px
+  a
+    text-decoration: none
+    color: $title-bar-color
+  a:hover
+    color: $link-color
+    text-decoration: underline
 
 ol, ul
   list-style: none // We don't really use lists except for navigation, so we don't want any bullets or numbering usually
@@ -306,6 +321,16 @@ textarea
   margin: 0 5%
   padding-bottom: 100px // Padding required to pin and position the footer
 
+.menu-icon
+  color: $menu-icon-color
+  height: 40px
+  background: url('menu-icon2.png') no-repeat 15px center
+  padding: 14px 3px 0 50px
+  cursor: pointer
+  display: block
+  float: right
+  border-left: 1px solid #666
+
 .nag // A row on the dashboard
   padding: 4% 0
   border-bottom: 1px solid $nag-border-color
@@ -348,6 +373,9 @@ textarea
 .nag-form-buttons // Positions the submit/cancel buttons on the form
   margin: 15px auto
   width: 100%
+
+.nav-shown
+  display: inline-block
 
 .notice // success message
   @extend .flash-messages
@@ -445,36 +473,7 @@ textarea
     &:active
       background: $friend-list-hover-background
 
-#menu-icon
-  color: $menu-icon-color
-  height: 40px
-  background: url('menu-icon2.png') no-repeat 15px center
-  padding: 14px 3px 0 50px
-  cursor: pointer
-  display: block
-  float: right
-  border-left: 1px solid #666
-
-#nav
-  clear: both
-  position: absolute
-  top: 55px
-  width: 95px
-  z-index: 10000
-  padding: 5px
-  background: url('debut_dark.png') repeat
-  display: none
-  li
-    text-align: left
-    padding-left: 5px
-    a
-      text-decoration: none
-      color: $title-bar-color
-    a:hover
-      color: $link-color
-      text-decoration: underline
-
-// Styling for jQuery date picker used on new/edit form
+// Styling for jQuery date picker used on new/edit form. The ID names are forced by jQuery.
 #ui-datepicker-div
   z-index: 10
   border: 1px solid $date-picker-border-color
@@ -502,7 +501,8 @@ textarea
 // MEDIA QUERIES
 // ****************************************************************************
 
-@import "media-query-1"
-@import "media-query-2"
-@import "media-query-3"
-@import "media-query-4"
+@import "media-query-450"
+@import "media-query-600"
+@import "media-query-768"
+@import "media-query-1024"
+@import "media-query-1280"
