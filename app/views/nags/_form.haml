@@ -12,7 +12,7 @@
   =f.text_field :lendee_name, id: "who", placeholder: "Who owes you?", tabindex: 1, class: "required"
   %div#friend-list
   =f.text_field :item, id: "what", placeholder: "What do they owe you?", tabindex: 2, class: "required"
-  =f.text_field :due_date, id: "when", placeholder: "When is it due?", tabindex: 3, class: "date required"
+  =f.text_field :due_date, id: "when", placeholder: "When is it due?", tabindex: 3, class: "required"
   =f.hidden_field :lendee_uid, id: "lendee_uid", placeholder: "Lendee UID (this will be hidden in production)", tabindex: 4
   .nag-form-buttons
     =f.submit "Submit", :disable_with => "Submitting...", class: "btn", tabindex: 5

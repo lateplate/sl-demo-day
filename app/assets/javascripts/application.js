@@ -4,7 +4,6 @@
 
 $(document).ready(function ()
 {
-
   // ****************************************************************************
   // FLASH MESSAGES
   // ****************************************************************************
@@ -42,6 +41,11 @@ $(document).ready(function ()
     {
       dateFormat: "yy-mm-dd"
     });
+  });
+
+  $('#when').keydown(function() 
+  {
+    return false; // prevents typing in the date field, just selection from date picker
   });
 
   // ****************************************************************************
