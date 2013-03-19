@@ -9,7 +9,6 @@ task :check_and_send_nags => :environment do
 			nag.send_fb_message(nag.user.oauth_token, message)
 			messages_sent += 1
 		else
-			#nag.send_fb_message(token , message)
 			nags_with_bad_tokens += 1
 		end
 	end
@@ -23,8 +22,10 @@ task :alert_user_about_stale_token => :environment do
 	users = User.where("oauth_expires_at <= ?", Time.now + 10.days).where(notified: false)
 
 	users.each do |user|
-		NagMailer.expiring_token_notification(user).deliver
-		user.notified = true
-		user.save
+		if user.nags.any?
+			NagMailer.expiring_token_notification(user).deliver
+			user.notified = true
+			user.save
+		end
 	end
 end
