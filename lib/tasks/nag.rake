@@ -9,12 +9,22 @@ task :check_and_send_nags => :environment do
 			nag.send_fb_message(nag.user.oauth_token, message)
 			messages_sent += 1
 		else
-			# Would like to get an App access token to send these from another facebook account. TODO
 			#nag.send_fb_message(token , message)
 			nags_with_bad_tokens += 1
 		end
 	end
-	logger.info "==========================================================="
-	logger.info "Sent #{messages_sent} message/s. Also, tried to send #{nags_with_bad_tokens} nag/s that did not send due to expired tokens."
-	logger.info "==========================================================="
+	puts "==========================================================="
+	puts "Sent #{messages_sent} message/s. Also, tried to send #{nags_with_bad_tokens} nag/s that did not send due to expired tokens."
+	puts "==========================================================="
+end
+
+desc "check to see if a user's token is nearly expired and send them an email to sign in"
+task :alert_user_about_stale_token => :environment do
+	users = User.where("oauth_expires_at <= ?", Time.now + 10.days).where(notified: false)
+
+	users.each do |user|
+		NagMailer.expiring_token_notification(user).deliver
+		user.notified = true
+		user.save
+	end
 end

@@ -53,19 +53,10 @@ class NagsController < ApplicationController
   end
   def show
   end
-  def send_nags
-    @nags = current_user.nags
-    @nags.each do |nag|
-      unless nag.sent?
-        nag.send_fb_message(current_user.oauth_token)
-      end
-    end
-    redirect_to user_url(current_user.id), notice: 'Nags sent'
-  end
   def send_mail
     @nags = current_user.nags
     @nags.each do |nag|
-      unless nag.sent? || !self.lendee_name.include?('@')
+      unless nag.sent?
         NagMailer.nag_borrower(nag).deliver
         nag.sent = true
         nag.save

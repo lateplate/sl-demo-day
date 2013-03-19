@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130305035713) do
+ActiveRecord::Schema.define(:version => 20130319013133) do
 
   create_table "nags", :force => true do |t|
     t.integer  "user_id"
@@ -33,8 +33,9 @@ ActiveRecord::Schema.define(:version => 20130305035713) do
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.string   "email"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.boolean  "notified",         :default => false
   end
 
 end
