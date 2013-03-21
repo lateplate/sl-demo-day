@@ -39,12 +39,6 @@ h2
   margin: 0 0 10px 0 // Overrides higher margins from browser stylesheet
   color: $main-color
 
-iframe
-  position: absolute
-  left: 0
-  top: 0
-  +height-width(100%, 100%)
-
 input[type="text"]
   padding-left: 1%
   font-size: +em(20)
@@ -175,8 +169,12 @@ textarea
   float: right
   padding: 0 7px 0 0
 
+.feature
+  position: relative
+  top: 50px
+  left: 0
 
-.feature-text
+.feature-text // needs to stay above each features for the cascade
   position: absolute
   text-align: center
   top: 0
@@ -190,11 +188,6 @@ textarea
     font-size: +em(24)
     line-height: +em(24)
     padding: 20px 40px 40px 40px
-
-.feature
-  position: relative
-  top: 50px
-  left: 0
 
 .feature-1
   @extend .zero-box
@@ -396,6 +389,23 @@ textarea
     padding: 5px 0
   a
 
+.ui-datepicker-header
+  margin: 10px
+
+.ui-datepicker-title
+  color: $date-picker-title-color
+  padding: 5px
+
+.ui-datepicker-today
+  background: $date-picker-today-background
+  a
+    color: $date-picker-highlighted-link-color
+    
+.ui-datepicker-current-day
+  background: $date-picker-selected-background
+  a
+    color: $date-picker-highlighted-link-color
+
 // Hides an unnecessary span in the jQuery autocomplete
 .ui-helper-hidden-accessible
   display: none
@@ -410,7 +420,6 @@ textarea
 // ****************************************************************************
 // IDS
 // ****************************************************************************
-
 // Used for jQuery autocomplete
 #friend-list
   position: relative
@@ -437,22 +446,6 @@ textarea
     text-decoration: none
     margin: 5px
 
-.ui-datepicker-header
-  margin: 10px
-
-.ui-datepicker-title
-  color: $date-picker-title-color
-  padding: 5px
-
-.ui-datepicker-today
-  background: $date-picker-today-background
-  a
-    color: $date-picker-highlighted-link-color
-    
-.ui-datepicker-current-day
-  background: $date-picker-selected-background
-  a
-    color: $date-picker-highlighted-link-color
 
 // ****************************************************************************
 // MEDIA QUERIES
